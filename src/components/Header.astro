@@ -1,0 +1,15 @@
+---
+import Section from "@/components/Section.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header class="py-8">
+  <Section as="div" class="flex justify-between items-center gap-2">
+    <a href="#">MixtinUI</a>
+    
+    <nav class="flex justify-center items-center gap-x-8 font-medium">
+        <a href="#">Components</a>
+        <ThemeToggle />
+    </nav>
+  </Section>
+</header>
