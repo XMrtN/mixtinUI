@@ -1,0 +1,25 @@
+---
+import Card from "@/components/app/Card.astro";
+import { BUTTONS } from "@/data/buttons";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+import type { GetStaticPaths } from "astro";
+
+const { id } = Astro.params;
+
+const BUTTON = BUTTONS.find((btn) => btn.id === id);
+
+if (!BUTTON) return;
+
+export const getStaticPaths = (() => {
+  return BUTTONS.map((btn) => ({
+    params: { id: btn.id },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<DocsLayout>
+  <Card transition:name={`card-${id}`}><BUTTON.Component /></Card>
+  <code>
+    {'#include main() { for(;;) { printf ("Hello World!\n"); } }'}
+  </code>
+</DocsLayout>

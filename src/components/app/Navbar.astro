@@ -1,0 +1,23 @@
+---
+import Section from "./Section.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<Section
+  class:list={["flex justify-between items-center gap-2", className]}
+  {...rest}
+>
+  <a href="/" class="font-semibold text-2xl tracking-wide">MixtinUI</a>
+
+  <nav class="flex justify-center items-center gap-x-6 font-medium">
+    <a
+      href="/docs/"
+      class="hover-active:text-sky-500 dark:hover-active:text-sky-400"
+    >
+      Docs
+    </a>
+    <ThemeToggle />
+  </nav>
+</Section>

@@ -1,0 +1,24 @@
+---
+import Footer from "@/components/app/Footer.astro";
+import Navbar from "@/components/app/Navbar.astro";
+import Section from "@/components/app/Section.astro";
+import Sidebar from "@/components/app/Sidebar.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Docs - MixtinUI">
+  <div class="sticky top-0 border-b border-gray-200 dark:border-gray-800">
+    <Navbar class="py-4 backdrop-blur" transition:name="navbar" />
+  </div>
+  <Section>
+    <Sidebar />
+
+    <div class="md:pl-8 py-8 md:ml-64">
+      <div class="p-4">
+        <slot />
+      </div>
+
+      <Footer />
+    </div>
+  </Section>
+</Layout>

@@ -1,0 +1,17 @@
+---
+import Card from "@/components/app/Card.astro";
+import { BUTTONS } from "@/data/buttons";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+---
+
+<DocsLayout title="Docs - MixtinUI">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    {
+      BUTTONS.map((btn) => (
+        <Card id={btn.id} transition:name={`card-${btn.id}`}>
+          <btn.Component />
+        </Card>
+      ))
+    }
+  </div>
+</DocsLayout>
