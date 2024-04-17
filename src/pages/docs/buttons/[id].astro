@@ -10,13 +10,13 @@ import { Code } from "astro:components";
 
 const { id } = Astro.params;
 
-const BUTTON = BUTTONS.find((btn) => btn.id === id);
+const BUTTON = BUTTONS.find((item, i) => (i + 1).toString() === id);
 
 if (!BUTTON) return;
 
 export const getStaticPaths = (() => {
-  return BUTTONS.map((btn) => ({
-    params: { id: btn.id },
+  return BUTTONS.map((item, i) => ({
+    params: { id: (i + 1).toString() },
   }));
 }) satisfies GetStaticPaths;
 ---
@@ -24,14 +24,18 @@ export const getStaticPaths = (() => {
 <DocsLayout>
   <Card transition:name={`card-${id}`}><BUTTON.Component /></Card>
 
-  <CodeBlock client:only code={BUTTON.htmlT.code} title={BUTTON.htmlT.title}>
-    <Code
-      class="w-full rounded-md px-6 py-4"
-      code={BUTTON.htmlT.code}
-      lang="astro"
-      slot="codeComponent"
-    />
-    <Copy class="size-5" slot="copyIcon" />
-    <Check class="size-5" slot="checkIcon" />
-  </CodeBlock>
+  {
+    BUTTON.codes.map((item) => (
+      <CodeBlock client:only code={item.code} title={item.title}>
+        <Code
+          class="rounded-md px-6 py-4"
+          code={item.code}
+          lang="astro"
+          slot="codeComponent"
+        />
+        <Copy class="size-5" slot="copyIcon" />
+        <Check class="size-5" slot="checkIcon" />
+      </CodeBlock>
+    ))
+  }
 </DocsLayout>

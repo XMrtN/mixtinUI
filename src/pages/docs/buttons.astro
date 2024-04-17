@@ -7,9 +7,9 @@ import DocsLayout from "@/layouts/DocsLayout.astro";
 <DocsLayout title="Docs - MixtinUI">
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
     {
-      BUTTONS.map((btn) => (
-        <Card id={btn.id} transition:name={`card-${btn.id}`}>
-          <btn.Component />
+      BUTTONS.map((item, i) => (
+        <Card id={i + 1} transition:name={`card-${i + 1}`}>
+          <item.Component />
         </Card>
       ))
     }
