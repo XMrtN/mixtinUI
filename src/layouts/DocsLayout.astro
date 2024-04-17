@@ -7,16 +7,16 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Docs - MixtinUI">
-  <div class="sticky top-0 border-b border-gray-200 dark:border-gray-800">
-    <Navbar class="py-4 backdrop-blur" transition:name="navbar" />
+  <div
+    class="sticky top-0 z-50 border-b border-gray-200 bg-white/30 backdrop-blur dark:border-gray-800 dark:bg-gray-900/30"
+  >
+    <Navbar class="py-4" transition:name="navbar" />
   </div>
   <Section>
     <Sidebar />
 
     <div class="py-8 md:ml-64 md:pl-8">
-      <div class="p-4">
-        <slot />
-      </div>
+      <slot />
 
       <Footer />
     </div>
