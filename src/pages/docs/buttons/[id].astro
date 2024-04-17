@@ -1,8 +1,12 @@
 ---
 import Card from "@/components/app/Card.astro";
+import CodeBlock from "@/components/app/CodeBlock";
+import Check from "@/components/icons/check.astro";
+import Copy from "@/components/icons/copy.astro";
 import { BUTTONS } from "@/data/buttons";
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import type { GetStaticPaths } from "astro";
+import { Code } from "astro:components";
 
 const { id } = Astro.params;
 
@@ -19,7 +23,15 @@ export const getStaticPaths = (() => {
 
 <DocsLayout>
   <Card transition:name={`card-${id}`}><BUTTON.Component /></Card>
-  <code>
-    {'#include main() { for(;;) { printf ("Hello World!\n"); } }'}
-  </code>
+
+  <CodeBlock client:only code={BUTTON.htmlT.code} title={BUTTON.htmlT.title}>
+    <Code
+      class="w-full rounded-md px-6 py-4"
+      code={BUTTON.htmlT.code}
+      lang="astro"
+      slot="codeComponent"
+    />
+    <Copy class="size-5" slot="copyIcon" />
+    <Check class="size-5" slot="checkIcon" />
+  </CodeBlock>
 </DocsLayout>
