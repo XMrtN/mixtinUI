@@ -1,9 +1,26 @@
 ---
-import Header from "@/components/Header.astro";
+import Button from "@/components/app/Button.astro";
+import Footer from "@/components/app/Footer.astro";
+import Navbar from "@/components/app/Navbar.astro";
+import Section from "@/components/app/Section.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to MixtinUI - A component library without dependencies.">
-  <Header />
-  <main></main>
+<Layout title="MixtinUI - A component library without dependencies.">
+  <Navbar class="pt-6" transition:name="navbar" />
+
+  <Section class="pt-24 lg:pt-32">
+    <h1 class="font-extrabold text-center text-4xl lg:text-6xl">
+      Implement modern components in your code without dependencies
+    </h1>
+    <p class="mt-6 text-gray-600 text-center text-lg dark:text-gray-400">
+      Without installing a package! Just copy and paste the code into your
+      project!
+    </p>
+    <div class="flex justify-center items-center mt-10">
+      <Button as="a" href="/docs/">See docs</Button>
+    </div>
+  </Section>
+
+  <Footer />
 </Layout>
