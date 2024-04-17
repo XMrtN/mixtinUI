@@ -16,7 +16,7 @@ export default function CodeBlock(props) {
       </span>
       <button
         type="button"
-        className="pointer-events-none absolute right-2 top-2 flex rounded-md border border-gray-500 bg-gray-700 p-2 text-gray-400 opacity-0 transition-opacity group-hover:pointer-events-auto group-hover:opacity-100"
+        className="absolute right-2 top-2 flex rounded-md border border-gray-700 bg-gray-800 p-2 text-gray-400 opacity-0 transition-opacity group-hover:opacity-100"
         onClick={onCopy}
       >
         {copied ? props.checkIcon : props.copyIcon}
