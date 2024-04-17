@@ -10,7 +10,7 @@ export default function CodeBlock(props) {
   };
 
   return (
-    <div className="group relative mt-8 w-full">
+    <div className="group relative mt-8">
       <span className="pointer-events-none absolute right-2 top-2 select-none text-xs font-medium text-gray-400 transition-opacity group-hover:opacity-0">
         {props.title}
       </span>
