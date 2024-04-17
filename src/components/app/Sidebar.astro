@@ -9,19 +9,19 @@ const { pathname } = Astro.url;
 </div>
 
 <aside
-  class="fixed z-40 max-md:top-0 max-md:left-0 w-64 h-screen max-md:bg-white dark:max-md:bg-gray-900 -translate-x-full transition-transform md:translate-x-0 pb-16"
+  class="fixed z-40 h-screen w-64 -translate-x-full pb-16 transition-transform max-md:left-0 max-md:top-0 max-md:bg-white md:translate-x-0 dark:max-md:bg-gray-900"
 >
-  <div class="h-full py-8 max-md:p-6 pr-4 overflow-y-auto">
+  <div class="h-full overflow-y-auto py-8 pr-4 max-md:p-6">
     <ul class="space-y-6 font-medium">
       <li>
         <button
           type="button"
-          class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 md:hidden"
+          class="group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 md:hidden dark:text-white dark:hover:bg-gray-700"
           aria-controls="dropdown-example"
           data-collapse-toggle="dropdown-example"
         >
           <svg
-            class="w-3.5 h-3.5 ml-auto rotate-45"
+            class="ml-auto h-3.5 w-3.5 rotate-45"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

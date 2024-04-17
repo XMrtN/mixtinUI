@@ -7,10 +7,10 @@ const { pathname } = Astro.url;
   <a
     href={`/docs/${id.toLowerCase()}/`}
     class:list={[
-      "block pl-4 -ml-px border-l-2",
+      "-ml-px block border-l-2 pl-4",
       pathname.includes(id.toLowerCase())
-        ? "text-sky-500 dark:text-sky-400 border-sky-500"
-        : "opacity-75 hover-active:opacity-100 border-transparent hover-active:border-gray-500/50",
+        ? "border-sky-500 text-sky-500 dark:text-sky-400"
+        : "border-transparent opacity-75 hover-active:border-gray-500/50 hover-active:opacity-100",
     ]}>{id}</a
   >
 </li>

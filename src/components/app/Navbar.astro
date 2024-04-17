@@ -6,12 +6,12 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <Section
-  class:list={["flex justify-between items-center gap-2", className]}
+  class:list={["flex items-center justify-between gap-2", className]}
   {...rest}
 >
-  <a href="/" class="font-semibold text-2xl tracking-wide">MixtinUI</a>
+  <a href="/" class="text-2xl font-semibold tracking-wide">MixtinUI</a>
 
-  <nav class="flex justify-center items-center gap-x-6 font-medium">
+  <nav class="flex items-center justify-center gap-x-6 font-medium">
     <a
       href="/docs/"
       class="hover-active:text-sky-500 dark:hover-active:text-sky-400"
