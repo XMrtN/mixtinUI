@@ -1,0 +1,10 @@
+---
+import Menu from "../icons/menu.astro";
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["flex flex-wrap items-center gap-3.5", className]}>
+  <Menu class="sm:hidden" />
+  <a href="/" class="text-2xl font-semibold tracking-wide">MixtinUI</a>
+</div>

@@ -1,23 +1,66 @@
 ---
+import { PATHS } from "@/data/paths";
+import NavbarBrand from "./NavbarBrand.astro";
 import Section from "./Section.astro";
+import Sidebar from "./Sidebar.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
 const { class: className, ...rest } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
-<Section
-  class:list={["flex items-center justify-between gap-2", className]}
+<nav
+  class="group sticky left-0 top-0 z-[9999] bg-white py-4 shadow dark:bg-neutral-900"
   {...rest}
 >
-  <a href="/" class="text-2xl font-semibold tracking-wide">MixtinUI</a>
+  <Section
+    class="flex w-full flex-wrap items-center justify-between gap-4 px-6"
+  >
+    <NavbarBrand />
 
-  <nav class="flex items-center justify-center gap-x-6 font-medium">
-    <a
-      href="/docs/"
-      class="hover-active:text-sky-500 dark:hover-active:text-sky-400"
-    >
-      Docs
-    </a>
-    <ThemeToggle />
-  </nav>
-</Section>
+    <div class="flex items-center justify-center gap-x-6">
+      {
+        !pathname.includes("/docs/") && (
+          <a
+            href="/docs/"
+            class="font-medium hover-active:text-sky-500 dark:hover-active:text-sky-400"
+          >
+            Docs
+          </a>
+        )
+      }
+      <ThemeToggle />
+    </div>
+  </Section>
+
+  <Sidebar variant="nav">
+    <NavbarBrand class="mb-4 px-6" />
+  </Sidebar>
+
+  <section
+    class="pointer-events-none fixed -left-full top-0 h-[1000vh] w-[200%] bg-black/10 opacity-0 transition-[opacity,left] duration-300 max-sm:group-data-[open]:pointer-events-auto max-sm:group-data-[open]:left-64 max-sm:group-data-[open]:opacity-100"
+  >
+  </section>
+</nav>
+
+<script>
+  import { $, $$ } from "@/lib/dom-selector";
+
+  const handleOpen = () => {
+    const navbar = $("nav"),
+      menuBtns = $$("nav svg"),
+      overlay = $("nav section");
+
+    menuBtns.forEach((item) => {
+      item.addEventListener("click", () => {
+        navbar.toggleAttribute("data-open");
+      });
+    });
+    overlay.addEventListener("click", () => {
+      navbar.removeAttribute("data-open");
+    });
+  };
+
+  handleOpen();
+  document.addEventListener("astro:after-swap", handleOpen);
+</script>
