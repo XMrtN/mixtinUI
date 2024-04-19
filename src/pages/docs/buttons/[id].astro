@@ -1,6 +1,7 @@
 ---
 import Card from "@/components/app/Card.astro";
 import CodeBlock from "@/components/app/CodeBlock";
+import Footer from "@/components/app/Footer.astro";
 import Check from "@/components/icons/check.astro";
 import Copy from "@/components/icons/copy.astro";
 import { BUTTONS } from "@/data/buttons";
@@ -22,20 +23,34 @@ export const getStaticPaths = (() => {
 ---
 
 <DocsLayout>
-  <Card transition:name={`card-${id}`}><BUTTON.Component /></Card>
-
+  <Card transition:name={`card-${id}`}>
+    <Fragment set:html={BUTTON.codes[0].code} />
+  </Card>
   {
     BUTTON.codes.map((item) => (
       <CodeBlock client:only code={item.code} title={item.title}>
         <Code
+          slot="codeComponent"
           class="rounded-md px-6 py-4"
           code={item.code}
           lang="astro"
-          slot="codeComponent"
         />
-        <Copy class="size-5" slot="copyIcon" />
-        <Check class="size-5" slot="checkIcon" />
+        <Copy slot="copyIcon" class="size-5" />
+        <Check slot="checkIcon" class="size-5" />
       </CodeBlock>
     ))
   }
+
+  <Footer>
+    Button by
+    <a
+      href="https://buttons.ibelick.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hover:underline"
+      slot="link"
+    >
+      ibelick
+    </a>
+  </Footer>
 </DocsLayout>
