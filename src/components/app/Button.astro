@@ -8,10 +8,7 @@ const { as: Tag = "button", class: className, ...props } = Astro.props;
 
 <Tag
   class:list={[
-    "h-12 px-4",
-    "inline-flex items-center justify-center",
-    "overflow-hidden rounded-md font-medium",
-    "bg-gray-900 text-white hover-active:bg-gray-700 dark:bg-sky-500 dark:hover-active:bg-sky-400",
+    "inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-900 px-4 font-medium text-white hover-active:bg-neutral-700 dark:bg-sky-500 dark:hover-active:bg-sky-400",
     className,
   ]}
   {...props}
