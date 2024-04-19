@@ -3,22 +3,23 @@ import Footer from "@/components/app/Footer.astro";
 import Navbar from "@/components/app/Navbar.astro";
 import Section from "@/components/app/Section.astro";
 import Sidebar from "@/components/app/Sidebar.astro";
+import { PATHS } from "@/data/paths";
 import Layout from "../layouts/Layout.astro";
+
+const { pathname } = Astro.url;
+
+const title = PATHS.find((path) => pathname.includes(path.url))?.name;
 ---
 
-<Layout title="Docs - MixtinUI">
-  <div
-    class="sticky top-0 z-50 border-b border-gray-200 bg-white/30 backdrop-blur dark:border-gray-800 dark:bg-gray-900/30"
-  >
-    <Navbar class="py-4" transition:name="navbar" />
-  </div>
+<Layout title={(title ? title : "Get Started") + " - MixinUI"}>
+  <Navbar />
   <Section>
-    <Sidebar />
+    <Sidebar variant="aside" />
 
-    <div class="py-8 md:ml-64 md:pl-8">
+    <div class="py-8 sm:ml-64 sm:pl-4">
       <slot />
 
-      <Footer />
+      <Footer class="-mx-4" />
     </div>
   </Section>
 </Layout>
