@@ -1,0 +1,60 @@
+<div
+  id="tabs"
+  class="flew-row relative mx-auto flex h-12 overflow-hidden rounded-3xl border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm"
+>
+  <span
+    id="activeTab"
+    class="absolute bottom-0 left-0 top-0 -z-10 flex w-0 overflow-hidden rounded-3xl py-2 transition-[left,width] duration-300"
+  >
+    <span class="h-full w-full rounded-3xl bg-gray-200/30"></span>
+  </span>
+
+  <button
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+  >
+    Home
+  </button>
+
+  <button
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+  >
+    About
+  </button>
+
+  <button
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+  >
+    Projects
+  </button>
+
+  <button
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+  >
+    Contact
+  </button>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll("#tabs button");
+  const activeTab = document.querySelector("#activeTab");
+
+  const setTabPosition = (e?: Event) => {
+    let el = e ? (e.target as HTMLElement) : (tabs[0] as HTMLElement);
+    activeTab?.setAttribute(
+      "style",
+      `left: ${el.offsetLeft}px; width: ${el.offsetWidth}px`
+    );
+
+    tabs.forEach((tab) => {
+      tab.classList.toggle("hover:text-neutral-300", tab !== el);
+    });
+  };
+
+  setTabPosition();
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", (e: Event) => {
+      setTabPosition(e);
+    });
+  });
+</script>
