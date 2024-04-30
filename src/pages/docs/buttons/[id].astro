@@ -28,10 +28,10 @@ export const getStaticPaths = (() => {
   </Card>
   {
     BUTTON.codes.map((item) => (
-      <CodeBlock client:only code={item.code} title={item.title}>
+      <CodeBlock client:only="react" code={item.code} title={item.title}>
         <Code
           slot="codeComponent"
-          class="rounded-md px-6 py-4"
+          class="rounded-md p-6"
           code={item.code}
           lang="astro"
         />
