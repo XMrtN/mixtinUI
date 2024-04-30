@@ -1,15 +1,15 @@
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
-import preact from "@astrojs/preact";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), preact()],
+  integrations: [tailwind(), react()],
   markdown: {
     shikiConfig: {
       theme: "github-dark-default",
-      langs: ["astro", "jsx"]
-    }
-  }
+      langs: ["astro", "jsx"],
+    },
+  },
 });
