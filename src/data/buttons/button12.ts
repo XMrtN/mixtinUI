@@ -15,32 +15,32 @@ export const BUTTON12 = [
   },
   {
     title: "HTML + CSS",
-    code: `<button class="button">
-  <div class="button__div button__div--first">Hover me</div>
-  <div class="button__div button__div--second"></div>
+    code: `<button class="button12">
+  <div class="button12__div button12__div--first">Hover me</div>
+  <div class="button12__div button12__div--second"></div>
 </button>
 
 <style>
-  .button {
+  .button12 {
     position: relative;
   }
 
-  .button__div {
+  .button12__div {
     border-radius: 0.375rem;
     transition-property: transform, box-shadow;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
   }
 
-  .button:hover .button__div {
+  .button12:hover .button12__div {
     transform: translate(-0.75rem, -0.75rem);
   }
   
-  .button:active .button__div {
+  .button12:active .button12__div {
     transform: translate(0, 0);
   }
 
-  .button__div--first {
+  .button12__div--first {
     display: inline-flex;
     height: 3rem;
     align-items: center;
@@ -54,18 +54,18 @@ export const BUTTON12 = [
     color: #525252;
   }
   
-  .button__div--second {
+  .button12__div--second {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
   }
 
-  .button:hover .button__div--second {
+  .button12:hover .button12__div--second {
     box-shadow: 5px 5px #a3a3a3, 10px 10px #a3a3a342, 15px 15px #a3a3a348;
   }
 
-  .button:active .button__div--second {
+  .button12:active .button12__div--second {
     box-shadow: none;
   }
 </style>

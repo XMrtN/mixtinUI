@@ -10,12 +10,12 @@ export const BUTTON13 = [
   },
   {
     title: "HTML + CSS",
-    code: `<button class="button">
+    code: `<button class="button13">
   Click me
 </button>
 
 <style>
-  .button {
+  .button13 {
     display: inline-flex;
     height: 3rem;
     align-items: center;
@@ -34,7 +34,7 @@ export const BUTTON13 = [
     transition-duration: 150ms;
   }
 
-  .button:active {
+  .button13:active {
     transform: translateY(2px);
     box-shadow: 0 0 #a3a3a3;
   }
