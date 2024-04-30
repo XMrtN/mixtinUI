@@ -31,7 +31,7 @@ const ulVariants = {
         <a
           href="/docs/"
           class:list={[
-            "flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover-active:bg-neutral-200 dark:hover-active:bg-neutral-800",
+            "flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-800",
             pathname === "/docs/" && "text-sky-500 dark:text-sky-400",
           ]}
         >
@@ -49,9 +49,9 @@ const ulVariants = {
             PATHS.map((path) => (
               <li>
                 <a
-                  href={path.url}
+                  href={`/docs/${path.url}/`}
                   class:list={[
-                    "ml-3 flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover-active:bg-neutral-200 dark:hover-active:bg-neutral-800",
+                    "ml-3 flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-800",
                     pathname.includes(path.url) &&
                       "text-sky-500 dark:text-sky-400",
                   ]}

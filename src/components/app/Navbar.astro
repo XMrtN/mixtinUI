@@ -23,7 +23,7 @@ const { pathname } = Astro.url;
         !pathname.includes("/docs/") && (
           <a
             href="/docs/"
-            class="font-medium hover-active:text-sky-500 dark:hover-active:text-sky-400"
+            class="font-medium hover:text-sky-500 dark:hover:text-sky-400"
           >
             Docs
           </a>
@@ -44,23 +44,22 @@ const { pathname } = Astro.url;
 </nav>
 
 <script>
-  import { $, $$ } from "@/lib/dom-selector";
-
-  const handleOpen = () => {
-    const navbar = $("nav"),
-      menuBtns = $$("nav svg"),
-      overlay = $("nav section");
+  const init = () => {
+    const navbar = document.querySelector("nav")!,
+      menuBtns = document.querySelectorAll("nav svg")!,
+      overlay = navbar.querySelector("section")!;
 
     menuBtns.forEach((item) => {
       item.addEventListener("click", () => {
         navbar.toggleAttribute("data-open");
       });
     });
+
     overlay.addEventListener("click", () => {
       navbar.removeAttribute("data-open");
     });
   };
 
-  handleOpen();
-  document.addEventListener("astro:after-swap", handleOpen);
+  init();
+  document.addEventListener("astro:after-swap", init);
 </script>
