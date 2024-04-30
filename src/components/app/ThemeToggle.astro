@@ -22,8 +22,8 @@ const { class: className } = Astro.props;
 </button>
 
 <script>
-  const setDefaultTheme = () => {
-    const themeToggle = document.getElementById("theme-toggle");
+  const init = () => {
+    const themeToggle = document.querySelector("#theme-toggle")!;
 
     if (
       localStorage.theme === "dark" ||
@@ -35,7 +35,7 @@ const { class: className } = Astro.props;
       document.documentElement.classList.remove("dark");
     }
 
-    themeToggle?.addEventListener("click", () => {
+    themeToggle.addEventListener("click", () => {
       if (document.documentElement.classList.contains("dark")) {
         // Whenever the user explicitly chooses light mode
         localStorage.theme = "light";
@@ -47,8 +47,7 @@ const { class: className } = Astro.props;
       }
     });
   };
-  // On page load
-  setDefaultTheme();
-  // On change route
-  document.addEventListener("astro:after-swap", setDefaultTheme);
+
+  init();
+  document.addEventListener("astro:after-swap", init);
 </script>
