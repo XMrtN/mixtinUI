@@ -1,8 +1,9 @@
 ---
-import { PATHS } from "@/data/paths";
+import { capitalize } from "@/utils/capitalize";
 import Book from "../icons/book.astro";
 import Box from "../icons/box.astro";
 
+const paths: any = await Astro.glob("@/data/*.ts");
 const { variant, class: className } = Astro.props;
 const { pathname } = Astro.url;
 
@@ -46,21 +47,25 @@ const ulVariants = {
         </h5>
         <ul>
           {
-            PATHS.map((path) => (
-              <li>
-                <a
-                  href={`/docs/${path.url}/`}
-                  class:list={[
-                    "ml-3 flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-800",
-                    pathname.includes(path.url) &&
-                      "text-sky-500 dark:text-sky-400",
-                  ]}
-                >
-                  <path.Icon class="size-5" />
-                  <span>{path.name}</span>
-                </a>
-              </li>
-            ))
+            paths.map((path: typeof paths) => {
+              const Icon = path[Object.keys(path)[0]].Icon;
+
+              return (
+                <li>
+                  <a
+                    href={`/docs/${Object.keys(path)[0]}/`}
+                    class:list={[
+                      "ml-3 flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-800",
+                      pathname.includes(Object.keys(path)[0]) &&
+                        "text-sky-500 dark:text-sky-400",
+                    ]}
+                  >
+                    <Icon class="size-5" />
+                    <span>{capitalize(Object.keys(path)[0])}</span>
+                  </a>
+                </li>
+              );
+            })
           }
         </ul>
       </li>
