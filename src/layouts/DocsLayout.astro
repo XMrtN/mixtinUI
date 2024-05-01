@@ -3,12 +3,9 @@ import Footer from "@/components/app/Footer.astro";
 import Navbar from "@/components/app/Navbar.astro";
 import Section from "@/components/app/Section.astro";
 import Sidebar from "@/components/app/Sidebar.astro";
-import { PATHS } from "@/data/paths";
 import Layout from "../layouts/Layout.astro";
 
-const { pathname } = Astro.url;
-
-const title = PATHS.find((path) => pathname.includes(path.url))?.name;
+const { title } = Astro.props;
 ---
 
 <Layout title={(title ? title : "Get Started") + " - MixinUI"}>
