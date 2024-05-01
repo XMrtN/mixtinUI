@@ -1,0 +1,51 @@
+---
+import Card from "@/components/app/Card.astro";
+import Footer from "@/components/app/Footer.astro";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+import { capitalize } from "@/utils/capitalize";
+import type { GetStaticPaths } from "astro";
+
+const { tag } = Astro.params;
+const { component } = Astro.props;
+
+export const getStaticPaths = (async () => {
+  const components: any = await Astro.glob("@/data/*.ts");
+  return components.map((component: typeof components) => {
+    return {
+      params: { tag: Object.keys(component)[0] },
+      props: { component: component },
+    };
+  });
+}) satisfies GetStaticPaths;
+---
+
+<DocsLayout title={capitalize(tag)}>
+  <div
+    class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,192px),1fr))] gap-4"
+  >
+    {
+      (component[tag] as any).component.map((item: any, i: number) => (
+        <Card id={i + 1} transition:name={`card-${i + 1}`}>
+          <Fragment set:html={item.codes[0].code} />
+        </Card>
+      ))
+    }
+  </div>
+
+  {
+    tag === "buttons" && (
+      <Footer class="-mx-4">
+        Buttons by
+        <a
+          href="https://buttons.ibelick.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:underline"
+          slot="link"
+        >
+          ibelick
+        </a>
+      </Footer>
+    )
+  }
+</DocsLayout>
