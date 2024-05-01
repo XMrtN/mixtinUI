@@ -3,30 +3,28 @@ import Card from "@/components/app/Card.astro";
 import CodeBlock from "@/components/app/CodeBlock";
 import Check from "@/components/icons/check.astro";
 import Copy from "@/components/icons/copy.astro";
-import { TABS } from "@/data/tabs";
+import { tabs } from "@/data/tabs";
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import type { GetStaticPaths } from "astro";
 import { Code } from "astro:components";
 
 const { id } = Astro.params;
-
-const TAB = TABS.find((item, i) => (i + 1).toString() === id);
-
-if (!TAB) return;
+const { tab } = Astro.props;
 
 export const getStaticPaths = (() => {
-  return TABS.map((item, i) => ({
+  return tabs.component.map((tab, i) => ({
     params: { id: (i + 1).toString() },
+    props: { tab: tab },
   }));
 }) satisfies GetStaticPaths;
 ---
 
 <DocsLayout>
   <Card transition:name={`card-${id}`}>
-    <Fragment set:html={TAB.codes[0].code} />
+    <Fragment set:html={tab.codes[0].code} />
   </Card>
   {
-    TAB.codes.map((item) => (
+    tab.codes.map((item) => (
       <CodeBlock client:only="react" code={item.code} title={item.title}>
         <Code
           slot="codeComponent"

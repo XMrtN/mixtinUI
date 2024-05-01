@@ -4,30 +4,28 @@ import CodeBlock from "@/components/app/CodeBlock";
 import Footer from "@/components/app/Footer.astro";
 import Check from "@/components/icons/check.astro";
 import Copy from "@/components/icons/copy.astro";
-import { BUTTONS } from "@/data/buttons";
+import { buttons } from "@/data/buttons";
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import type { GetStaticPaths } from "astro";
 import { Code } from "astro:components";
 
 const { id } = Astro.params;
-
-const BUTTON = BUTTONS.find((item, i) => (i + 1).toString() === id);
-
-if (!BUTTON) return;
+const { button } = Astro.props;
 
 export const getStaticPaths = (() => {
-  return BUTTONS.map((item, i) => ({
+  return buttons.component.map((button, i) => ({
     params: { id: (i + 1).toString() },
+    props: { button: button },
   }));
 }) satisfies GetStaticPaths;
 ---
 
 <DocsLayout>
   <Card transition:name={`card-${id}`}>
-    <Fragment set:html={BUTTON.codes[0].code} />
+    <Fragment set:html={button.codes[0].code} />
   </Card>
   {
-    BUTTON.codes.map((item) => (
+    button.codes.map((item) => (
       <CodeBlock client:only="react" code={item.code} title={item.title}>
         <Code
           slot="codeComponent"
