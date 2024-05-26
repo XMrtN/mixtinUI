@@ -15,13 +15,13 @@ export const BUTTON1 = [
   },
   {
     title: "HTML + CSS",
-    code: `<button class="button1">
-  <div class="button1__div button1__div--first">Hover me</div>
-  <div class="button1__div button1__div--second">Hover me</div>
+    code: `<button id="button1">
+  <div>Hover me</div>
+  <div>Hover me</div>
 </button>
 
 <style>
-  .button1 {
+  #button1 {
     position: relative;
     display: inline-flex;
     height: 3rem;
@@ -36,22 +36,22 @@ export const BUTTON1 = [
     color: #fafafa;
   }
 
-  .button1__div {
+  #button1 div {
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
 
-  .button1:hover .button1__div--first {
+  #button1:hover div:first-child {
     transform: translateX(-150%);
   }
 
-  .button1__div--second {
+  #button1 div:last-child {
     position: absolute;
     transform: translateX(150%);
   }
 
-  .button1:hover .button1__div--second {
+  #button1:hover div:last-child {
     transform: translateX(0);
   }
 </style>

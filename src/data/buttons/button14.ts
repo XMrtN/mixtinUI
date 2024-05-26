@@ -12,12 +12,12 @@ export const BUTTON14 = [
   },
   {
     title: "HTML + CSS",
-    code: `<button class="button14">
-  <span class="button14__span">Click me</span>
+    code: `<button id="button14">
+  <span>Click me</span>
 </button>
 
 <style>
-  .button14 {
+  #button14 {
     display: inline-flex;
     height: 3rem;
     align-items: center;
@@ -36,14 +36,14 @@ export const BUTTON14 = [
       0 0.5px 0 1.5px #fff inset;
   }
 
-  .button14:active {
+  #button14:active {
     box-shadow:
       -1px 0 1px 0 #e4e4e7 inset,
       1px 0 1px 0 #e4e4e7 inset,
       0 0.125rem 1px 0 #d4d4d8 inset;
   }
 
-  .button14:active .button14__span {
+  #button14:active span {
     transform: translateY(1px);
   }
 </style>

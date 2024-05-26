@@ -22,16 +22,16 @@ export const BUTTON10 = [
   },
   {
     title: "HTML + CSS",
-    code: `<button class="button10">
-  <div class="button10__div button10__div--first">Hover me</div>
-  <div class="button10__div button10__div--second">
-    <span class="button10__span button10__span--first"></span>
-    <span class="button10__span button10__span--second">Hover me</span>
+    code: `<button id="button10">
+  <div>Hover me</div>
+  <div>
+    <span></span>
+    <span>Hover me</span>
   </div>
 </button>
 
 <style>
-  .button10 {
+  #button10 {
     position: relative;
     display: inline-flex;
     height: 3rem;
@@ -46,7 +46,7 @@ export const BUTTON10 = [
     color: #0a0a0a;
   }
 
-  .button10__div {
+  #button10 div {
     display: inline-flex;
     height: 3rem;
     align-items: center;
@@ -58,21 +58,21 @@ export const BUTTON10 = [
     transition-duration: 500ms;
   }
 
-  .button10:hover .button10__div--first {
+  #button10:hover div:first-child {
     transform: translateY(-150%);
   }
 
-  .button10__div--second {
+  #button10 div:last-child {
     position: absolute;
     transform: translateY(100%);
     color: #fafafa;
   }
 
-  .button10:hover .button10__div--second {
+  #button10:hover div:last-child {
     transform: translateY(0);
   }
 
-  .button10__span--first {
+  #button10 span:first-child {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -83,11 +83,11 @@ export const BUTTON10 = [
     transition-duration: 500ms;
   }
 
-  .button10:hover .button10__span--first {
+  #button10:hover span:first-child {
     transform: translateY(0) skewY(12deg) scale(1.5);
   }
 
-  .button10__span--second {
+  #button10 span:last-child {
     position: relative;
   }
 </style>

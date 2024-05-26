@@ -19,13 +19,13 @@ export const BUTTON8 = [
   },
   {
     title: "HTML + CSS",
-    code: `<button class="button8">
-  <div class="button8__div button8__div--first">Hover me</div>
-  <div class="button8__div button8__div--second">Hover me</div>
+    code: `<button id="button8">
+  <div>Hover me</div>
+  <div>Hover me</div>
 </button>
 
 <style>
-  .button8 {
+  #button8 {
     position: relative;
     display: inline-flex;
     height: 3rem;
@@ -40,7 +40,7 @@ export const BUTTON8 = [
     color: #0a0a0a;
   }
 
-  .button8__div {
+  #button8 div {
     display: inline-flex;
     height: 3rem;
     align-items: center;
@@ -52,11 +52,11 @@ export const BUTTON8 = [
     transition-duration: 150ms;
   }
 
-  .button8:hover .button8__div--first {
+  #button8:hover div:first-child {
     transform: translateY(-150%);
   }
 
-  .button8__div--second {
+  #button8 div:last-child {
     position: absolute;
     transform: translateY(100%);
     background-color: #3b82f6;
@@ -64,7 +64,7 @@ export const BUTTON8 = [
     transition-duration: 300ms;
   }
 
-  .button8:hover .button8__div--second {
+  #button8:hover div:last-child {
     transform: translateY(0);
   }
 </style>
