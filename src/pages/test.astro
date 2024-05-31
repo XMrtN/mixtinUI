@@ -1,4 +1,5 @@
 ---
+import Card from "@/components/app/Card.astro";
 import Footer from "@/components/app/Footer.astro";
 import Navbar from "@/components/app/Navbar.astro";
 import PruebaAstro from "@/components/app/PruebaAstro.astro";
@@ -10,8 +11,10 @@ import Layout from "@/layouts/Layout.astro";
   <Navbar class="pt-6" />
 
   <Section class="flex flex-col gap-16 pt-16">
-    <PruebaAstro />
-    <!-- <Prueba client:only="react" /> -->
+    <Card>
+      <PruebaAstro />
+      <!-- <Prueba client:only="react" /> -->
+    </Card>
   </Section>
 
   <Footer />
