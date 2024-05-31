@@ -1,0 +1,18 @@
+---
+import Footer from "@/components/app/Footer.astro";
+import Navbar from "@/components/app/Navbar.astro";
+import PruebaAstro from "@/components/app/PruebaAstro.astro";
+import Section from "@/components/app/Section.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Test">
+  <Navbar class="pt-6" />
+
+  <Section class="flex flex-col gap-16 pt-16">
+    <PruebaAstro />
+    <!-- <Prueba client:only="react" /> -->
+  </Section>
+
+  <Footer />
+</Layout>

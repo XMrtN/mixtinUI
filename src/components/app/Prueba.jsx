@@ -1,57 +1,55 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const ACCORDIONS = [
-  {
-    id: "home",
-    name: "Home",
-  },
-  {
-    id: "about",
-    name: "About",
-  },
-  {
-    id: "projects",
-    name: "Projects",
-  },
-  {
-    id: "contact",
-    name: "Contact",
-  },
+let slides = [
+  "ITEM 1",
+  "ITEM 2",
+  "ITEM 3",
+  "ITEM 4",
+  "ITEM 5",
+  "ITEM 6",
+  "ITEM 7",
+  "ITEM 8",
+  "ITEM 9",
+  "ITEM 10",
 ];
 
-export default function Prueba() {
-  const [selected, setSelected] = useState(props.children[0].props.label);
+export default function Slider1() {
+  const imageListRef = useRef([]);
+  const [activeTab, setActiveTab] = useState(0);
+  const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
+  const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
 
-  const handleClick = (label) => {
-    setSelected((prev) => (prev === label ? null : label));
-  };
+  useEffect(() => {
+    if (activeTab === null) {
+      return;
+    }
+
+    const setTabPosition = () => {
+      const currentTab = tabsRef.current[activeTab];
+      setTabUnderlineLeft(currentTab.offsetLeft ?? 0);
+      setTabUnderlineWidth(currentTab.clientWidth ?? 0);
+    };
+
+    setTabPosition();
+  }, [activeTab]);
 
   return (
-    <div className={`w-full ${props.className}`}>
-      {props.children.map((item) => (
-        <article
-          key={item.props.label}
-          className="group bg-gray-100 transition-[border-radius,margin] duration-300 first:rounded-t-xl last:rounded-b-xl has-[+[data-selected]]:mb-4 has-[+[data-selected]]:rounded-b-xl data-[selected]:rounded-xl dark:bg-gray-900 [&[data-selected]+article]:mt-4 [&[data-selected]+article]:rounded-t-xl"
-          data-selected={item.props.label === selected ? "" : null}
+    <div className="relative mx-auto flex h-12 overflow-hidden rounded-3xl border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm">
+      <span
+        className="absolute bottom-0 left-0 top-0 -z-10 flex w-0 overflow-hidden rounded-3xl py-2 transition-[left,width] duration-300"
+        style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
+      >
+        <span className="h-full w-full rounded-3xl bg-gray-200/30" />
+      </span>
+      {tabs.map((tab, index) => (
+        <button
+          key={index}
+          ref={(el) => (tabsRef.current[index] = el)}
+          className={`my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white ${activeTab === index ? "" : "hover:text-neutral-300"}`}
+          onClick={() => setActiveTab(index)}
         >
-          <button
-            type="button"
-            className="flex w-full items-center justify-between gap-x-2 p-4 text-xl font-bold"
-            onClick={() => handleClick(item.props.label)}
-          >
-            <span className="text-left">{item.props.label}</span>
-            <span className="size-6 shrink-0 group-data-[selected]:hidden">
-              +
-            </span>
-            <span className="hidden size-6 shrink-0 group-data-[selected]:block">
-              -
-            </span>
-          </button>
-
-          <div className="max-h-0 overflow-hidden px-4 transition-[max-height] duration-700 ease-[cubic-bezier(0,1,0,1)] group-data-[selected]:h-auto group-data-[selected]:max-h-[9999px] group-data-[selected]:ease-[cubic-bezier(1,0,1,0)]">
-            <div className={item.props.className}>{item.props.children}</div>
-          </div>
-        </article>
+          {tab.name}
+        </button>
       ))}
     </div>
   );
