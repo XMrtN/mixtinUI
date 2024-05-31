@@ -1,6 +1,5 @@
 ---
 import Card from "@/components/app/Card.astro";
-import Footer from "@/components/app/Footer.astro";
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import { capitalize } from "@/utils/capitalize";
 import type { GetStaticPaths } from "astro";
@@ -20,9 +19,7 @@ export const getStaticPaths = (async () => {
 ---
 
 <DocsLayout title={capitalize(tag)}>
-  <div
-    class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,192px),1fr))] gap-4"
-  >
+  <div class="grid grid-cols-1 gap-6">
     {
       (component[tag] as any).component.map((item: any, i: number) => (
         <Card id={i + 1} transition:name={`card-${i + 1}`}>
@@ -31,21 +28,4 @@ export const getStaticPaths = (async () => {
       ))
     }
   </div>
-
-  {
-    tag === "buttons" && (
-      <Footer class="-mx-4">
-        Buttons by
-        <a
-          href="https://buttons.ibelick.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:underline"
-          slot="link"
-        >
-          ibelick
-        </a>
-      </Footer>
-    )
-  }
 </DocsLayout>
