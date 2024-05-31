@@ -1,0 +1,40 @@
+---
+import Card from "@/components/app/Card.astro";
+import CodeBlock from "@/components/app/CodeBlock";
+import Check from "@/components/icons/check.astro";
+import Copy from "@/components/icons/copy.astro";
+import { carousels } from "@/data/carousels";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+import type { GetStaticPaths } from "astro";
+import { Code } from "astro:components";
+
+const { id } = Astro.params;
+const { carousel } = Astro.props;
+
+export const getStaticPaths = (() => {
+  return carousels.component.map((carousel, i) => ({
+    params: { id: (i + 1).toString() },
+    props: { carousel: carousel },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<DocsLayout>
+  <Card transition:name={`card-${id}`}>
+    <Fragment set:html={carousel.codes[0].code} />
+  </Card>
+  {
+    carousel.codes.map((item) => (
+      <CodeBlock client:only="react" code={item.code} title={item.title}>
+        <Code
+          slot="codeComponent"
+          class="rounded-md p-6"
+          code={item.code}
+          lang="astro"
+        />
+        <Copy slot="copyIcon" class="size-5" />
+        <Check slot="checkIcon" class="size-5" />
+      </CodeBlock>
+    ))
+  }
+</DocsLayout>
