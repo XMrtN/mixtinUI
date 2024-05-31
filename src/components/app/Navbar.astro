@@ -42,23 +42,18 @@ const { pathname } = Astro.url;
   </section>
 </nav>
 
-<script>
-  const init = () => {
-    const navbar = document.querySelector("nav")!,
-      menuBtns = document.querySelectorAll("nav svg")!,
-      overlay = navbar.querySelector("section")!;
+<script is:inline>
+  const navbar = document.querySelector("nav"),
+    menuBtns = document.querySelectorAll("nav svg"),
+    overlay = navbar.querySelector("section");
 
-    menuBtns.forEach((item) => {
-      item.addEventListener("click", () => {
-        navbar.toggleAttribute("data-open");
-      });
+  menuBtns.forEach((item) => {
+    item.addEventListener("click", () => {
+      navbar.toggleAttribute("data-open");
     });
+  });
 
-    overlay.addEventListener("click", () => {
-      navbar.removeAttribute("data-open");
-    });
-  };
-
-  init();
-  document.addEventListener("astro:after-swap", init);
+  overlay.addEventListener("click", () => {
+    navbar.removeAttribute("data-open");
+  });
 </script>

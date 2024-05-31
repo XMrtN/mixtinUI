@@ -21,33 +21,28 @@ const { class: className } = Astro.props;
   />
 </button>
 
-<script>
-  const init = () => {
-    const themeToggle = document.querySelector("#theme-toggle")!;
+<script is:inline>
+  const themeToggle = document.querySelector("#theme-toggle");
 
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    if (document.documentElement.classList.contains("dark")) {
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light";
       document.documentElement.classList.remove("dark");
+    } else {
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
     }
-
-    themeToggle.addEventListener("click", () => {
-      if (document.documentElement.classList.contains("dark")) {
-        // Whenever the user explicitly chooses light mode
-        localStorage.theme = "light";
-        document.documentElement.classList.remove("dark");
-      } else {
-        // Whenever the user explicitly chooses dark mode
-        localStorage.theme = "dark";
-        document.documentElement.classList.add("dark");
-      }
-    });
-  };
-
-  init();
-  document.addEventListener("astro:after-swap", init);
+  });
 </script>
