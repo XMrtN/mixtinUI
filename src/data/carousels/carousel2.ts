@@ -202,53 +202,53 @@ export const CAROUSEL2 = [
 </style>
 
 <script>
-  const slider = document.querySelector("#slider2 .slider-wrapper");
-  const slideButtons = slider.querySelectorAll("button");
-  const list = slider.querySelector(".list");
-  const thumbnail = slider.querySelector(".thumbnail");
+  const slider2 = document.querySelector("#slider2 .slider-wrapper");
+  const slideButtons2 = slider2.querySelectorAll("button");
+  const list = slider2.querySelector(".list");
+  const thumbnail = slider2.querySelector(".thumbnail");
   let runTimeout;
 
   const showSlider = (type) => {
-    const listItems = slider.querySelectorAll(".list .item");
-    const thumbnailItems = slider.querySelectorAll(".thumbnail .item");
+    const listItems = slider2.querySelectorAll(".list .item");
+    const thumbnailItems = slider2.querySelectorAll(".thumbnail .item");
 
-    slideButtons.forEach((button) =>
+    slideButtons2.forEach((button) =>
       button.classList.add("pointer-events-none")
     );
 
     if (type === "next") {
-      slider?.classList.add("next");
+      slider2?.classList.add("next");
       list?.appendChild(listItems[0]);
       thumbnail?.appendChild(thumbnailItems[0]);
 
       clearTimeout(runTimeout);
       runTimeout = setTimeout(() => {
-        slider?.classList.remove("prev");
-        slider?.classList.remove("next");
-        slideButtons.forEach((button) =>
+        slider2?.classList.remove("prev");
+        slider2?.classList.remove("next");
+        slideButtons2.forEach((button) =>
           button.classList.remove("pointer-events-none")
         );
       }, 500);
     } else {
-      slider?.classList.add("prev");
+      slider2?.classList.add("prev");
       list?.prepend(listItems[listItems.length - 1]);
 
       clearTimeout(runTimeout);
       runTimeout = setTimeout(() => {
         thumbnail?.prepend(thumbnailItems[thumbnailItems.length - 1]);
-        slider?.classList.remove("prev");
-        slider?.classList.remove("next");
-        slideButtons.forEach((button) =>
+        slider2?.classList.remove("prev");
+        slider2?.classList.remove("next");
+        slideButtons2.forEach((button) =>
           button.classList.remove("pointer-events-none")
         );
       }, 500);
     }
   };
 
-  slideButtons.forEach((button) => {
+  slideButtons2.forEach((button) => {
     button.addEventListener("click", () => {
       button.classList.add("pointer-events-none");
-      showSlider(slideButtons[0] === button ? "prev" : "next");
+      showSlider(slideButtons2[0] === button ? "prev" : "next");
     });
   });
 </script>
@@ -490,54 +490,54 @@ export const CAROUSEL2 = [
   }
 </style>
 
-<script is:inline>
-  const slider = document.querySelector("#slider2 .slider-wrapper");
-  const slideButtons = slider.querySelectorAll(".slide-button");
-  const list = slider.querySelector(".list");
-  const thumbnail = slider.querySelector(".thumbnail");
+<script>
+  const slider2 = document.querySelector("#slider2 .slider-wrapper");
+  const slideButtons2 = slider2.querySelectorAll(".slide-button");
+  const list = slider2.querySelector(".list");
+  const thumbnail = slider2.querySelector(".thumbnail");
   let runTimeout;
 
   const showSlider = (type) => {
-    const listItems = slider.querySelectorAll(".list .item");
-    const thumbnailItems = slider.querySelectorAll(".thumbnail .item");
+    const listItems = slider2.querySelectorAll(".list .item");
+    const thumbnailItems = slider2.querySelectorAll(".thumbnail .item");
 
-    slideButtons.forEach((button) =>
+    slideButtons2.forEach((button) =>
       button.classList.add("pointer-events-none")
     );
 
     if (type === "next") {
-      slider?.classList.add("next");
+      slider2?.classList.add("next");
       list?.appendChild(listItems[0]);
       thumbnail?.appendChild(thumbnailItems[0]);
 
       clearTimeout(runTimeout);
       runTimeout = setTimeout(() => {
-        slider?.classList.remove("prev");
-        slider?.classList.remove("next");
-        slideButtons.forEach((button) =>
+        slider2?.classList.remove("prev");
+        slider2?.classList.remove("next");
+        slideButtons2.forEach((button) =>
           button.classList.remove("pointer-events-none")
         );
       }, 500);
     } else {
-      slider?.classList.add("prev");
+      slider2?.classList.add("prev");
       list?.prepend(listItems[listItems.length - 1]);
 
       clearTimeout(runTimeout);
       runTimeout = setTimeout(() => {
         thumbnail?.prepend(thumbnailItems[thumbnailItems.length - 1]);
-        slider?.classList.remove("prev");
-        slider?.classList.remove("next");
-        slideButtons.forEach((button) =>
+        slider2?.classList.remove("prev");
+        slider2?.classList.remove("next");
+        slideButtons2.forEach((button) =>
           button.classList.remove("pointer-events-none")
         );
       }, 500);
     }
   };
 
-  slideButtons.forEach((button) => {
+  slideButtons2.forEach((button) => {
     button.addEventListener("click", () => {
       button.classList.add("pointer-events-none");
-      showSlider(slideButtons[0] === button ? "prev" : "next");
+      showSlider(slideButtons2[0] === button ? "prev" : "next");
     });
   });
 </script>

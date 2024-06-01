@@ -90,71 +90,69 @@ export const CAROUSEL1 = [
 </section>
 
 <script>
-  window.addEventListener("load", () => {
-    const imageList = document.querySelector("#slider1 ul");
-    const slideButtons = document.querySelectorAll("#slider1 button");
-    const sliderScrollbar = document.querySelector("#slider1 footer");
-    const scrollbarThumb = sliderScrollbar.querySelector("span");
-    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+  const imageList1 = document.querySelector("#slider1 ul");
+  const slideButtons1 = document.querySelectorAll("#slider1 button");
+  const sliderScrollbar1 = document.querySelector("#slider1 footer");
+  const scrollbarThumb1 = sliderScrollbar1.querySelector("span");
+  const maxScrollLeft1 = imageList1.scrollWidth - imageList1.clientWidth;
 
-    scrollbarThumb.addEventListener("mousedown", (e) => {
-      const startX = e.clientX;
-      const thumbPosition = scrollbarThumb.offsetLeft;
+  scrollbarThumb1.addEventListener("mousedown", (e) => {
+    const startX = e.clientX;
+    const thumbPosition = scrollbarThumb1.offsetLeft;
 
-      const handleMouseMove = (e) => {
-        const deltaX = e.clientX - startX;
-        const newThumbPosition = thumbPosition + deltaX;
-        const maxThumbPosition =
-          sliderScrollbar.getBoundingClientRect().width -
-          scrollbarThumb.offsetWidth;
+    const handleMouseMove = (e) => {
+      const deltaX = e.clientX - startX;
+      const newThumbPosition = thumbPosition + deltaX;
+      const maxThumbPosition =
+        sliderScrollbar1.getBoundingClientRect().width -
+        scrollbarThumb1.offsetWidth;
 
-        const boundedPosition = Math.max(
-          0,
-          Math.min(maxThumbPosition, newThumbPosition)
-        );
-        const scrollPosition =
-          (boundedPosition / maxThumbPosition) * maxScrollLeft;
+      const boundedPosition = Math.max(
+        0,
+        Math.min(maxThumbPosition, newThumbPosition)
+      );
+      const scrollPosition =
+        (boundedPosition / maxThumbPosition) * maxScrollLeft1;
 
-        scrollbarThumb.style.left = \`\${boundedPosition}px\`;
-        imageList.scrollLeft = scrollPosition;
-      };
-
-      const handleMouseUp = () => {
-        document.removeEventListener("mousemove", handleMouseMove);
-        document.removeEventListener("mouseup", handleMouseUp);
-      };
-
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
-    });
-
-    slideButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const direction = slideButtons[0] === button ? -1 : 1;
-        const scrollAmount = imageList.clientWidth * direction;
-        imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      });
-    });
-
-    const handleSlideButtons = () => {
-      slideButtons[0].style.display =
-        imageList.scrollLeft <= 0 ? "none" : "flex";
-      slideButtons[1].style.display =
-        imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+      scrollbarThumb1.style.left = \`\${boundedPosition}px\`;
+      imageList1.scrollLeft = scrollPosition;
     };
 
-    const updateScrollThumbPosition = () => {
-      const scrollPosition = imageList.scrollLeft;
-      const thumbPosition =
-        (scrollPosition / maxScrollLeft) *
-        (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-      scrollbarThumb.style.left = \`\${thumbPosition}px\`;
+    const handleMouseUp = () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
 
-    imageList.addEventListener("scroll", () => {
-      handleSlideButtons();
-      updateScrollThumbPosition();
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  });
+
+  slideButtons1.forEach((button) => {
+    button.addEventListener("click", () => {
+      const direction = slideButtons1[0] === button ? -1 : 1;
+      const scrollAmount = imageList1.clientWidth * direction;
+      imageList1.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
+  });
+
+  const handleSlideButtons = () => {
+    slideButtons1[0].style.display =
+      imageList1.scrollLeft <= 0 ? "none" : "flex";
+    slideButtons1[1].style.display =
+      imageList1.scrollLeft >= maxScrollLeft1 ? "none" : "flex";
+  };
+
+  const updateScrollThumbPosition = () => {
+    const scrollPosition = imageList1.scrollLeft;
+    const thumbPosition =
+      (scrollPosition / maxScrollLeft1) *
+      (sliderScrollbar1.clientWidth - scrollbarThumb1.offsetWidth);
+    scrollbarThumb1.style.left = \`\${thumbPosition}px\`;
+  };
+
+  imageList1.addEventListener("scroll", () => {
+    handleSlideButtons();
+    updateScrollThumbPosition();
   });
 </script>
 `,
@@ -343,71 +341,69 @@ export const CAROUSEL1 = [
 </style>
 
 <script>
-  window.addEventListener("load", () => {
-    const imageList = document.querySelector("#slider1 .image-list");
-    const slideButtons = document.querySelectorAll("#slider1 .slide-button");
-    const sliderScrollbar = document.querySelector("#slider1 .slider-scrollbar");
-    const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
-    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+  const imageList1 = document.querySelector("#slider1 .image-list");
+  const slideButtons1 = document.querySelectorAll("#slider1 .slide-button");
+  const sliderScrollbar1 = document.querySelector("#slider1 .slider-scrollbar");
+  const scrollbarThumb1 = sliderScrollbar1.querySelector(".scrollbar-thumb");
+  const maxScrollLeft1 = imageList1.scrollWidth - imageList1.clientWidth;
 
-    scrollbarThumb.addEventListener("mousedown", (e) => {
-      const startX = e.clientX;
-      const thumbPosition = scrollbarThumb.offsetLeft;
+  scrollbarThumb1.addEventListener("mousedown", (e) => {
+    const startX = e.clientX;
+    const thumbPosition = scrollbarThumb1.offsetLeft;
 
-      const handleMouseMove = (e) => {
-        const deltaX = e.clientX - startX;
-        const newThumbPosition = thumbPosition + deltaX;
-        const maxThumbPosition =
-          sliderScrollbar.getBoundingClientRect().width -
-          scrollbarThumb.offsetWidth;
+    const handleMouseMove = (e) => {
+      const deltaX = e.clientX - startX;
+      const newThumbPosition = thumbPosition + deltaX;
+      const maxThumbPosition =
+        sliderScrollbar1.getBoundingClientRect().width -
+        scrollbarThumb1.offsetWidth;
 
-        const boundedPosition = Math.max(
-          0,
-          Math.min(maxThumbPosition, newThumbPosition)
-        );
-        const scrollPosition =
-          (boundedPosition / maxThumbPosition) * maxScrollLeft;
+      const boundedPosition = Math.max(
+        0,
+        Math.min(maxThumbPosition, newThumbPosition)
+      );
+      const scrollPosition =
+        (boundedPosition / maxThumbPosition) * maxScrollLeft1;
 
-        scrollbarThumb.style.left = \`\${boundedPosition}px\`;
-        imageList.scrollLeft = scrollPosition;
-      };
-
-      const handleMouseUp = () => {
-        document.removeEventListener("mousemove", handleMouseMove);
-        document.removeEventListener("mouseup", handleMouseUp);
-      };
-
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
-    });
-
-    slideButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const direction = slideButtons[0] === button ? -1 : 1;
-        const scrollAmount = imageList.clientWidth * direction;
-        imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      });
-    });
-
-    const handleSlideButtons = () => {
-      slideButtons[0].style.display =
-        imageList.scrollLeft <= 0 ? "none" : "flex";
-      slideButtons[1].style.display =
-        imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+      scrollbarThumb1.style.left = \`\${boundedPosition}px\`;
+      imageList1.scrollLeft = scrollPosition;
     };
 
-    const updateScrollThumbPosition = () => {
-      const scrollPosition = imageList.scrollLeft;
-      const thumbPosition =
-        (scrollPosition / maxScrollLeft) *
-        (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-      scrollbarThumb.style.left = \`\${thumbPosition}px\`;
+    const handleMouseUp = () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
 
-    imageList.addEventListener("scroll", () => {
-      handleSlideButtons();
-      updateScrollThumbPosition();
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  });
+
+  slideButtons1.forEach((button) => {
+    button.addEventListener("click", () => {
+      const direction = slideButtons1[0] === button ? -1 : 1;
+      const scrollAmount = imageList1.clientWidth * direction;
+      imageList1.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
+  });
+
+  const handleSlideButtons = () => {
+    slideButtons1[0].style.display =
+      imageList1.scrollLeft <= 0 ? "none" : "flex";
+    slideButtons1[1].style.display =
+      imageList1.scrollLeft >= maxScrollLeft1 ? "none" : "flex";
+  };
+
+  const updateScrollThumbPosition = () => {
+    const scrollPosition = imageList1.scrollLeft;
+    const thumbPosition =
+      (scrollPosition / maxScrollLeft1) *
+      (sliderScrollbar1.clientWidth - scrollbarThumb1.offsetWidth);
+    scrollbarThumb1.style.left = \`\${thumbPosition}px\`;
+  };
+
+  imageList1.addEventListener("scroll", () => {
+    handleSlideButtons();
+    updateScrollThumbPosition();
   });
 </script>
 `,
