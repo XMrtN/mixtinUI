@@ -26,3 +26,4 @@ pnpm-debug.log*
 # test files
 src/components/app/Prueba.jsx
 src/components/app/PruebaAstro.astro
+src/pages/test.astro
