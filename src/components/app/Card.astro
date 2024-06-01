@@ -1,11 +1,14 @@
 ---
 import ArrowRight from "../icons/arrow-right.astro";
 
-const { id, ...rest } = Astro.props;
+const { id, class: className, ...rest } = Astro.props;
 ---
 
 <div
-  class="relative flex w-full flex-wrap items-center justify-center rounded-md border border-neutral-300 px-2 py-12 dark:border-neutral-700"
+  class:list={[
+    "relative flex w-full flex-wrap items-center justify-center rounded-md border border-neutral-300 px-2 py-12 dark:border-neutral-700",
+    className,
+  ]}
   {...rest}
 >
   {
