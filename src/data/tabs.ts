@@ -4,12 +4,5 @@ import { TAB2 } from "./tabs/tab2";
 
 export const tabs = {
   Icon: Tab,
-  component: [
-    {
-      codes: TAB1,
-    },
-    {
-      codes: TAB2,
-    },
-  ],
+  components: [TAB1, TAB2],
 };

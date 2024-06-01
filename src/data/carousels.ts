@@ -4,12 +4,5 @@ import { CAROUSEL2 } from "./carousels/carousel2";
 
 export const carousels = {
   Icon: Carousel,
-  component: [
-    {
-      codes: CAROUSEL1,
-    },
-    {
-      codes: CAROUSEL2,
-    },
-  ],
+  components: [CAROUSEL1, CAROUSEL2],
 };

@@ -16,48 +16,20 @@ import { BUTTON9 } from "./buttons/button9";
 
 export const buttons = {
   Icon: Button,
-  component: [
-    {
-      codes: BUTTON1,
-    },
-    {
-      codes: BUTTON2,
-    },
-    {
-      codes: BUTTON3,
-    },
-    {
-      codes: BUTTON4,
-    },
-    {
-      codes: BUTTON5,
-    },
-    {
-      codes: BUTTON6,
-    },
-    {
-      codes: BUTTON7,
-    },
-    {
-      codes: BUTTON8,
-    },
-    {
-      codes: BUTTON9,
-    },
-    {
-      codes: BUTTON10,
-    },
-    {
-      codes: BUTTON11,
-    },
-    {
-      codes: BUTTON12,
-    },
-    {
-      codes: BUTTON13,
-    },
-    {
-      codes: BUTTON14,
-    },
+  components: [
+    BUTTON1,
+    BUTTON2,
+    BUTTON3,
+    BUTTON4,
+    BUTTON5,
+    BUTTON6,
+    BUTTON7,
+    BUTTON8,
+    BUTTON9,
+    BUTTON10,
+    BUTTON11,
+    BUTTON12,
+    BUTTON13,
+    BUTTON14,
   ],
 };
