@@ -1,31 +1,53 @@
 ---
 import Card from "@/components/app/Card.astro";
+import Footer from "@/components/app/Footer.astro";
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import { capitalize } from "@/utils/capitalize";
 import type { GetStaticPaths } from "astro";
 
-const { tag } = Astro.params;
-const { component } = Astro.props;
-
 export const getStaticPaths = (async () => {
-  const components: any = await Astro.glob("@/data/*.ts");
-  return components.map((component: typeof components) => {
+  const files: any = await Astro.glob("@/data/*.ts");
+
+  return files.flatMap((file: typeof files) => {
+    const tag = Object.keys(file)[0];
+    const components = file[tag].components;
+
     return {
-      params: { tag: Object.keys(component)[0] },
-      props: { component: component },
+      params: { tag },
+      props: { components },
     };
   });
 }) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const { components } = Astro.props;
 ---
 
 <DocsLayout title={capitalize(tag)}>
   <div class="grid grid-cols-1 gap-6">
     {
-      (component[tag] as any).component.map((item: any, i: number) => (
+      (components as any).map((component: any, i: number) => (
         <Card id={i + 1} transition:name={`card-${i + 1}`}>
-          <Fragment set:html={item.codes[0].code} />
+          <Fragment set:html={component[0].code} />
         </Card>
       ))
     }
   </div>
+
+  {
+    tag === "buttons" && (
+      <Footer class="-mx-4">
+        Buttons by
+        <a
+          href="https://buttons.ibelick.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:underline"
+          slot="link"
+        >
+          ibelick
+        </a>
+      </Footer>
+    )
+  }
 </DocsLayout>
