@@ -6,5 +6,15 @@ const { class: className } = Astro.props;
 
 <div class:list={["flex flex-wrap items-center gap-3.5", className]}>
   <Menu class="sm:hidden" />
-  <a href="/" class="text-2xl font-semibold tracking-wide">MixtinUI</a>
+  <a
+    href="/"
+    class="flex items-center gap-2 text-2xl font-semibold tracking-wide"
+  >
+    <img
+      src="/mixtinUI.webp"
+      alt="Logo de MixtinUI"
+      class="-my-4 block aspect-square max-w-10 object-contain"
+    />
+    MixtinUI
+  </a>
 </div>
