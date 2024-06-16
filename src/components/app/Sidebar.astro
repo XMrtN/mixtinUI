@@ -8,7 +8,7 @@ const { variant, class: className } = Astro.props;
 const { pathname } = Astro.url;
 
 const asideVariants = {
-  nav: "-left-full top-0 pb-12 pt-4 shadow-lg transition-[left] duration-300 max-sm:group-data-[open]:left-0",
+  nav: "-left-full top-0 pb-12 pt-4 shadow-lg transition-[left] bg-white dark:bg-neutral-900 duration-300 max-sm:group-data-[open]:left-0",
   aside: "pb-16 max-sm:hidden",
 };
 const ulVariants = {
@@ -36,13 +36,13 @@ const ulVariants = {
             pathname === "/docs/" && "text-sky-500 dark:text-sky-400",
           ]}
         >
-          <Book class="size-5" />
+          <Book class="size-5 shrink-0" />
           <span>Get Started</span>
         </a>
       </li>
       <li>
         <h5 class="flex items-center gap-3.5 whitespace-nowrap rounded-md p-3">
-          <Box class="size-5" />
+          <Box class="size-5 shrink-0" />
           <span>Components</span>
         </h5>
         <ul>
@@ -60,7 +60,7 @@ const ulVariants = {
                         "text-sky-500 dark:text-sky-400",
                     ]}
                   >
-                    <Icon class="size-5" />
+                    <Icon class="size-5 shrink-0" />
                     <span>{capitalize(Object.keys(path)[0])}</span>
                   </a>
                 </li>
