@@ -19,7 +19,7 @@ const ulVariants = {
 
 <aside
   class:list={[
-    "fixed size-full max-w-64 bg-white dark:bg-neutral-900",
+    "fixed size-full max-w-64",
     asideVariants[variant as keyof typeof asideVariants],
     className,
   ]}
@@ -32,7 +32,7 @@ const ulVariants = {
         <a
           href="/docs/"
           class:list={[
-            "flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-800",
+            "flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-900/5 dark:hover:bg-neutral-200/5",
             pathname === "/docs/" && "text-sky-500 dark:text-sky-400",
           ]}
         >
@@ -55,7 +55,7 @@ const ulVariants = {
                   <a
                     href={`/docs/${Object.keys(path)[0]}/`}
                     class:list={[
-                      "ml-3 flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-200 dark:hover:bg-neutral-800",
+                      "ml-3 flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-900/5 dark:hover:bg-neutral-200/5",
                       pathname.includes(Object.keys(path)[0]) &&
                         "text-sky-500 dark:text-sky-400",
                     ]}
