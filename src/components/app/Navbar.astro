@@ -8,10 +8,11 @@ const { class: className, ...rest } = Astro.props;
 const { pathname } = Astro.url;
 ---
 
-<nav
-  class="group sticky left-0 top-0 z-[9999] bg-white/70 py-4 shadow backdrop-blur-xl dark:bg-neutral-900/70"
-  {...rest}
->
+<nav class="group sticky left-0 top-0 z-[9999] py-4" {...rest}>
+  <div
+    class="absolute inset-0 -z-10 size-full bg-white/70 shadow backdrop-blur-xl dark:bg-neutral-900/70"
+  >
+  </div>
   <Section
     class="flex w-full flex-wrap items-center justify-between gap-4 px-6"
   >
