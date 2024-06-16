@@ -26,34 +26,34 @@ export const CAROUSEL1 = [
     <ul
       class="mb-4 grid grid-cols-[repeat(10,1fr)] gap-2 overflow-x-auto [scrollbar-width:none] lg:mb-8 lg:gap-4 [&::-webkit-scrollbar]:hidden"
     >
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 1
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 2
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 3
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 4
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 5
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 6
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 7
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 8
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 9
       </li>
-      <li class="grid h-80 w-64 place-items-center bg-neutral-500 text-white lg:h-96 lg:w-80">
+      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
         ITEM 10
       </li>
     </ul>
@@ -272,6 +272,7 @@ export const CAROUSEL1 = [
     width: 20rem;
     height: 24rem;
     place-items: center;
+    border-radius: 1rem;
     background-color: #737373;
     color: #fff;
   }
