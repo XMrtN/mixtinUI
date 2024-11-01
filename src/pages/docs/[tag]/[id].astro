@@ -5,49 +5,41 @@ import Footer from "@/components/app/Footer.astro";
 import Check from "@/components/icons/check.astro";
 import Copy from "@/components/icons/copy.astro";
 import DocsLayout from "@/layouts/DocsLayout.astro";
-import type { GetStaticPaths } from "astro";
 import { Code } from "astro:components";
-
-export const getStaticPaths = (async () => {
-  const files: any = await Astro.glob("@/data/*.ts");
-
-  const paths = files.flatMap((file: typeof files) => {
-    const tag = Object.keys(file)[0];
-
-    return file[tag].components.map((component: typeof files, i: number) => {
-      const id = (i + 1).toString();
-
-      return {
-        params: { tag, id },
-        props: { component },
-      };
-    });
-  });
-
-  return paths;
-}) satisfies GetStaticPaths;
+import { eq, db } from "astro:db";
+import { Schemas } from "db/schemas";
 
 const { tag, id } = Astro.params;
-const { component } = Astro.props;
+
+if (!id) return;
+
+const componentDB = await db
+  .select()
+  .from(Schemas[tag as keyof typeof Schemas])
+  .where(eq(Schemas[tag as keyof typeof Schemas].id, id));
 ---
 
 <DocsLayout>
   <Card transition:name={`card-${id}`}>
-    <Fragment set:html={(component as any)[0].code} />
+    <Fragment set:html={componentDB[0].tailwindCode} />
   </Card>
+
   {
-    (component as any).map((item: any) => (
-      <CodeBlock client:only="react" code={item.code} title={item.title}>
-        <Code
-          slot="codeComponent"
-          class="rounded-md p-6"
-          code={item.code}
-          lang="astro"
-        />
-        <Copy slot="copyIcon" class="size-5" />
-        <Check slot="checkIcon" class="size-5" />
-      </CodeBlock>
-    ))
+    Object.entries(componentDB[0]).map(([title, code]) => {
+      if (title === "id" || code == null) return;
+      return (
+        <CodeBlock client:only="react" code={code} title={title}>
+          <Code
+            slot="codeComponent"
+            class="rounded-md p-6"
+            code={code || ""}
+            lang="astro"
+          />
+          <Copy slot="copyIcon" class="size-5" />
+          <Check slot="checkIcon" class="size-5" />
+        </CodeBlock>
+      );
+    })
   }
 
   {

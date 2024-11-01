@@ -1,38 +1,43 @@
 ---
+import Button from "@/components/app/Button.astro";
 import Card from "@/components/app/Card.astro";
 import Footer from "@/components/app/Footer.astro";
+import { buttons } from "@/data/buttons";
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import { capitalize } from "@/utils/capitalize";
-import type { GetStaticPaths } from "astro";
-
-export const getStaticPaths = (async () => {
-  const files: any = await Astro.glob("@/data/*.ts");
-
-  return files.flatMap((file: typeof files) => {
-    const tag = Object.keys(file)[0];
-    const components = file[tag].components;
-
-    return {
-      params: { tag },
-      props: { components },
-    };
-  });
-}) satisfies GetStaticPaths;
+import { db } from "astro:db";
+import { Schemas } from "db/schemas";
 
 const { tag } = Astro.params;
-const { components } = Astro.props;
+
+const componentsDB = await db
+  .select()
+  .from(Schemas[tag as keyof typeof Schemas]);
 ---
 
-<DocsLayout title={capitalize(tag)}>
+<DocsLayout title={capitalize(tag || "Components")}>
   <div class="grid grid-cols-1 gap-6">
     {
-      (components as any).map((component: any, i: number) => (
-        <Card id={i + 1} transition:name={`card-${i + 1}`}>
-          <Fragment set:html={component[0].code} />
+      componentsDB.map((component) => (
+        <Card id={component.id} transition:name={`card-${component.id}`}>
+          <Fragment set:html={component.tailwindCode} />
         </Card>
       ))
     }
   </div>
+
+  <!-- <div class="mt-6 flex justify-center">
+    <Button
+      id="submit"
+      data-tag={"buttons"}
+      data-id={"button1"}
+      data-tailwind-code={buttons.components[0][0]?.code}
+      data-css-code={buttons.components[0][1]?.code}
+      data-react-code={buttons.components[0][2]?.code}
+    >
+      Submit button1
+    </Button>
+  </div> -->
 
   {
     tag === "buttons" && (
@@ -51,3 +56,19 @@ const { components } = Astro.props;
     )
   }
 </DocsLayout>
+
+<script>
+  const submitBtn = document.querySelector("#submit") as HTMLElement;
+
+  const { tag, id, tailwindCode, cssCode, reactCode } = submitBtn.dataset;
+
+  submitBtn.onclick = () => {
+    fetch(`/api/${tag}/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ tailwindCode, cssCode, reactCode }),
+    });
+  };
+</script>
