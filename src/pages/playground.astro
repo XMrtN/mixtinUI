@@ -1,0 +1,82 @@
+---
+import Button from "@/components/app/Button.astro";
+import Footer from "@/components/app/Footer.astro";
+import Navbar from "@/components/app/Navbar.astro";
+import NavbarBrand from "@/components/app/NavbarBrand.astro";
+import Section from "@/components/app/Section.astro";
+import Github from "@/components/icons/github.astro";
+import Google from "@/components/icons/google.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getSession } from "auth-astro/server";
+
+const session = await getSession(Astro.request);
+---
+
+<Layout
+  title={session ? "Build components yourself! - MixtinUI" : "Login - MixtinUI"}
+>
+  <Navbar class="pt-6" />
+
+  <Section class="relative overflow-hidden pt-24 lg:pt-32">
+    <NavbarBrand
+      isBig
+      class="fixed left-1/2 -z-10 -mt-6 -translate-x-1/2 opacity-10"
+    />
+
+    <div class="flex flex-col items-center justify-center gap-4">
+      {
+        session ? (
+          <>
+            <img
+              src={session.user?.image ?? "/profile.webp"}
+              alt={`Perfil de ${session.user?.name}`}
+              class="size-24 rounded-full"
+            />
+            <h1>{session.user?.name}</h1>
+            <h2>{session.user?.email}</h2>
+            <Button id="logout">Logout</Button>
+          </>
+        ) : (
+          <div class="flex gap-4">
+            <Button
+              id="loginGithub"
+              customStyles
+              class="bg-[#24292d] text-neutral-200 hover:brightness-110"
+            >
+              <span class="flex items-center gap-2">
+                <Github class="size-6" /> Login with GitHub
+              </span>
+            </Button>
+            <Button
+              id="loginGoogle"
+              customStyles
+              class="bg-white text-neutral-900 hover:brightness-90"
+            >
+              <span class="flex items-center gap-2">
+                <Google class="size-6" /> Login with Google
+              </span>
+            </Button>
+          </div>
+        )
+      }
+    </div>
+  </Section>
+
+  <Footer />
+</Layout>
+
+<script>
+  const { signIn, signOut } = await import("auth-astro/client");
+
+  const loginWithGitHubBtn = document.querySelector(
+    "#loginGithub"
+  ) as HTMLElement;
+  const loginWithGoogleBtn = document.querySelector(
+    "#loginGoogle"
+  ) as HTMLElement;
+  const logoutBtn = document.querySelector("#logout") as HTMLElement;
+
+  if (loginWithGitHubBtn) loginWithGitHubBtn.onclick = () => signIn("github");
+  if (loginWithGoogleBtn) loginWithGoogleBtn.onclick = () => signIn("google");
+  if (logoutBtn) logoutBtn.onclick = () => signOut();
+</script>
