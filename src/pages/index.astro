@@ -2,6 +2,7 @@
 import Button from "@/components/app/Button.astro";
 import Footer from "@/components/app/Footer.astro";
 import Navbar from "@/components/app/Navbar.astro";
+import NavbarBrand from "@/components/app/NavbarBrand.astro";
 import Section from "@/components/app/Section.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -9,7 +10,12 @@ import Layout from "@/layouts/Layout.astro";
 <Layout title="MixtinUI - A component library without dependencies.">
   <Navbar class="pt-6" />
 
-  <Section class="pt-24 lg:pt-32">
+  <Section class="relative overflow-hidden pt-24 lg:pt-32">
+    <NavbarBrand
+      isBig
+      class="fixed left-1/2 -z-10 -mt-6 -translate-x-1/2 opacity-10"
+    />
+
     <h1 class="text-center text-4xl font-extrabold lg:text-6xl">
       Implement modern components in your code without dependencies
     </h1>
