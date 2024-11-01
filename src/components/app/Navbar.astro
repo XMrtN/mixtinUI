@@ -1,24 +1,29 @@
 ---
+import Menu from "../icons/menu.astro";
 import NavbarBrand from "./NavbarBrand.astro";
 import Section from "./Section.astro";
 import Sidebar from "./Sidebar.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import { getSession } from "auth-astro/server";
 
+const session = await getSession(Astro.request);
 const { class: className, ...rest } = Astro.props;
 const { pathname } = Astro.url;
 ---
 
-<nav class="group sticky left-0 top-0 z-[9999] py-4" {...rest}>
+<nav
+  class="group sticky left-0 top-0 z-[9999] flex min-h-16 items-center py-4"
+  {...rest}
+>
   <div
     class="absolute inset-0 -z-10 size-full bg-white/70 shadow backdrop-blur-xl dark:bg-neutral-900/70"
   >
   </div>
-  <Section
-    class="flex w-full flex-wrap items-center justify-between gap-4 px-6"
-  >
-    <NavbarBrand />
+  <Section class="flex w-full items-center gap-4 px-6">
+    <Menu class="sm:hidden" />
+    <NavbarBrand class:list={[pathname === "/" && "max-sm:hidden"]} />
 
-    <div class="flex items-center justify-center gap-x-6">
+    <div class="ml-auto flex items-center justify-center gap-x-4">
       {
         !pathname.includes("/docs/") && (
           <a
@@ -31,10 +36,24 @@ const { pathname } = Astro.url;
       }
       <ThemeToggle />
     </div>
+    {
+      session && (
+        <a href="/playground">
+          <img
+            src={session.user?.image ?? "/profile.webp"}
+            alt={`Perfil de ${session.user?.name}`}
+            class="size-8 rounded-full"
+          />
+        </a>
+      )
+    }
   </Section>
 
   <Sidebar variant="nav">
-    <NavbarBrand class="mb-4 px-6" />
+    <div class="flex items-center gap-3.5 px-6">
+      <Menu class="sm:hidden" />
+      <NavbarBrand />
+    </div>
   </Sidebar>
 
   <section
