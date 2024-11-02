@@ -1,0 +1,46 @@
+<ol id="breadcrumb1">
+  <li>
+    <a href="#">Home</a>
+  </li>
+  <li>
+    <a href="#">Library</a>
+  </li>
+  <li>
+    <a href="#">Data</a>
+  </li>
+</ol>
+
+<style>
+  #breadcrumb1 {
+    display: flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(0 0 0 / 0.4);
+    background: rgb(38 38 38);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #fff;
+    backdrop-filter: blur(4px);
+  }
+
+  #breadcrumb1 li {
+    display: flex;
+    list-style: none;
+  }
+
+  #breadcrumb1 li + li {
+    padding-left: 0.5rem;
+  }
+
+  #breadcrumb1 li + li:before {
+    content: "/";
+    padding-right: 0.5rem;
+  }
+
+  #breadcrumb1 li a:hover {
+    color: rgb(212 212 212);
+    text-decoration: underline;
+  }
+</style>

@@ -3,6 +3,8 @@ import Button from "@/components/app/Button.astro";
 import Footer from "@/components/app/Footer.astro";
 import Navbar from "@/components/app/Navbar.astro";
 import Section from "@/components/app/Section.astro";
+import TestAstro from "@/components/app/TestAstro.astro";
+import TestReact from "@/components/app/TestReact";
 import Github from "@/components/icons/github.astro";
 import Google from "@/components/icons/google.astro";
 import Layout from "@/layouts/Layout.astro";
@@ -34,6 +36,8 @@ const session = await getSession(Astro.request);
             <h1>{session.user?.name}</h1>
             <h2>{session.user?.email}</h2>
             <Button id="logout">Logout</Button>
+            <TestAstro />
+            <TestReact client:only="react" />
           </>
         ) : (
           <div class="flex gap-4">
