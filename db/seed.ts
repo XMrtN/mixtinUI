@@ -1,7 +1,386 @@
-import { Buttons, Carousels, db, Dropdowns, Tabs } from "astro:db";
+import {
+  Accordions,
+  Breadcrumbs,
+  Buttons,
+  Carousels,
+  db,
+  Dropdowns,
+  Tabs,
+} from "astro:db";
 
 // https://astro.build/db/seed
 export default async function seed() {
+  await db.insert(Accordions).values([
+    {
+      id: "accordion1",
+      tailwindCode: `<section id="accordion1" class="w-full max-w-lg">
+  <details name="accordion1" class="group border-b border-current">
+    <summary
+      role="button"
+      class="flex items-center justify-between p-4 font-medium"
+    >
+      Accordion Item 1
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-6 group-[[open]]:rotate-180"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M6 9l6 6l6 -6"></path>
+      </svg>
+    </summary>
+    <p class="p-4 pt-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details name="accordion1" class="group border-b">
+    <summary
+      role="button"
+      class="flex items-center justify-between p-4 font-medium"
+    >
+      Accordion Item 2
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-6 group-[[open]]:rotate-180"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M6 9l6 6l6 -6"></path>
+      </svg>
+    </summary>
+    <p class="p-4 pt-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details name="accordion1" class="group border-b">
+    <summary
+      role="button"
+      class="flex items-center justify-between p-4 font-medium"
+    >
+      Accordion Item 3
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-6 group-[[open]]:rotate-180"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M6 9l6 6l6 -6"></path>
+      </svg>
+    </summary>
+    <p class="p-4 pt-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+</section>
+`,
+      cssCode: `<section id="accordion1">
+  <details name="accordion1">
+    <summary role="button">
+      Accordion Item 1
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M6 9l6 6l6 -6"></path>
+      </svg>
+    </summary>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details name="accordion1">
+    <summary role="button">
+      Accordion Item 2
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M6 9l6 6l6 -6"></path>
+      </svg>
+    </summary>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details name="accordion1">
+    <summary role="button">
+      Accordion Item 3
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M6 9l6 6l6 -6"></path>
+      </svg>
+    </summary>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+</section>
+
+<style>
+  #accordion1 {
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  #accordion1 details {
+    border-bottom-width: 1px;
+    border-color: currentColor;
+  }
+
+  #accordion1 details summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    font-weight: 500;
+  }
+
+  #accordion1 details summary svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  #accordion1 details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  #accordion1 details p {
+    padding: 1rem;
+    padding-top: 0.5rem;
+  }
+</style>
+`,
+      reactCode: `import { createContext, useContext, useEffect, useRef, useState } from "react";
+
+const AccordionContext = createContext();
+
+export default function App() {
+  return (
+    <Accordion className="max-w-lg">
+      <AccordionItem value="1" trigger="Accordion Item 1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
+        culpa nihil.
+      </AccordionItem>
+      <AccordionItem value="2" trigger="Accordion Item 2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
+        culpa nihil.
+      </AccordionItem>
+      <AccordionItem value="3" trigger="Accordion Item 3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
+        culpa nihil.
+      </AccordionItem>
+    </Accordion>
+  );
+}
+
+function Accordion({ children, value, onChange, ...props }) {
+  const [selected, setSelected] = useState(value);
+
+  useEffect(() => {
+    onChange?.(selected);
+  }, [selected]);
+
+  return (
+    <ul {...props}>
+      <AccordionContext.Provider value={{ selected, setSelected }}>
+        {children}
+      </AccordionContext.Provider>
+    </ul>
+  );
+}
+
+function AccordionItem({ children, value, trigger, ...props }) {
+  const { selected, setSelected } = useContext(AccordionContext);
+  const ref = useRef(null);
+  const open = selected === value;
+
+  return (
+    <li className="border-b border-current" {...props}>
+      <header
+        role="button"
+        onClick={() => setSelected(open ? null : value)}
+        className="flex items-center justify-between p-4 font-medium"
+      >
+        {trigger}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={\`size-6 transition-transform \${open ? "rotate-180" : ""}\`}
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M6 9l6 6l6 -6" />
+        </svg>
+      </header>
+      <div
+        className="overflow-y-hidden transition-all"
+        style={{ height: open ? ref.current?.offsetHeight || 0 : 0 }}
+      >
+        <div className="p-4 pt-2" ref={ref}>
+          {children}
+        </div>
+      </div>
+    </li>
+  );
+}
+`,
+    },
+  ]);
+
+  await db.insert(Breadcrumbs).values([
+    {
+      id: "breadcrumb1",
+      tailwindCode: `<ol
+  class="flex items-center rounded-full border border-black/40 bg-neutral-800 px-5 py-3 text-white backdrop-blur-sm"
+>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&_+_&]:pr-2 before:[&_+_&]:content-['/']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Home</a>
+  </li>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&_+_&]:pr-2 before:[&_+_&]:content-['/']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Library</a>
+  </li>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&_+_&]:pr-2 before:[&_+_&]:content-['/']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Data</a>
+  </li>
+</ol>
+`,
+      cssCode: `<ol id="breadcrumb1">
+  <li>
+    <a href="#">Home</a>
+  </li>
+  <li>
+    <a href="#">Library</a>
+  </li>
+  <li>
+    <a href="#">Data</a>
+  </li>
+</ol>
+
+<style>
+  #breadcrumb1 {
+    display: flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(0 0 0 / 0.4);
+    background: rgb(38 38 38);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #fff;
+    backdrop-filter: blur(4px);
+  }
+
+  #breadcrumb1 li {
+    display: flex;
+    list-style: none;
+  }
+
+  #breadcrumb1 li + li {
+    padding-left: 0.5rem;
+  }
+
+  #breadcrumb1 li + li:before {
+    content: "/";
+    padding-right: 0.5rem;
+  }
+
+  #breadcrumb1 li a:hover {
+    color: rgb(212 212 212);
+    text-decoration: underline;
+  }
+</style>
+`,
+    },
+  ]);
+
   await db.insert(Buttons).values([
     {
       id: "button1",
@@ -1834,6 +2213,163 @@ export default async function seed() {
   overlay1.onclick = function () {
     menu1.removeAttribute("style");
     overlay1.removeAttribute("style");
+  };
+</script>
+`,
+      reactCode: `import { useState } from "react";
+
+export default function Dropdown() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative z-[999]">
+      <button
+        className="relative z-10 inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
+        onClick={() => setOpen(!open)}
+      >
+        Click me
+      </button>
+
+      <section
+        className={\`absolute left-0 top-14 z-10 origin-top-left rounded-md bg-neutral-950 px-4 py-3 text-neutral-50 transition-[transform,opacity] duration-300 \${!open ? "pointer-events-none scale-50 select-none opacity-0" : ""}\`}
+      >
+        Hello world!
+      </section>
+
+      <section
+        className={\`fixed left-0 top-0 h-[1000vh] w-[200%] \${!open ? "pointer-events-none" : ""}\`}
+        onClick={() => setOpen(false)}
+      />
+    </div>
+  );
+}
+`,
+    },
+    {
+      id: "dropdown2",
+      tailwindCode: `<div class="relative z-[999]">
+  <button
+    id="toggler2"
+    class="relative z-10 inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
+  >
+    Click me
+  </button>
+
+  <section
+    id="menu2"
+    class="pointer-events-none absolute right-0 top-14 z-10 origin-top-right scale-50 select-none rounded-md bg-neutral-950 px-4 py-3 text-neutral-50 opacity-0 transition-[transform,opacity] duration-300"
+  >
+    Hello world!
+  </section>
+
+  <section
+    id="overlay2"
+    class="pointer-events-none fixed left-0 top-0 h-[1000vh] w-[200%]"
+  >
+  </section>
+</div>
+
+<script>
+  const toggler2 = document.querySelector("#toggler2");
+  const menu2 = document.querySelector("#menu2");
+  const overlay2 = document.querySelector("#overlay2");
+
+  toggler2.onclick = function () {
+    menu2.classList.toggle("pointer-events-none");
+    menu2.classList.toggle("scale-50");
+    menu2.classList.toggle("select-none");
+    menu2.classList.toggle("opacity-0");
+    overlay2.classList.toggle("pointer-events-none");
+  };
+
+  overlay2.onclick = function () {
+    menu2.classList.add("pointer-events-none");
+    menu2.classList.add("scale-50");
+    menu2.classList.add("select-none");
+    menu2.classList.add("opacity-0");
+    overlay2.classList.add("pointer-events-none");
+  };
+</script>
+`,
+      cssCode: `<div id="dropdown2">
+  <button id="toggler2">Click me</button>
+  <section id="menu2">Hello world!</section>
+  <section id="overlay2"></section>
+</div>
+
+<style>
+  #dropdown2 {
+    position: relative;
+    z-index: 999;
+  }
+  #toggler2 {
+    display: inline-flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    background-color: #0a0a0a;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 500;
+    color: #fafafa;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  #toggler2:active {
+    transform: scale(0.95);
+  }
+
+  #menu2 {
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 3.5rem;
+    z-index: 10;
+    transform-origin: top right;
+    transform: scale(0.5);
+    user-select: none;
+    border-radius: 6px;
+    background-color: #0a0a0a;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #fafafa;
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  #overlay2 {
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 1000vh;
+    width: 200%;
+  }
+</style>
+
+<script>
+  const toggler2 = document.querySelector("#toggler2");
+  const menu2 = document.querySelector("#menu2");
+  const overlay2 = document.querySelector("#overlay2");
+
+  toggler2.onclick = function () {
+    menu2.setAttribute(
+      "style",
+      "pointer-events: auto; transform: scale(1); user-select: auto; opacity: 1;"
+    );
+    overlay2.setAttribute("style", "pointer-events: auto;");
+  };
+
+  overlay2.onclick = function () {
+    menu2.removeAttribute("style");
+    overlay2.removeAttribute("style");
   };
 </script>
 `,

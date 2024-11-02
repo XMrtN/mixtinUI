@@ -10,16 +10,22 @@ const createTable = () =>
     },
   });
 
+const Accordions = createTable();
+const Breadcrumbs = createTable();
 const Buttons = createTable();
 const Carousels = createTable();
 const Dropdowns = createTable();
+const Modals = createTable();
 const Tabs = createTable();
 
 export default defineDb({
   tables: {
+    Accordions,
+    Breadcrumbs,
     Buttons,
     Carousels,
     Dropdowns,
+    Modals,
     Tabs,
   },
 });
