@@ -1,26 +1,16 @@
 ---
-interface Props {
-  class?: string;
-  isBig?: boolean;
-}
-const { class: className, isBig = false } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
 <div class:list={["flex flex-wrap items-center gap-3.5", className]}>
   <a
     href="/"
-    class:list={[
-      "flex items-center gap-2 font-semibold tracking-wide",
-      isBig ? "text-9xl" : "text-2xl",
-    ]}
+    class="flex items-center gap-2 text-2xl font-semibold tracking-wide"
   >
     <img
       src="/logo.webp"
       alt="Logo de MixtinUI"
-      class:list={[
-        "-my-4 block aspect-square object-contain",
-        isBig ? "w-60" : "w-10",
-      ]}
+      class="-my-4 block aspect-square w-10 object-contain"
     />
     MixtinUI
   </a>
