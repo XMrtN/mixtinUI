@@ -16,10 +16,10 @@ export const POST: APIRoute = async ({ params, request }) => {
 
   try {
     await db
-      .insert(Schemas[params.tag as keyof typeof Schemas])
+      .insert(Schemas[params.tag as keyof typeof Schemas].schema)
       .values({ id, ...body })
       .onConflictDoUpdate({
-        target: Schemas[params.tag as keyof typeof Schemas].id,
+        target: Schemas[params.tag as keyof typeof Schemas].schema.id,
         set: body,
       });
   } catch (error) {

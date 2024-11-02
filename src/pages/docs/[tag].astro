@@ -12,11 +12,18 @@ const { tag } = Astro.params;
 
 const componentsDB = await db
   .select()
-  .from(Schemas[tag as keyof typeof Schemas]);
+  .from(Schemas[tag as keyof typeof Schemas].schema);
 ---
 
 <DocsLayout title={capitalize(tag || "Components")}>
-  <div class="grid grid-cols-1 gap-6">
+  <div
+    class:list={[
+      "grid gap-6",
+      tag === "buttons" || tag === "dropdowns"
+        ? "grid-cols-[repeat(auto-fill,minmax(min(100%,14rem),1fr))]"
+        : "grid-cols-1",
+    ]}
+  >
     {
       componentsDB.map((component) => (
         <Card id={component.id} transition:name={`card-${component.id}`}>
@@ -57,7 +64,7 @@ const componentsDB = await db
   }
 </DocsLayout>
 
-<script>
+<!-- <script>
   const submitBtn = document.querySelector("#submit") as HTMLElement;
 
   const { tag, id, tailwindCode, cssCode, reactCode } = submitBtn.dataset;
@@ -71,4 +78,4 @@ const componentsDB = await db
       body: JSON.stringify({ tailwindCode, cssCode, reactCode }),
     });
   };
-</script>
+</script> -->

@@ -15,8 +15,8 @@ if (!id) return;
 
 const componentDB = await db
   .select()
-  .from(Schemas[tag as keyof typeof Schemas])
-  .where(eq(Schemas[tag as keyof typeof Schemas].id, id));
+  .from(Schemas[tag as keyof typeof Schemas].schema)
+  .where(eq(Schemas[tag as keyof typeof Schemas].schema.id, id));
 ---
 
 <DocsLayout>
