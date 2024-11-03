@@ -2,7 +2,6 @@
 import Button from "@/components/app/Button.astro";
 import Card from "@/components/app/Card.astro";
 import Footer from "@/components/app/Footer.astro";
-import { buttons } from "@/data/buttons";
 import DocsLayout from "@/layouts/DocsLayout.astro";
 import { capitalize } from "@/utils/capitalize";
 import { db } from "astro:db";
@@ -37,10 +36,10 @@ const componentsDB = await db
     <Button
       id="submit"
       data-tag={"buttons"}
-      data-id={"button1"}
-      data-tailwind-code={buttons.components[0][0]?.code}
-      data-css-code={buttons.components[0][1]?.code}
-      data-react-code={buttons.components[0][2]?.code}
+      data-id={1}
+      data-tailwind-code={componentsDB[0]?.tailwindCode}
+      data-css-code={componentsDB[0]?.cssCode}
+      data-react-code={componentsDB[0]?.reactCode}
     >
       Submit button1
     </Button>

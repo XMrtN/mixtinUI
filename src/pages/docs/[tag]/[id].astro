@@ -16,7 +16,7 @@ if (!id) return;
 const componentDB = await db
   .select()
   .from(Schemas[tag as keyof typeof Schemas].schema)
-  .where(eq(Schemas[tag as keyof typeof Schemas].schema.id, id));
+  .where(eq(Schemas[tag as keyof typeof Schemas].schema.id, parseInt(id)));
 ---
 
 <DocsLayout>
@@ -32,7 +32,7 @@ const componentDB = await db
           <Code
             slot="codeComponent"
             class="rounded-md p-6"
-            code={code || ""}
+            code={code.toString()}
             lang="astro"
           />
           <Copy slot="copyIcon" class="size-5" />
