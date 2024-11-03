@@ -12,9 +12,9 @@ import {
 export default async function seed() {
   await db.insert(Accordions).values([
     {
-      id: "accordion1",
+      id: 1,
       tailwindCode: `<section id="accordion1" class="w-full max-w-lg">
-  <details name="accordion1" class="group border-b border-current">
+  <details name="accordion1" class="group border-b border-current" open>
     <summary
       role="button"
       class="flex items-center justify-between p-4 font-medium"
@@ -44,7 +44,7 @@ export default async function seed() {
     </p>
   </details>
 
-  <details name="accordion1" class="group border-b">
+  <details name="accordion1" class="group border-b border-current">
     <summary
       role="button"
       class="flex items-center justify-between p-4 font-medium"
@@ -74,7 +74,7 @@ export default async function seed() {
     </p>
   </details>
 
-  <details name="accordion1" class="group border-b">
+  <details name="accordion1" class="group border-b border-current">
     <summary
       role="button"
       class="flex items-center justify-between p-4 font-medium"
@@ -106,7 +106,7 @@ export default async function seed() {
 </section>
 `,
       cssCode: `<section id="accordion1">
-  <details name="accordion1">
+  <details name="accordion1" open>
     <summary role="button">
       Accordion Item 1
       <svg
@@ -306,26 +306,762 @@ function AccordionItem({ children, value, trigger, ...props }) {
 }
 `,
     },
+    {
+      id: 2,
+      tailwindCode: `<section id="accordion2" class="w-full max-w-lg">
+  <details
+    name="accordion2"
+    class="group bg-neutral-800 text-white first:rounded-t-xl last:rounded-b-xl has-[+[open]]:mb-4 has-[+[open]]:rounded-b-xl [&[open]+&]:mt-4 [&[open]+&]:rounded-t-xl [&[open]]:rounded-xl"
+    open
+  >
+    <summary
+      role="button"
+      class="flex items-center justify-between p-4 font-medium"
+    >
+      Accordion Item 1
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-6 group-[[open]]:hidden"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="hidden size-6 group-[[open]]:block"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 12l14 0"></path>
+      </svg>
+    </summary>
+    <p class="p-4 pt-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details
+    name="accordion2"
+    class="group bg-neutral-800 text-white first:rounded-t-xl last:rounded-b-xl has-[+[open]]:mb-4 has-[+[open]]:rounded-b-xl [&[open]+&]:mt-4 [&[open]+&]:rounded-t-xl [&[open]]:rounded-xl"
+  >
+    <summary
+      role="button"
+      class="flex items-center justify-between p-4 font-medium"
+    >
+      Accordion Item 2
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-6 group-[[open]]:hidden"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="hidden size-6 group-[[open]]:block"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 12l14 0"></path>
+      </svg>
+    </summary>
+    <p class="p-4 pt-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details
+    name="accordion2"
+    class="group bg-neutral-800 text-white first:rounded-t-xl last:rounded-b-xl has-[+[open]]:mb-4 has-[+[open]]:rounded-b-xl [&[open]+&]:mt-4 [&[open]+&]:rounded-t-xl [&[open]]:rounded-xl"
+  >
+    <summary
+      role="button"
+      class="flex items-center justify-between p-4 font-medium"
+    >
+      Accordion Item 3
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-6 group-[[open]]:hidden"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="hidden size-6 group-[[open]]:block"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 12l14 0"></path>
+      </svg>
+    </summary>
+    <p class="p-4 pt-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+</section>
+`,
+      cssCode: `<section id="accordion2">
+  <details name="accordion2" open>
+    <summary role="button">
+      Accordion Item 1
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 12l14 0"></path>
+      </svg>
+    </summary>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details name="accordion2">
+    <summary role="button">
+      Accordion Item 2
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 12l14 0"></path>
+      </svg>
+    </summary>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+
+  <details name="accordion2">
+    <summary role="button">
+      Accordion Item 3
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 12l14 0"></path>
+      </svg>
+    </summary>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+      accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+      minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati, culpa
+      nihil.
+    </p>
+  </details>
+</section>
+
+<style>
+  #accordion2 {
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  #accordion2 details {
+    background: rgb(38 38 38);
+    color: #fff;
+  }
+
+  #accordion2 details:first-child {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  #accordion2 details:last-child {
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  #accordion2 details:has(+ [open]) {
+    margin-bottom: 1rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+
+  #accordion2 details[open] + details {
+    margin-top: 1rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  #accordion2 details[open] {
+    border-radius: 0.75rem;
+  }
+
+  #accordion2 details summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    font-weight: 500;
+  }
+
+  #accordion2 details summary svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  #accordion2 details[open] summary svg:first-child {
+    display: none;
+  }
+
+  #accordion2 details summary svg:last-child {
+    display: none;
+  }
+
+  #accordion2 details[open] summary svg:last-child {
+    display: block;
+  }
+
+  #accordion2 details p {
+    padding: 1rem;
+    padding-top: 0.5rem;
+  }
+</style>
+`,
+      reactCode: `import { createContext, useContext, useEffect, useRef, useState } from "react";
+
+const AccordionContext = createContext();
+
+export default function App() {
+  return (
+    <Accordion className="max-w-lg">
+      <AccordionItem value="1" trigger="Accordion Item 1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
+        culpa nihil.
+      </AccordionItem>
+      <AccordionItem value="2" trigger="Accordion Item 2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
+        culpa nihil.
+      </AccordionItem>
+      <AccordionItem value="3" trigger="Accordion Item 3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
+        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
+        culpa nihil.
+      </AccordionItem>
+    </Accordion>
+  );
+}
+
+function Accordion({ children, value, onChange, ...props }) {
+  const [selected, setSelected] = useState(value);
+
+  useEffect(() => {
+    onChange?.(selected);
+  }, [selected]);
+
+  return (
+    <ul {...props}>
+      <AccordionContext.Provider value={{ selected, setSelected }}>
+        {children}
+      </AccordionContext.Provider>
+    </ul>
+  );
+}
+
+function AccordionItem({ children, value, trigger, ...props }) {
+  const { selected, setSelected } = useContext(AccordionContext);
+  const ref = useRef(null);
+  const open = selected === value;
+
+  return (
+    <li
+      className="bg-neutral-800 text-white transition-[border-radius,margin] first:rounded-t-xl last:rounded-b-xl has-[+[data-open]]:mb-4 has-[+[data-open]]:rounded-b-xl data-[open]:rounded-xl [&[data-open]+&]:mt-4 [&[data-open]+&]:rounded-t-xl"
+      data-open={open ? "" : null}
+      {...props}
+    >
+      <header
+        role="button"
+        onClick={() => setSelected(open ? null : value)}
+        className="flex items-center justify-between p-4 font-medium"
+      >
+        {trigger}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={\`size-6 \${open ? "hidden" : ""}\`}
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M12 5l0 14"></path>
+          <path d="M5 12l14 0"></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={\`size-6 \${open ? "" : "hidden"}\`}
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M5 12l14 0"></path>
+        </svg>
+      </header>
+      <div
+        className="overflow-y-hidden transition-all"
+        style={{ height: open ? ref.current?.offsetHeight || 0 : 0 }}
+      >
+        <div className="p-4 pt-2" ref={ref}>
+          {children}
+        </div>
+      </div>
+    </li>
+  );
+}
+`,
+    },
+    {
+      id: 3,
+      tailwindCode: `<section
+  id="accordion3"
+  class="flex aspect-[5/4] size-full items-center justify-center gap-2 max-md:flex-col md:aspect-video"
+>
+  <article
+    role="button"
+    class="group flex size-full flex-1 items-end overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat transition-all duration-300 data-[open]:flex-[10]"
+    style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+    data-open
+  >
+    <div
+      class="w-full flex-col bg-gradient-to-b from-transparent to-black/80 px-6 py-8 text-white opacity-0 transition-opacity duration-300 group-[[data-open]]:opacity-100"
+    >
+      <h3
+        class="-translate-x-4 translate-y-4 text-7xl font-bold opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-300"
+      >
+        01
+      </h3>
+      <p
+        class="-translate-x-4 translate-y-4 text-2xl opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-500"
+      >
+        Lorem ipsum dolor.
+      </p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    class="group flex size-full flex-1 items-end overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat transition-all duration-300 data-[open]:flex-[10]"
+    style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+  >
+    <div
+      class="w-full flex-col bg-gradient-to-b from-transparent to-black/80 px-6 py-8 text-white opacity-0 transition-opacity duration-300 group-[[data-open]]:opacity-100"
+    >
+      <h3
+        class="-translate-x-4 translate-y-4 text-7xl font-bold opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-300"
+      >
+        02
+      </h3>
+      <p
+        class="-translate-x-4 translate-y-4 text-2xl opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-500"
+      >
+        Lorem ipsum dolor.
+      </p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    class="group flex size-full flex-1 items-end overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat transition-all duration-300 data-[open]:flex-[10]"
+    style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+  >
+    <div
+      class="w-full flex-col bg-gradient-to-b from-transparent to-black/80 px-6 py-8 text-white opacity-0 transition-opacity duration-300 group-[[data-open]]:opacity-100"
+    >
+      <h3
+        class="-translate-x-4 translate-y-4 text-7xl font-bold opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-300"
+      >
+        03
+      </h3>
+      <p
+        class="-translate-x-4 translate-y-4 text-2xl opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-500"
+      >
+        Lorem ipsum dolor.
+      </p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    class="group flex size-full flex-1 items-end overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat transition-all duration-300 data-[open]:flex-[10]"
+    style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+  >
+    <div
+      class="w-full flex-col bg-gradient-to-b from-transparent to-black/80 px-6 py-8 text-white opacity-0 transition-opacity duration-300 group-[[data-open]]:opacity-100"
+    >
+      <h3
+        class="-translate-x-4 translate-y-4 text-7xl font-bold opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-300"
+      >
+        04
+      </h3>
+      <p
+        class="-translate-x-4 translate-y-4 text-2xl opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-500"
+      >
+        Lorem ipsum dolor.
+      </p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    class="group flex size-full flex-1 items-end overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat transition-all duration-300 data-[open]:flex-[10]"
+    style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+  >
+    <div
+      class="w-full bg-gradient-to-b from-transparent to-black/80 px-6 py-8 text-white opacity-0 transition-opacity duration-300 group-[[data-open]]:opacity-100"
+    >
+      <h3
+        class="-translate-x-4 translate-y-4 text-7xl font-bold opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-300"
+      >
+        05
+      </h3>
+      <p
+        class="-translate-x-4 translate-y-4 text-2xl opacity-0 transition-all duration-300 group-[[data-open]]:translate-x-0 group-[[data-open]]:translate-y-0 group-[[data-open]]:opacity-100 group-[[data-open]]:delay-500"
+      >
+        Lorem ipsum dolor.
+      </p>
+    </div>
+  </article>
+</section>
+
+<script>
+  const slides = document.querySelectorAll("#accordion3 article");
+
+  slides.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      const activeElement = document.querySelector(
+        "#accordion3 article[data-open]"
+      );
+
+      activeElement?.removeAttribute("data-open");
+
+      const target = event.currentTarget;
+
+      target.setAttribute("data-open", "");
+    });
+  });
+</script>
+`,
+      cssCode: `<section id="accordion3">
+  <article
+    role="button"
+    style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+    data-open
+  >
+    <div>
+      <h3>01</h3>
+      <p>Lorem ipsum dolor.</p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+  >
+    <div>
+      <h3>02</h3>
+      <p>Lorem ipsum dolor.</p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+  >
+    <div>
+      <h3>03</h3>
+      <p>Lorem ipsum dolor.</p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+  >
+    <div>
+      <h3>04</h3>
+      <p>Lorem ipsum dolor.</p>
+    </div>
+  </article>
+
+  <article
+    role="button"
+    style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+  >
+    <div>
+      <h3>05</h3>
+      <p>Lorem ipsum dolor.</p>
+    </div>
+  </article>
+</section>
+
+<style>
+  #accordion3 {
+    display: flex;
+    aspect-ratio: 5 / 4;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  #accordion3 article {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex: 1 1 0%;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #accordion3 article[data-open] {
+    flex: 10;
+  }
+
+  #accordion3 article div {
+    width: 100%;
+    background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.8));
+    padding: 2rem 1.5rem;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #accordion3 article[data-open] div {
+    opacity: 1;
+  }
+
+  #accordion3 article div h3,
+  #accordion3 article div p {
+    transform: translate(-1rem, 1rem);
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+
+  #accordion3 article div h3 {
+    font-size: 4.5rem;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  #accordion3 article div p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  #accordion3 article[data-open] div h3,
+  #accordion3 article[data-open] div p {
+    transform: translate(0);
+    opacity: 1;
+  }
+
+  #accordion3 article[data-open] div h3 {
+    transition-delay: 300ms;
+  }
+
+  #accordion3 article[data-open] div p {
+    transition-delay: 500ms;
+  }
+
+  @media (min-width: 768px) {
+    #accordion3 {
+      flex-direction: row;
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>
+
+<script>
+  const slides = document.querySelectorAll("#accordion3 article");
+
+  slides.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      const activeElement = document.querySelector(
+        "#accordion3 article[data-open]"
+      );
+
+      activeElement?.removeAttribute("data-open");
+
+      const target = event.currentTarget;
+
+      target.setAttribute("data-open", "");
+    });
+  });
+</script>
+`,
+    },
   ]);
 
   await db.insert(Breadcrumbs).values([
     {
-      id: "breadcrumb1",
+      id: 1,
       tailwindCode: `<ol
   class="flex items-center rounded-full border border-black/40 bg-neutral-800 px-5 py-3 text-white backdrop-blur-sm"
 >
   <li
-    class="flex list-none [&+&]:pl-2 before:[&_+_&]:pr-2 before:[&_+_&]:content-['/']"
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['/']"
   >
     <a href="#" class="hover:text-neutral-300 hover:underline">Home</a>
   </li>
   <li
-    class="flex list-none [&+&]:pl-2 before:[&_+_&]:pr-2 before:[&_+_&]:content-['/']"
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['/']"
   >
     <a href="#" class="hover:text-neutral-300 hover:underline">Library</a>
   </li>
   <li
-    class="flex list-none [&+&]:pl-2 before:[&_+_&]:pr-2 before:[&_+_&]:content-['/']"
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['/']"
   >
     <a href="#" class="hover:text-neutral-300 hover:underline">Data</a>
   </li>
@@ -379,11 +1115,151 @@ function AccordionItem({ children, value, trigger, ...props }) {
 </style>
 `,
     },
+    {
+      id: 2,
+      tailwindCode: `<ol
+  class="flex items-center rounded-full border border-black/40 bg-neutral-800 px-5 py-3 text-white backdrop-blur-sm"
+>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['>']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Home</a>
+  </li>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['>']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Library</a>
+  </li>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['>']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Data</a>
+  </li>
+</ol>
+`,
+      cssCode: `<ol id="breadcrumb1">
+  <li>
+    <a href="#">Home</a>
+  </li>
+  <li>
+    <a href="#">Library</a>
+  </li>
+  <li>
+    <a href="#">Data</a>
+  </li>
+</ol>
+
+<style>
+  #breadcrumb1 {
+    display: flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(0 0 0 / 0.4);
+    background: rgb(38 38 38);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #fff;
+    backdrop-filter: blur(4px);
+  }
+
+  #breadcrumb1 li {
+    display: flex;
+    list-style: none;
+  }
+
+  #breadcrumb1 li + li {
+    padding-left: 0.5rem;
+  }
+
+  #breadcrumb1 li + li:before {
+    content: ">";
+    padding-right: 0.5rem;
+  }
+
+  #breadcrumb1 li a:hover {
+    color: rgb(212 212 212);
+    text-decoration: underline;
+  }
+</style>
+`,
+    },
+    {
+      id: 3,
+      tailwindCode: `<ol
+  class="flex items-center rounded-full border border-black/40 bg-neutral-800 px-5 py-3 text-white backdrop-blur-sm"
+>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['\\\\']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Home</a>
+  </li>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['\\\\']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Library</a>
+  </li>
+  <li
+    class="flex list-none [&+&]:pl-2 before:[&+&]:pr-2 before:[&_+_&]:content-['\\\\']"
+  >
+    <a href="#" class="hover:text-neutral-300 hover:underline">Data</a>
+  </li>
+</ol>
+`,
+      cssCode: `<ol id="breadcrumb1">
+  <li>
+    <a href="#">Home</a>
+  </li>
+  <li>
+    <a href="#">Library</a>
+  </li>
+  <li>
+    <a href="#">Data</a>
+  </li>
+</ol>
+
+<style>
+  #breadcrumb1 {
+    display: flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(0 0 0 / 0.4);
+    background: rgb(38 38 38);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #fff;
+    backdrop-filter: blur(4px);
+  }
+
+  #breadcrumb1 li {
+    display: flex;
+    list-style: none;
+  }
+
+  #breadcrumb1 li + li {
+    padding-left: 0.5rem;
+  }
+
+  #breadcrumb1 li + li:before {
+    content: "\\\\";
+    padding-right: 0.5rem;
+  }
+
+  #breadcrumb1 li a:hover {
+    color: rgb(212 212 212);
+    text-decoration: underline;
+  }
+</style>
+`,
+    },
   ]);
 
   await db.insert(Buttons).values([
     {
-      id: "button1",
+      id: 1,
       tailwindCode: `<button
   class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-50"
 >
@@ -438,7 +1314,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button2",
+      id: 2,
       tailwindCode: `<button
   class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-50"
 >
@@ -493,7 +1369,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button3",
+      id: 3,
       tailwindCode: `<button
   class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-110"
 >
@@ -526,7 +1402,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button4",
+      id: 4,
       tailwindCode: `<button
   class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
 >
@@ -559,7 +1435,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button5",
+      id: 5,
       tailwindCode: `<button
   class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110"
 >
@@ -592,7 +1468,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button6",
+      id: 6,
       tailwindCode: `<button
   class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:translate-y-1 active:scale-x-110 active:scale-y-90"
 >
@@ -625,7 +1501,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button7",
+      id: 7,
       tailwindCode: `<button
   class="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-50"
 >
@@ -712,7 +1588,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button8",
+      id: 8,
       tailwindCode: `<button
   class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-950"
 >
@@ -780,7 +1656,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button9",
+      id: 9,
       tailwindCode: `<button
   class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-950"
 >
@@ -848,7 +1724,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button10",
+      id: 10,
       tailwindCode: `<button
   class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-950"
 >
@@ -939,7 +1815,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button11",
+      id: 11,
       tailwindCode: `<button
   class="relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white px-6 font-medium text-neutral-600 shadow-[5px_5px] shadow-neutral-600 transition-[transform,box-shadow] duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-[0_0] active:shadow-neutral-600"
 >
@@ -980,7 +1856,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button12",
+      id: 12,
       tailwindCode: `<button class="group relative">
   <div
     class="inline-flex h-12 items-center justify-center rounded-md border border-neutral-200 bg-white px-6 font-medium text-neutral-600 transition-[transform,box-shadow] duration-300 group-hover:-translate-x-3 group-hover:-translate-y-3 group-active:translate-x-0 group-active:translate-y-0"
@@ -1049,7 +1925,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button13",
+      id: 13,
       tailwindCode: `<button
   class="inline-flex h-12 items-center justify-center rounded-md border border-neutral-200 bg-white px-6 font-medium text-neutral-600 shadow-[0_4px_1px] shadow-neutral-400 transition-[transform,box-shadow] active:translate-y-0.5 active:shadow-[0_0] active:shadow-neutral-400"
 >
@@ -1088,7 +1964,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "button14",
+      id: 14,
       tailwindCode: `<button
   class="group inline-flex h-12 items-center justify-center rounded-md border border-neutral-100 bg-white px-6 font-medium text-neutral-600 shadow-[0_-1px_0_0px_#d4d4d8_inset,0_0_0_1px_#f4f4f5_inset,0_0.5px_0_1.5px_#fff_inset] active:shadow-[-1px_0px_1px_0px_#e4e4e7_inset,1px_0px_1px_0px_#e4e4e7_inset,0px_0.125rem_1px_0px_#d4d4d8_inset]"
 >
@@ -1138,7 +2014,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 
   await db.insert(Carousels).values([
     {
-      id: "carousel1",
+      id: 1,
       tailwindCode: `<section id="slider1" class="w-full">
   <div class="relative">
     <button
@@ -1164,35 +2040,30 @@ function AccordionItem({ children, value, trigger, ...props }) {
     <ul
       class="mb-4 grid grid-cols-[repeat(10,1fr)] gap-2 overflow-x-auto [scrollbar-width:none] lg:mb-8 lg:gap-4 [&::-webkit-scrollbar]:hidden"
     >
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 1
+      <li
+        class="h-80 w-64 rounded-xl bg-cover bg-center bg-no-repeat lg:h-96 lg:w-80"
+        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 2
+      <li
+        class="h-80 w-64 rounded-xl bg-cover bg-center bg-no-repeat lg:h-96 lg:w-80"
+        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 3
+      <li
+        class="h-80 w-64 rounded-xl bg-cover bg-center bg-no-repeat lg:h-96 lg:w-80"
+        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 4
+      <li
+        class="h-80 w-64 rounded-xl bg-cover bg-center bg-no-repeat lg:h-96 lg:w-80"
+        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+      >
       </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 5
-      </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 6
-      </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 7
-      </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 8
-      </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 9
-      </li>
-      <li class="grid h-80 w-64 place-items-center rounded-2xl bg-neutral-500 text-white lg:h-96 lg:w-80">
-        ITEM 10
+      <li
+        class="h-80 w-64 rounded-xl bg-cover bg-center bg-no-repeat lg:h-96 lg:w-80"
+        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
     </ul>
     <button
@@ -1313,16 +2184,31 @@ function AccordionItem({ children, value, trigger, ...props }) {
       </svg>
     </button>
     <ul class="image-list">
-      <li class="image-item">ITEM 1</li>
-      <li class="image-item">ITEM 2</li>
-      <li class="image-item">ITEM 3</li>
-      <li class="image-item">ITEM 4</li>
-      <li class="image-item">ITEM 5</li>
-      <li class="image-item">ITEM 6</li>
-      <li class="image-item">ITEM 7</li>
-      <li class="image-item">ITEM 8</li>
-      <li class="image-item">ITEM 9</li>
-      <li class="image-item">ITEM 10</li>
+      <li
+        class="image-item"
+        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
+      <li
+        class="image-item"
+        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
+      <li
+        class="image-item"
+        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
+      <li
+        class="image-item"
+        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+      >
+      </li>
+      <li
+        class="image-item"
+        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
     </ul>
     <button type="button" class="slide-button">
       <svg
@@ -1403,12 +2289,12 @@ function AccordionItem({ children, value, trigger, ...props }) {
   }
 
   #slider1 .image-item {
-    display: grid;
     width: 20rem;
     height: 24rem;
-    place-items: center;
-    border-radius: 1rem;
-    background-color: #737373;
+    border-radius: 0.75rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #fff;
   }
 
@@ -1545,123 +2431,93 @@ function AccordionItem({ children, value, trigger, ...props }) {
 `,
     },
     {
-      id: "carousel2",
+      id: 2,
       tailwindCode: `<section id="slider2" class="w-full">
   <div
     class="slider-wrapper group/wrapper relative flex h-[60dvh] items-end justify-center overflow-hidden"
   >
     <ul class="list">
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
         >
-          ITEM 1
+          <h3 class="text-7xl font-bold">01</h3>
+          <p class="text-2xl">Lorem ipsum dolor.</p>
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
         >
-          ITEM 2
+          <h3 class="text-7xl font-bold">02</h3>
+          <p class="text-2xl">Lorem ipsum dolor.</p>
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
         >
-          ITEM 3
+          <h3 class="text-7xl font-bold">03</h3>
+          <p class="text-2xl">Lorem ipsum dolor.</p>
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
         >
-          ITEM 4
+          <h3 class="text-7xl font-bold">04</h3>
+          <p class="text-2xl">Lorem ipsum dolor.</p>
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
+        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
         >
-          ITEM 5
-        </div>
-      </li>
-      <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-      >
-        <div
-          class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
-        >
-          ITEM 6
-        </div>
-      </li>
-      <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-      >
-        <div
-          class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
-        >
-          ITEM 7
-        </div>
-      </li>
-      <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-      >
-        <div
-          class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
-        >
-          ITEM 8
-        </div>
-      </li>
-      <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-      >
-        <div
-          class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
-        >
-          ITEM 9
-        </div>
-      </li>
-      <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-neutral-400 transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none first:bg-neutral-500 last:bottom-0 last:left-0 last:size-full last:rounded-none last:bg-neutral-500 lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-      >
-        <div
-          class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
-        >
-          ITEM 10
+          <h3 class="text-7xl font-bold">05</h3>
+          <p class="text-2xl">Lorem ipsum dolor.</p>
         </div>
       </li>
     </ul>
     <ul class="thumbnail absolute bottom-16 left-1/2 z-[3] flex gap-4">
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
+      <li
+        class="item h-36 w-24 rounded-2xl bg-cover bg-center bg-no-repeat lg:h-56 lg:w-40"
+        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
+      <li
+        class="item h-36 w-24 rounded-2xl bg-cover bg-center bg-no-repeat lg:h-56 lg:w-40"
+        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
+      <li
+        class="item h-36 w-24 rounded-2xl bg-cover bg-center bg-no-repeat lg:h-56 lg:w-40"
+        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+      >
       </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
+      <li
+        class="item h-36 w-24 rounded-2xl bg-cover bg-center bg-no-repeat lg:h-56 lg:w-40"
+        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
-      </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
-      </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
-      </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
-      </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
-      </li>
-      <li class="item h-36 w-24 rounded-2xl bg-neutral-400 lg:h-56 lg:w-40">
+      <li
+        class="item h-36 w-24 rounded-2xl bg-cover bg-center bg-no-repeat lg:h-56 lg:w-40"
+        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
       </li>
     </ul>
     <div class="z-[3] mb-4 flex gap-3">
@@ -1801,48 +2657,78 @@ function AccordionItem({ children, value, trigger, ...props }) {
       cssCode: `<section id="slider2">
   <div class="slider-wrapper">
     <ul class="list">
-      <li class="item">
-        <div class="content">ITEM 1</div>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+        <div class="content">
+          <h3>01</h3>
+          <p>Lorem ipsum dolor.</p>
+        </div>
       </li>
-      <li class="item">
-        <div class="content">ITEM 2</div>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+        <div class="content">
+          <h3>02</h3>
+          <p>Lorem ipsum dolor.</p>
+        </div>
       </li>
-      <li class="item">
-        <div class="content">ITEM 3</div>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+        <div class="content">
+          <h3>03</h3>
+          <p>Lorem ipsum dolor.</p>
+        </div>
       </li>
-      <li class="item">
-        <div class="content">ITEM 4</div>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+      >
+        <div class="content">
+          <h3>04</h3>
+          <p>Lorem ipsum dolor.</p>
+        </div>
       </li>
-      <li class="item">
-        <div class="content">ITEM 5</div>
-      </li>
-      <li class="item">
-        <div class="content">ITEM 6</div>
-      </li>
-      <li class="item">
-        <div class="content">ITEM 7</div>
-      </li>
-      <li class="item">
-        <div class="content">ITEM 8</div>
-      </li>
-      <li class="item">
-        <div class="content">ITEM 9</div>
-      </li>
-      <li class="item">
-        <div class="content">ITEM 10</div>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+        <div class="content">
+          <h3>05</h3>
+          <p>Lorem ipsum dolor.</p>
+        </div>
       </li>
     </ul>
     <ul class="thumbnail">
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
-      <li class="item"></li>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+      >
+      </li>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
+      <li
+        class="item"
+        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+      >
+      </li>
     </ul>
     <div class="slide-buttons">
       <button type="button" class="slide-button">
@@ -1905,8 +2791,11 @@ function AccordionItem({ children, value, trigger, ...props }) {
     align-items: end;
     overflow: hidden;
     border-radius: 1rem;
-    background-color: #a3a3a3;
-    transition-property: bottom, left, width, height, border-radius, background-color;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition-property: bottom, left, width, height, border-radius,
+      background-color;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 500ms;
   }
@@ -1918,7 +2807,6 @@ function AccordionItem({ children, value, trigger, ...props }) {
     width: 100%;
     height: 100%;
     border-radius: 0;
-    background-color: #737373;
   }
 
   #slider2 .list .item:first-child {
@@ -1948,6 +2836,17 @@ function AccordionItem({ children, value, trigger, ...props }) {
     transition-delay: 500ms;
   }
 
+  #slider2 .list .item .content h3 {
+    font-size: 4.5rem;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  #slider2 .list .item .content p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   #slider2 .thumbnail {
     position: absolute;
     bottom: 4rem;
@@ -1961,7 +2860,9 @@ function AccordionItem({ children, value, trigger, ...props }) {
     height: 9rem;
     width: 6rem;
     border-radius: 1rem;
-    background-color: #a3a3a3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   #slider2 .slider-wrapper.prev .thumbnail .item:last-child {
@@ -2089,7 +2990,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 
   await db.insert(Dropdowns).values([
     {
-      id: "dropdown1",
+      id: 1,
       tailwindCode: `<div class="relative z-[999]">
   <button
     id="toggler1"
@@ -2246,7 +3147,7 @@ export default function Dropdown() {
 `,
     },
     {
-      id: "dropdown2",
+      id: 2,
       tailwindCode: `<div class="relative z-[999]">
   <button
     id="toggler2"
@@ -2406,7 +3307,7 @@ export default function Dropdown() {
 
   await db.insert(Tabs).values([
     {
-      id: "tab1",
+      id: 1,
       tailwindCode: `<div
   id="tabs1"
   class="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm"
@@ -2618,7 +3519,7 @@ export default function Tab1() {
 `,
     },
     {
-      id: "tab2",
+      id: 2,
       tailwindCode: `<div
   id="tabs2"
   class="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm"
