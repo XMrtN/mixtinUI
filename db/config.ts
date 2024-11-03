@@ -3,7 +3,7 @@ import { column, defineDb, defineTable } from "astro:db";
 const createTable = () =>
   defineTable({
     columns: {
-      id: column.text({ primaryKey: true }),
+      id: column.number({ primaryKey: true }),
       tailwindCode: column.text({ multiline: true, optional: true }),
       cssCode: column.text({ multiline: true, optional: true }),
       reactCode: column.text({ multiline: true, optional: true }),
