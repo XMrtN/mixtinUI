@@ -2438,8 +2438,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
   >
     <ul class="list">
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-[linear-gradient(to_bottom,var(--tw-gradient-stops)),url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] from-transparent from-60% to-black/80 bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
@@ -2449,8 +2448,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-[linear-gradient(to_bottom,var(--tw-gradient-stops)),url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] from-transparent from-60% to-black/80 bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
@@ -2460,8 +2458,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-[linear-gradient(to_bottom,var(--tw-gradient-stops)),url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] from-transparent from-60% to-black/80 bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
@@ -2471,8 +2468,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-[linear-gradient(to_bottom,var(--tw-gradient-stops)),url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg')] from-transparent from-60% to-black/80 bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
@@ -2482,8 +2478,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
         </div>
       </li>
       <li
-        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
-        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        class="item group absolute bottom-16 left-1/2 flex h-36 w-24 items-end overflow-hidden rounded-2xl bg-[linear-gradient(to_bottom,var(--tw-gradient-stops)),url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] from-transparent from-60% to-black/80 bg-cover bg-center bg-no-repeat transition-[bottom,left,width,height,border-radius,background-color] duration-500 first:bottom-0 first:left-0 first:z-[1] first:size-full first:rounded-none last:bottom-0 last:left-0 last:size-full last:rounded-none lg:h-56 lg:w-40 group-[.prev]/wrapper:[&:nth-child(2)]:z-[2]"
       >
         <div
           class="content mb-3 w-1/2 translate-y-4 px-8 py-4 text-white opacity-0 transition-[transform,opacity] duration-200 group-first:translate-y-0 group-first:opacity-100 group-first:delay-500 group-last:translate-y-0 group-last:opacity-100 group-last:delay-500"
@@ -2659,7 +2654,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     <ul class="list">
       <li
         class="item"
-        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div class="content">
           <h3>01</h3>
@@ -2668,7 +2663,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
       </li>
       <li
         class="item"
-        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div class="content">
           <h3>02</h3>
@@ -2677,7 +2672,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
       </li>
       <li
         class="item"
-        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div class="content">
           <h3>03</h3>
@@ -2686,7 +2681,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
       </li>
       <li
         class="item"
-        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
+        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
       >
         <div class="content">
           <h3>04</h3>
@@ -2695,7 +2690,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
       </li>
       <li
         class="item"
-        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
+        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
       >
         <div class="content">
           <h3>05</h3>
