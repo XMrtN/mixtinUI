@@ -33,7 +33,7 @@ const componentDB = await db
             slot="codeComponent"
             class="rounded-md p-6"
             code={code.toString()}
-            lang="astro"
+            lang={title === "reactCode" ? "jsx" : "astro"}
           />
           <Copy slot="copyIcon" class="size-5" />
           <Check slot="checkIcon" class="size-5" />
