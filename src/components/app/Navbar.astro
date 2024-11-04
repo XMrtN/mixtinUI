@@ -55,25 +55,21 @@ const { pathname } = Astro.url;
       <NavbarBrand />
     </div>
   </Sidebar>
-
-  <section
-    class="pointer-events-none fixed -left-full top-0 h-[1000vh] w-[200%] bg-black/10 opacity-0 transition-[opacity,left] duration-300 max-sm:group-data-[open]:pointer-events-auto max-sm:group-data-[open]:left-64 max-sm:group-data-[open]:opacity-100"
-  >
-  </section>
 </nav>
 
 <script is:inline>
-  const navbar = document.querySelector("nav"),
-    menuBtns = document.querySelectorAll("nav svg"),
-    overlay = navbar.querySelector("section");
+  const navbar = document.querySelector("nav");
+  const menuBtns = document.querySelectorAll("nav svg");
 
   menuBtns.forEach((item) => {
     item.addEventListener("click", () => {
       navbar.toggleAttribute("data-open");
     });
-  });
 
-  overlay.addEventListener("click", () => {
-    navbar.removeAttribute("data-open");
+    document.addEventListener("click", (e) => {
+      if (!navbar.contains(e.target) && e.target !== item) {
+        navbar.removeAttribute("data-open");
+      }
+    });
   });
 </script>
