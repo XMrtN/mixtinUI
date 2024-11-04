@@ -5,6 +5,7 @@ import {
   Carousels,
   db,
   Dropdowns,
+  Modals,
   Tabs,
 } from "astro:db";
 
@@ -869,8 +870,8 @@ function AccordionItem({ children, value, trigger, ...props }) {
   const slides = document.querySelectorAll("#accordion3 article");
 
   slides.forEach((item) => {
-    item.addEventListener("click", (event) => {
-      event.stopPropagation();
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
 
       const activeElement = document.querySelector(
         "#accordion3 article[data-open]"
@@ -878,7 +879,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 
       activeElement?.removeAttribute("data-open");
 
-      const target = event.currentTarget;
+      const target = e.currentTarget;
 
       target.setAttribute("data-open", "");
     });
@@ -1025,8 +1026,8 @@ function AccordionItem({ children, value, trigger, ...props }) {
   const slides = document.querySelectorAll("#accordion3 article");
 
   slides.forEach((item) => {
-    item.addEventListener("click", (event) => {
-      event.stopPropagation();
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
 
       const activeElement = document.querySelector(
         "#accordion3 article[data-open]"
@@ -1034,7 +1035,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
 
       activeElement?.removeAttribute("data-open");
 
-      const target = event.currentTarget;
+      const target = e.currentTarget;
 
       target.setAttribute("data-open", "");
     });
@@ -1261,7 +1262,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 1,
       tailwindCode: `<button
-  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-50"
+  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-900 px-6 font-medium text-white"
 >
   <div class="transition-transform group-hover:-translate-x-[150%]">
     Hover me
@@ -1289,7 +1290,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
   }
 
   #button1 div {
@@ -1316,7 +1317,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 2,
       tailwindCode: `<button
-  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-50"
+  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-900 px-6 font-medium text-white"
 >
   <div class="transition-transform group-hover:-translate-y-[150%]">
     Hover me
@@ -1344,7 +1345,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
   }
 
   #button2 div {
@@ -1371,7 +1372,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 3,
       tailwindCode: `<button
-  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-110"
+  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-110"
 >
   Click me
 </button>
@@ -1389,7 +1390,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
@@ -1404,7 +1405,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 4,
       tailwindCode: `<button
-  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
+  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-95"
 >
   Click me
 </button>
@@ -1422,7 +1423,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
@@ -1437,7 +1438,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 5,
       tailwindCode: `<button
-  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110"
+  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:-translate-y-1 active:scale-x-90 active:scale-y-110"
 >
   Click me
 </button>
@@ -1455,7 +1456,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-duration: 300ms;
@@ -1470,7 +1471,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 6,
       tailwindCode: `<button
-  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:translate-y-1 active:scale-x-110 active:scale-y-90"
+  class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform duration-300 [transition-timing-function:cubic-bezier(0.175,0.885,0.32,1.275)] active:translate-y-1 active:scale-x-110 active:scale-y-90"
 >
   Click me
 </button>
@@ -1488,7 +1489,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-duration: 300ms;
@@ -1503,7 +1504,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 7,
       tailwindCode: `<button
-  class="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-50"
+  class="group inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-900 px-6 font-medium text-white"
 >
   Hover me
   <div
@@ -1561,7 +1562,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
   }
 
   #button7 div {
@@ -1590,7 +1591,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 8,
       tailwindCode: `<button
-  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-950"
+  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-900"
 >
   <div
     class="inline-flex h-12 items-center justify-center px-6 transition-transform group-hover:-translate-y-[150%]"
@@ -1598,7 +1599,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     Hover me
   </div>
   <div
-    class="absolute inline-flex h-12 translate-y-full items-center justify-center bg-blue-500 px-6 text-neutral-50 transition-transform duration-300 group-hover:translate-y-0"
+    class="absolute inline-flex h-12 translate-y-full items-center justify-center bg-blue-500 px-6 text-white transition-transform duration-300 group-hover:translate-y-0"
   >
     Hover me
   </div>
@@ -1645,7 +1646,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     position: absolute;
     transform: translateY(100%);
     background-color: #3b82f6;
-    color: #fafafa;
+    color: #fff;
     transition-duration: 300ms;
   }
 
@@ -1658,7 +1659,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 9,
       tailwindCode: `<button
-  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-950"
+  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-900"
 >
   <div
     class="inline-flex h-12 items-center justify-center px-6 transition-transform group-hover:-translate-x-[150%]"
@@ -1666,7 +1667,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     Hover me
   </div>
   <div
-    class="absolute inline-flex h-12 translate-x-full items-center justify-center bg-blue-500 px-6 text-neutral-50 transition-transform duration-300 group-hover:translate-x-0"
+    class="absolute inline-flex h-12 translate-x-full items-center justify-center bg-blue-500 px-6 text-white transition-transform duration-300 group-hover:translate-x-0"
   >
     Hover me
   </div>
@@ -1713,7 +1714,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     position: absolute;
     transform: translateX(100%);
     background-color: #3b82f6;
-    color: #fafafa;
+    color: #fff;
     transition-duration: 300ms;
   }
 
@@ -1726,7 +1727,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     {
       id: 10,
       tailwindCode: `<button
-  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-950"
+  class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium text-neutral-900"
 >
   <div
     class="inline-flex h-12 items-center justify-center px-6 transition-transform duration-500 group-hover:-translate-y-[150%]"
@@ -1734,7 +1735,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
     Hover me
   </div>
   <div
-    class="absolute inline-flex h-12 translate-y-full items-center justify-center px-6 text-neutral-50 transition-transform duration-500 group-hover:translate-y-0"
+    class="absolute inline-flex h-12 translate-y-full items-center justify-center px-6 text-white transition-transform duration-500 group-hover:translate-y-0"
   >
     <span
       class="absolute size-full translate-y-full skew-y-12 scale-y-0 bg-blue-500 transition-transform duration-500 group-hover:translate-y-0 group-hover:scale-150"
@@ -1786,7 +1787,7 @@ function AccordionItem({ children, value, trigger, ...props }) {
   #button10 div:last-child {
     position: absolute;
     transform: translateY(100%);
-    color: #fafafa;
+    color: #fff;
   }
 
   #button10:hover div:last-child {
@@ -2986,82 +2987,69 @@ function AccordionItem({ children, value, trigger, ...props }) {
   await db.insert(Dropdowns).values([
     {
       id: 1,
-      tailwindCode: `<div class="relative z-[999]">
+      tailwindCode: `<div id="dropdown1" class="relative">
   <button
-    id="toggler1"
-    class="relative z-10 inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
+    class="z-10 h-12 rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-95"
   >
     Click me
   </button>
 
   <section
-    id="menu1"
-    class="pointer-events-none absolute left-0 top-14 z-10 origin-top-left scale-50 select-none rounded-md bg-neutral-950 px-4 py-3 text-neutral-50 opacity-0 transition-[transform,opacity] duration-300"
+    class="pointer-events-none absolute left-0 top-14 z-10 origin-top-left scale-50 select-none rounded-md bg-neutral-900 px-4 py-3 text-white opacity-0 transition-[transform,opacity] duration-300"
   >
     Hello world!
-  </section>
-
-  <section
-    id="overlay1"
-    class="pointer-events-none fixed left-0 top-0 h-[1000vh] w-[200%]"
-  >
   </section>
 </div>
 
 <script>
-  const toggler1 = document.querySelector("#toggler1");
-  const menu1 = document.querySelector("#menu1");
-  const overlay1 = document.querySelector("#overlay1");
+  const toggler1 = document.querySelector("#dropdown1 button");
+  const menu1 = document.querySelector("#dropdown1 section");
 
-  toggler1.onclick = function () {
+  toggler1.addEventListener("click", () => {
     menu1.classList.toggle("pointer-events-none");
     menu1.classList.toggle("scale-50");
     menu1.classList.toggle("select-none");
     menu1.classList.toggle("opacity-0");
-    overlay1.classList.toggle("pointer-events-none");
-  };
+  });
 
-  overlay1.onclick = function () {
-    menu1.classList.add("pointer-events-none");
-    menu1.classList.add("scale-50");
-    menu1.classList.add("select-none");
-    menu1.classList.add("opacity-0");
-    overlay1.classList.add("pointer-events-none");
-  };
+  document.addEventListener("click", (e) => {
+    if (!menu1.contains(e.target) && e.target !== toggler1) {
+      menu1.classList.add("pointer-events-none");
+      menu1.classList.add("scale-50");
+      menu1.classList.add("select-none");
+      menu1.classList.add("opacity-0");
+    }
+  });
 </script>
 `,
       cssCode: `<div id="dropdown1">
-  <button id="toggler1">Click me</button>
-  <section id="menu1">Hello world!</section>
-  <section id="overlay1"></section>
+  <button>Click me</button>
+  <section>Hello world!</section>
 </div>
 
 <style>
   #dropdown1 {
     position: relative;
-    z-index: 999;
   }
-  #toggler1 {
-    display: inline-flex;
+  
+  #dropdown1 button {
     height: 3rem;
-    align-items: center;
-    justify-content: center;
     border-radius: 0.375rem;
     background-color: #0a0a0a;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
 
-  #toggler1:active {
+  #dropdown1 button:active {
     transform: scale(0.95);
   }
 
-  #menu1 {
+  #dropdown1 section {
     pointer-events: none;
     position: absolute;
     left: 0;
@@ -3076,66 +3064,69 @@ function AccordionItem({ children, value, trigger, ...props }) {
     padding-right: 1rem;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    color: #fafafa;
+    color: #fff;
     opacity: 0;
     transition-property: transform, opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
   }
-
-  #overlay1 {
-    pointer-events: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 1000vh;
-    width: 200%;
-  }
 </style>
 
 <script>
-  const toggler1 = document.querySelector("#toggler1");
-  const menu1 = document.querySelector("#menu1");
-  const overlay1 = document.querySelector("#overlay1");
+  const toggler1 = document.querySelector("#dropdown1 button");
+  const menu1 = document.querySelector("#dropdown1 section");
 
-  toggler1.onclick = function () {
+  toggler1.addEventListener("click", () => {
     menu1.setAttribute(
       "style",
       "pointer-events: auto; transform: scale(1); user-select: auto; opacity: 1;"
     );
-    overlay1.setAttribute("style", "pointer-events: auto;");
-  };
+  });
 
-  overlay1.onclick = function () {
-    menu1.removeAttribute("style");
-    overlay1.removeAttribute("style");
-  };
+  document.addEventListener("click", (e) => {
+    if (!menu1.contains(e.target) && e.target !== toggler1) {
+      menu1.removeAttribute("style");
+    }
+  });
 </script>
 `,
-      reactCode: `import { useState } from "react";
+      reactCode: `import { useEffect, useRef, useState } from "react";
 
 export default function Dropdown() {
   const [open, setOpen] = useState(false);
+  const toggler1 = useRef(null);
+  const menu1 = useRef(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (!menu1.current.contains(e.target) && e.target !== toggler1.current) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, []);
 
   return (
-    <div className="relative z-[999]">
+    <div className="relative">
       <button
-        className="relative z-10 inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
-        onClick={() => setOpen(!open)}
+        ref={toggler1}
+        className="z-10 h-12 rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-95"
+        onClick={() => setOpen((prev) => !prev)}
       >
         Click me
       </button>
 
       <section
-        className={\`absolute left-0 top-14 z-10 origin-top-left rounded-md bg-neutral-950 px-4 py-3 text-neutral-50 transition-[transform,opacity] duration-300 \${!open ? "pointer-events-none scale-50 select-none opacity-0" : ""}\`}
+        ref={menu1}
+        className={\`absolute left-0 top-14 z-10 origin-top-left rounded-md bg-neutral-900 px-4 py-3 text-white transition-[transform,opacity] duration-300 \${open ? "" : "pointer-events-none scale-50 select-none opacity-0"}\`}
       >
         Hello world!
       </section>
-
-      <section
-        className={\`fixed left-0 top-0 h-[1000vh] w-[200%] \${!open ? "pointer-events-none" : ""}\`}
-        onClick={() => setOpen(false)}
-      />
     </div>
   );
 }
@@ -3143,82 +3134,69 @@ export default function Dropdown() {
     },
     {
       id: 2,
-      tailwindCode: `<div class="relative z-[999]">
+      tailwindCode: `<div id="dropdown2" class="relative">
   <button
-    id="toggler2"
-    class="relative z-10 inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
+    class="z-10 h-12 rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-95"
   >
     Click me
   </button>
 
   <section
-    id="menu2"
-    class="pointer-events-none absolute right-0 top-14 z-10 origin-top-right scale-50 select-none rounded-md bg-neutral-950 px-4 py-3 text-neutral-50 opacity-0 transition-[transform,opacity] duration-300"
+    class="pointer-events-none absolute right-0 top-14 z-10 origin-top-right scale-50 select-none rounded-md bg-neutral-900 px-4 py-3 text-white opacity-0 transition-[transform,opacity] duration-300"
   >
     Hello world!
-  </section>
-
-  <section
-    id="overlay2"
-    class="pointer-events-none fixed left-0 top-0 h-[1000vh] w-[200%]"
-  >
   </section>
 </div>
 
 <script>
-  const toggler2 = document.querySelector("#toggler2");
-  const menu2 = document.querySelector("#menu2");
-  const overlay2 = document.querySelector("#overlay2");
+  const toggler2 = document.querySelector("#dropdown2 button");
+  const menu2 = document.querySelector("#dropdown2 section");
 
-  toggler2.onclick = function () {
+  toggler2.addEventListener("click", () => {
     menu2.classList.toggle("pointer-events-none");
     menu2.classList.toggle("scale-50");
     menu2.classList.toggle("select-none");
     menu2.classList.toggle("opacity-0");
-    overlay2.classList.toggle("pointer-events-none");
-  };
+  });
 
-  overlay2.onclick = function () {
-    menu2.classList.add("pointer-events-none");
-    menu2.classList.add("scale-50");
-    menu2.classList.add("select-none");
-    menu2.classList.add("opacity-0");
-    overlay2.classList.add("pointer-events-none");
-  };
+  document.addEventListener("click", (e) => {
+    if (!menu2.contains(e.target) && e.target !== toggler2) {
+      menu2.classList.add("pointer-events-none");
+      menu2.classList.add("scale-50");
+      menu2.classList.add("select-none");
+      menu2.classList.add("opacity-0");
+    }
+  });
 </script>
 `,
       cssCode: `<div id="dropdown2">
-  <button id="toggler2">Click me</button>
-  <section id="menu2">Hello world!</section>
-  <section id="overlay2"></section>
+  <button>Click me</button>
+  <section>Hello world!</section>
 </div>
 
 <style>
   #dropdown2 {
     position: relative;
-    z-index: 999;
   }
-  #toggler2 {
-    display: inline-flex;
+  
+  #dropdown2 button {
     height: 3rem;
-    align-items: center;
-    justify-content: center;
     border-radius: 0.375rem;
     background-color: #0a0a0a;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-weight: 500;
-    color: #fafafa;
+    color: #fff;
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
 
-  #toggler2:active {
+  #dropdown2 button:active {
     transform: scale(0.95);
   }
 
-  #menu2 {
+  #dropdown2 section {
     pointer-events: none;
     position: absolute;
     right: 0;
@@ -3233,69 +3211,450 @@ export default function Dropdown() {
     padding-right: 1rem;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    color: #fafafa;
+    color: #fff;
     opacity: 0;
     transition-property: transform, opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
   }
-
-  #overlay2 {
-    pointer-events: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 1000vh;
-    width: 200%;
-  }
 </style>
 
 <script>
-  const toggler2 = document.querySelector("#toggler2");
-  const menu2 = document.querySelector("#menu2");
-  const overlay2 = document.querySelector("#overlay2");
+  const toggler2 = document.querySelector("#dropdown2 button");
+  const menu2 = document.querySelector("#dropdown2 section");
 
-  toggler2.onclick = function () {
+  toggler2.addEventListener("click", () => {
     menu2.setAttribute(
       "style",
       "pointer-events: auto; transform: scale(1); user-select: auto; opacity: 1;"
     );
-    overlay2.setAttribute("style", "pointer-events: auto;");
-  };
+  });
 
-  overlay2.onclick = function () {
-    menu2.removeAttribute("style");
-    overlay2.removeAttribute("style");
-  };
+  document.addEventListener("click", (e) => {
+    if (!menu2.contains(e.target) && e.target !== toggler2) {
+      menu2.removeAttribute("style");
+    }
+  });
 </script>
 `,
-      reactCode: `import { useState } from "react";
+      reactCode: `import { useEffect, useRef, useState } from "react";
 
 export default function Dropdown() {
   const [open, setOpen] = useState(false);
+  const toggler2 = useRef(null);
+  const menu2 = useRef(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (!menu2.current.contains(e.target) && e.target !== toggler2.current) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, []);
 
   return (
-    <div className="relative z-[999]">
+    <div className="relative">
       <button
-        className="relative z-10 inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition-transform active:scale-95"
-        onClick={() => setOpen(!open)}
+        ref={toggler2}
+        className="z-10 h-12 rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-95"
+        onClick={() => setOpen((prev) => !prev)}
       >
         Click me
       </button>
 
       <section
-        className={\`absolute left-0 top-14 z-10 origin-top-left rounded-md bg-neutral-950 px-4 py-3 text-neutral-50 transition-[transform,opacity] duration-300 \${!open ? "pointer-events-none scale-50 select-none opacity-0" : ""}\`}
+        ref={menu2}
+        className={\`absolute right-0 top-14 z-10 origin-top-right rounded-md bg-neutral-900 px-4 py-3 text-white transition-[transform,opacity] duration-300 \${open ? "" : "pointer-events-none scale-50 select-none opacity-0"}\`}
       >
         Hello world!
       </section>
-
-      <section
-        className={\`fixed left-0 top-0 h-[1000vh] w-[200%] \${!open ? "pointer-events-none" : ""}\`}
-        onClick={() => setOpen(false)}
-      />
     </div>
   );
 }
+`,
+    },
+    {
+      id: 3,
+      tailwindCode: `<section id="dropdown3" class="relative m-8 min-w-60">
+  <header
+    role="button"
+    class="flex items-center justify-between rounded-xl bg-neutral-900 p-4 text-white transition-shadow hover:bg-neutral-800"
+  >
+    <span>Select an item</span>
+    <div
+      class="size-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white"
+    >
+    </div>
+  </header>
+
+  <ul
+    class="absolute left-1/2 top-16 z-10 hidden w-full -translate-x-1/2 list-none rounded-xl bg-neutral-900 px-2 py-1 text-neutral-300 shadow-xl"
+  >
+    <li role="button" class="my-1 rounded-md px-2 py-3 hover:bg-neutral-800/50">
+      HTML
+    </li>
+    <li role="button" class="my-1 rounded-md px-2 py-3 hover:bg-neutral-800/50">
+      CSS
+    </li>
+    <li role="button" class="my-1 rounded-md px-2 py-3 hover:bg-neutral-800/50">
+      JavaScript
+    </li>
+  </ul>
+</section>
+
+<script>
+  const dropdown3 = document.querySelector("#dropdown3");
+  const select3 = dropdown3.querySelector("header");
+  const selected3 = dropdown3.querySelector("header span");
+  const caret3 = dropdown3.querySelector("header div");
+  const menu3 = dropdown3.querySelector("ul");
+  const options3 = dropdown3.querySelectorAll("ul li");
+
+  select3.addEventListener("click", () => {
+    select3.classList.toggle("ring");
+    select3.classList.toggle("ring-white");
+    caret3.classList.toggle("rotate-180");
+    menu3.classList.toggle("hidden");
+  });
+
+  options3.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      selected3.innerHTML = opt.innerHTML;
+      select3.classList.remove("ring", "ring-white");
+      caret3.classList.remove("rotate-180");
+      menu3.classList.add("hidden");
+
+      options3.forEach((opt) => {
+        opt.classList.remove("bg-neutral-800");
+      });
+
+      opt.classList.add("bg-neutral-800");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown3.contains(e.target) && e.target !== select3) {
+      select3.classList.remove("ring", "ring-white");
+      caret3.classList.remove("rotate-180");
+      menu3.classList.add("hidden");
+    }
+  });
+</script>
+`,
+      cssCode: `<section id="dropdown3">
+  <header role="button">
+    <span>Select an item</span>
+    <div></div>
+  </header>
+
+  <ul>
+    <li role="button">HTML</li>
+    <li role="button">CSS</li>
+    <li role="button">JavaScript</li>
+  </ul>
+</section>
+
+<style>
+  #dropdown3 {
+    position: relative;
+    margin: 2rem;
+    min-width: 15rem;
+  }
+
+  #dropdown3 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.75rem;
+    background: rgb(23 23 23);
+    padding: 1rem;
+    color: #fff;
+    transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #dropdown3 header:hover {
+    background: rgb(38 38 38);
+  }
+
+  #dropdown3 header.active {
+    box-shadow: 0 0 0 3px #fff;
+  }
+
+  #dropdown3 header div {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+  }
+
+  #dropdown3 header div.active {
+    transform: rotate(180deg);
+  }
+
+  #dropdown3 ul {
+    position: absolute;
+    left: 50%;
+    top: 4rem;
+    z-index: 1;
+    display: none;
+    width: 100%;
+    transform: translateX(-50%);
+    list-style: none;
+    border-radius: 0.75rem;
+    background: rgb(23 23 23);
+    padding: 0.25rem 0.5rem;
+    color: #d4d4d4;
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  #dropdown3 ul.active {
+    display: block;
+  }
+
+  #dropdown3 ul li {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.375rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  #dropdown3 ul li.active {
+    background: rgb(38 38 38);
+  }
+
+  #dropdown3 ul li:hover {
+    background: rgb(38 38 38 / 0.5);
+  }
+</style>
+
+<script>
+  const dropdown3 = document.querySelector("#dropdown3");
+  const select3 = dropdown3.querySelector("header");
+  const selected3 = dropdown3.querySelector("header span");
+  const caret3 = dropdown3.querySelector("header div");
+  const menu3 = dropdown3.querySelector("ul");
+  const options3 = dropdown3.querySelectorAll("ul li");
+
+  select3.addEventListener("click", () => {
+    select3.classList.toggle("active");
+    caret3.classList.toggle("active");
+    menu3.classList.toggle("active");
+  });
+
+  options3.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      selected3.innerHTML = opt.innerHTML;
+      select3.classList.remove("active");
+      caret3.classList.remove("active");
+      menu3.classList.remove("active");
+
+      options3.forEach((opt) => {
+        opt.classList.remove("active");
+      });
+
+      opt.classList.add("active");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown3.contains(e.target) && e.target !== select3) {
+      select3.classList.remove("active");
+      caret3.classList.remove("active");
+      menu3.classList.remove("active");
+    }
+  });
+</script>
+`,
+      reactCode: `import { useEffect, useRef, useState } from "react";
+
+export default function Dropdown() {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("Select an item");
+  const toggler3 = useRef(null);
+  const menu3 = useRef(null);
+
+  const items = [
+    {
+      label: "HTML",
+    },
+    {
+      label: "CSS",
+    },
+    {
+      label: "JavaScript",
+    },
+  ];
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (!menu3.current.contains(e.target) && e.target !== toggler3.current) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, []);
+
+  return (
+    <section className="relative m-8 min-w-60">
+      <header
+        ref={toggler3}
+        role="button"
+        className={\`flex items-center justify-between rounded-xl bg-neutral-900 p-4 text-white transition-shadow hover:bg-neutral-800 \${open ? "ring ring-white" : ""}\`}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        <span>{selected}</span>
+        <div
+          className={\`size-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white \${open ? "rotate-180" : ""}\`}
+        />
+      </header>
+
+      <ul
+        ref={menu3}
+        className={\`absolute left-1/2 top-16 z-10 w-full -translate-x-1/2 list-none rounded-xl bg-neutral-900 px-2 py-1 text-neutral-300 shadow-xl \${open ? "" : "hidden"}\`}
+      >
+        {items.map(({ label }) => (
+          <li
+            key={label}
+            role="button"
+            className={\`my-1 rounded-md px-2 py-3 hover:bg-neutral-800/50 \${selected === label ? "bg-neutral-800" : ""}\`}
+            onClick={() => {
+              setSelected(label);
+              setOpen(false);
+            }}
+          >
+            {label}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+`,
+    },
+  ]);
+
+  await db.insert(Modals).values([
+    {
+      id: 1,
+      tailwindCode: `<dialog id="modal1" class="rounded-xl p-6 backdrop:bg-black/50">
+  <div>
+    <h3 class="text-3xl font-medium">Hi! I'm a modal!</h3>
+    <button
+      id="modalCloser1"
+      class="float-right mt-4 h-12 rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-95"
+    >
+      Close me
+    </button>
+  </div>
+</dialog>
+
+<button
+  id="modalOpener1"
+  class="h-12 rounded-md bg-neutral-900 px-6 font-medium text-white transition-transform active:scale-95"
+>
+  Click me
+</button>
+
+<script>
+  const modal1 = document.querySelector("#modal1");
+  const wrapper1 = document.querySelector("#modal1 > div");
+  const modalOpener1 = document.querySelector("#modalOpener1");
+  const modalCloser1 = document.querySelector("#modalCloser1");
+
+  modalOpener1?.addEventListener("click", () => {
+    modal1?.showModal();
+  });
+
+  modalCloser1?.addEventListener("click", () => {
+    modal1?.close();
+  });
+
+  modal1?.addEventListener("click", (e) => {
+    if (!wrapper1.contains(e.target)) modal1?.close();
+  });
+</script>
+`,
+      cssCode: `<dialog id="modal1">
+  <div>
+    <h3>Hi! I'm a modal!</h3>
+    <button id="modalCloser1"> Close me </button>
+  </div>
+</dialog>
+
+<button id="modalOpener1"> Click me </button>
+
+<style>
+  #modal1 {
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+  }
+
+  #modal1::backdrop {
+    background: rgb(0 0 0 / 0.5);
+  }
+
+  #modal1 div h3 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 500;
+  }
+
+  #modal1 div #modalCloser1,
+  #modalOpener1 {
+    float: right;
+    margin-top: 1rem;
+    height: 3rem;
+    border-radius: 0.375rem;
+    background: rgb(10 10 10);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #modal1 div #modalCloser1 {
+    float: right;
+    margin-top: 1rem;
+  }
+  #modal1 div #modalCloser1:active,
+  #modalOpener1:active {
+    transform: scale(0.95);
+  }
+</style>
+
+<script>
+  const modal1 = document.querySelector("#modal1");
+  const wrapper1 = document.querySelector("#modal1 > div");
+  const modalOpener1 = document.querySelector("#modalOpener1");
+  const modalCloser1 = document.querySelector("#modalCloser1");
+
+  modalOpener1?.addEventListener("click", () => {
+    modal1?.showModal();
+  });
+
+  modalCloser1?.addEventListener("click", () => {
+    modal1?.close();
+  });
+
+  modal1?.addEventListener("click", (e) => {
+    if (!wrapper1.contains(e.target)) modal1?.close();
+  });
+</script>
 `,
     },
   ]);
@@ -3305,7 +3664,7 @@ export default function Dropdown() {
       id: 1,
       tailwindCode: `<div
   id="tabs1"
-  class="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm"
+  class="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 text-white backdrop-blur-sm"
 >
   <span
     id="activeTab1"
@@ -3314,22 +3673,22 @@ export default function Dropdown() {
     <span class="size-full rounded-full bg-gray-200/30"></span>
   </span>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     Home
   </button>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     About
   </button>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     Projects
   </button>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     Contact
   </button>
@@ -3381,6 +3740,7 @@ export default function Dropdown() {
     background-color: #262626;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    color: #fff;
     backdrop-filter: blur(4px);
   }
 
@@ -3394,7 +3754,6 @@ export default function Dropdown() {
     padding-right: 1rem;
     text-align: center;
     font-weight: 300;
-    color: #fff;
   }
 
   #tabs1 button:not(.active):hover {
@@ -3491,7 +3850,7 @@ export default function Tab1() {
   }, [activeTab1]);
 
   return (
-    <div className="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm">
+    <div className="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 text-white backdrop-blur-sm">
       <span
         className="absolute bottom-0 left-0 top-0 -z-10 flex w-0 py-2 transition-[left,width] duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -3502,7 +3861,7 @@ export default function Tab1() {
         <button
           key={index}
           ref={(el) => (tabsRef.current[index] = el)}
-          className={\`my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white \${activeTab1 === index ? "" : "hover:text-neutral-300"}\`}
+          className={\`my-auto cursor-pointer select-none rounded-full px-4 text-center font-light \${activeTab1 === index ? "" : "hover:text-neutral-300"}\`}
           onClick={() => setActiveTab(index)}
         >
           {tab.name}
@@ -3517,7 +3876,7 @@ export default function Tab1() {
       id: 2,
       tailwindCode: `<div
   id="tabs2"
-  class="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm"
+  class="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 text-white backdrop-blur-sm"
 >
   <span
     id="activeTab2"
@@ -3526,22 +3885,22 @@ export default function Tab1() {
     <span class="mx-auto mt-auto h-1 w-6 rounded-full bg-gray-200/30"></span>
   </span>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     Home
   </button>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     About
   </button>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     Projects
   </button>
   <button
-    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white hover:text-neutral-300"
+    class="my-auto cursor-pointer select-none rounded-full px-4 text-center font-light hover:text-neutral-300"
   >
     Contact
   </button>
@@ -3593,6 +3952,7 @@ export default function Tab1() {
     background-color: #262626;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    color: #fff;
     backdrop-filter: blur(4px);
   }
 
@@ -3606,7 +3966,6 @@ export default function Tab1() {
     padding-right: 1rem;
     text-align: center;
     font-weight: 300;
-    color: #fff;
   }
 
   #tabs2 button:not(.active):hover {
@@ -3703,7 +4062,7 @@ export default function Tab1() {
   }, [activeTab2]);
 
   return (
-    <div className="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm">
+    <div className="relative flex h-12 overflow-hidden rounded-full border border-black/40 bg-neutral-800 px-2 text-white backdrop-blur-sm">
       <span
         className="absolute bottom-1 left-0 -z-10 flex w-0 transition-[left,width] duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -3714,7 +4073,7 @@ export default function Tab1() {
         <button
           key={index}
           ref={(el) => (tabsRef.current[index] = el)}
-          className={\`my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white \${activeTab2 === index ? "" : "hover:text-neutral-300"}\`}
+          className={\`my-auto cursor-pointer select-none rounded-full px-4 text-center font-light \${activeTab2 === index ? "" : "hover:text-neutral-300"}\`}
           onClick={() => setActiveTab(index)}
         >
           {tab.name}
