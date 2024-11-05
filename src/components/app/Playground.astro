@@ -1,0 +1,109 @@
+<section class="size-full">
+  <div class="mb-8 flex w-full gap-4 max-md:flex-col">
+    <div
+      class="grid h-full flex-1 grid-rows-[auto_1fr] border border-neutral-800"
+    >
+      <label
+        for="html-code"
+        class="flex h-8 items-center bg-black font-medium text-white"
+      >
+        <a
+          class="mx-2 inline-block"
+          title="W3C, CC BY 3.0 https://creativecommons.org/licenses/by/3.0, via Wikimedia Commons"
+          href="https://commons.wikimedia.org/wiki/File:HTML5_Badge.svg"
+        >
+          <img
+            width="16"
+            alt="HTML5 logo without wordmark."
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/32px-HTML5_Badge.svg.png?20110131171049"
+          />
+        </a>
+        HTML
+      </label>
+      <textarea
+        id="html-code"
+        class="size-full min-h-60 resize-none bg-neutral-900 p-4 text-white outline-none"
+        onkeyup="run()"></textarea>
+    </div>
+
+    <div
+      class="grid h-full flex-1 grid-rows-[auto_1fr] border border-neutral-800"
+    >
+      <label
+        for="css-code"
+        class="flex h-8 items-center bg-black font-medium text-white"
+      >
+        <a
+          class="mx-2 inline-block"
+          title="daPhyre (File:CSS3 and HTML5 logos and wordmarks.svg)
+        logo and wordmark.svg)
+        3.0 https://creativecommons.org/licenses/by/3.0, via Wikimedia Commons"
+          href="https://commons.wikimedia.org/wiki/File:CSS3_logo.svg"
+        >
+          <img
+            width="16"
+            alt="CSS3 logo without wordmark."
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/32px-CSS3_logo.svg.png?20210705212817"
+          />
+        </a>
+        CSS
+        <!-- <label class="ml-auto mr-2">
+          <input id="tailwindToggler" type="checkbox" />
+          Enable TailwindCSS
+        </label> -->
+      </label>
+      <textarea
+        id="css-code"
+        class="size-full min-h-60 resize-none bg-neutral-900 p-4 text-white outline-none"
+        onkeyup="run()"></textarea>
+    </div>
+
+    <div
+      class="grid h-full flex-1 grid-rows-[auto_1fr] border border-neutral-800"
+    >
+      <label
+        for="js-code"
+        class="flex h-8 items-center bg-black font-medium text-white"
+      >
+        <a
+          class="mx-2 inline-block"
+          title="Christopher Williams, Public domain, via Wikimedia Commons"
+          href="https://commons.wikimedia.org/wiki/File:Unofficial_JavaScript_logo_2.svg"
+        >
+          <img
+            width="16"
+            alt="Unofficial logo of JavaScript language by Chris Williams"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/32px-Unofficial_JavaScript_logo_2.svg.png?20141107110902"
+          />
+        </a>
+        JavaScript
+      </label>
+      <textarea
+        id="js-code"
+        class="size-full min-h-60 resize-none bg-neutral-900 p-4 text-white outline-none"
+        onkeyup="run()"></textarea>
+    </div>
+  </div>
+
+  <iframe
+    id="output"
+    class="min-h-80 w-full border border-neutral-300 bg-white outline-none"
+  ></iframe>
+</section>
+
+<script is:inline>
+  const run = () => {
+    const htmlCode = document.querySelector("#html-code")?.value;
+    const cssCode = document.querySelector("#css-code")?.value;
+    const jsCode = document.querySelector("#js-code")?.value;
+    const output = document.querySelector("#output");
+
+    output.contentDocument.body.innerHTML = `${htmlCode}
+
+<style>
+  ${cssCode}
+</style>`;
+
+    output.contentWindow.eval(jsCode);
+  };
+</script>
