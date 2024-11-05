@@ -90,7 +90,7 @@ const { pathname } = Astro.url;
 <script>
   const { signOut } = await import("auth-astro/client");
 
-  const logoutBtn = document.querySelector("#logout") as HTMLElement;
+  const logoutBtn = document.getElementById("logout");
 
   if (logoutBtn) logoutBtn.onclick = () => signOut();
 </script>
