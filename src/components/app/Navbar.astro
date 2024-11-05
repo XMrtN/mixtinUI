@@ -1,5 +1,6 @@
 ---
 import Menu from "../icons/menu.astro";
+import Button from "./Button.astro";
 import NavbarBrand from "./NavbarBrand.astro";
 import Section from "./Section.astro";
 import Sidebar from "./Sidebar.astro";
@@ -12,7 +13,7 @@ const { pathname } = Astro.url;
 ---
 
 <nav
-  class="group sticky left-0 top-0 z-[9999] flex min-h-16 items-center py-4"
+  class="group/navbar sticky left-0 top-0 z-[9999] flex min-h-16 items-center py-4"
   {...rest}
 >
   <div
@@ -38,13 +39,25 @@ const { pathname } = Astro.url;
     </div>
     {
       session && (
-        <a href="/playground">
-          <img
-            src={session.user?.image ?? "/profile.webp"}
-            alt={`Perfil de ${session.user?.name}`}
-            class="size-8 rounded-full"
-          />
-        </a>
+        <div class="group/profile relative">
+          <a href="/account">
+            <img
+              src={session.user?.image ?? "/profile.webp"}
+              alt={`Perfil de ${session.user?.name}`}
+              class="size-8 rounded-full"
+            />
+          </a>
+
+          <section class="pointer-events-none absolute right-0 top-3/4 z-10 origin-top-right scale-50 select-none opacity-0 transition-[transform,opacity] duration-300 group-hover/profile:pointer-events-auto group-hover/profile:scale-100 group-hover/profile:select-auto group-hover/profile:opacity-100">
+            <div class="mt-4 size-full rounded-md bg-neutral-100 p-4 shadow-xl dark:bg-neutral-900">
+              <h3 class="mb-2 font-medium">{session.user?.name}</h3>
+              <h4 class="mb-4">{session.user?.email}</h4>
+              <footer class="flex justify-center">
+                <Button id="logout">Logout</Button>
+              </footer>
+            </div>
+          </section>
+        </div>
       )
     }
   </Section>
@@ -72,4 +85,12 @@ const { pathname } = Astro.url;
       }
     });
   });
+</script>
+
+<script>
+  const { signOut } = await import("auth-astro/client");
+
+  const logoutBtn = document.querySelector("#logout") as HTMLElement;
+
+  if (logoutBtn) logoutBtn.onclick = () => signOut();
 </script>
