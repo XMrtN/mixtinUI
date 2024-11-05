@@ -74,21 +74,18 @@ const session = await getSession(Astro.request);
 </Layout>
 
 <script is:inline>
-  const submitBtn = document.querySelector("#submit");
+  const submitBtn = document.getElementById("submit");
 
   submitBtn.addEventListener("click", async () => {
-    const htmlCode = document.querySelector("#html-code")?.value;
-    const cssCode = document.querySelector("#css-code")?.value;
-    const jsCode = document.querySelector("#js-code")?.value;
-    const slug = document.querySelector("#selectSlug")?.value;
+    const htmlCode = document.getElementById("html-code")?.value;
+    const cssCode = document.getElementById("css-code")?.value;
+    const jsCode = document.getElementById("js-code")?.value;
+    const slug = document.getElementById("selectSlug")?.value;
+    const cssMode = document.querySelector(
+      "label[for='css-code'] button[onclick='toggleTailwind(event)']"
+    ); // if tailwindToggler button exists, then is in css mode
 
-    const response = await fetch(`/api/${slug}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        cssCode: `${htmlCode}
+    const code = `${htmlCode}
 
 <style>
   ${cssCode}
@@ -97,7 +94,16 @@ const session = await getSession(Astro.request);
 <script>
   ${jsCode}
 <\/script>
-`,
+`;
+
+    const response = await fetch(`/api/${slug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        tailwindCode: cssMode ? null : code,
+        cssCode: cssMode ? code : null,
       }),
     });
 
@@ -116,11 +122,9 @@ const session = await getSession(Astro.request);
 <script>
   const { signIn } = await import("auth-astro/client");
 
-  const loginWithGitHubBtn = document.querySelector("#loginGithub");
-  const loginWithGoogleBtn = document.querySelector("#loginGoogle");
+  const loginWithGitHubBtn = document.getElementById("loginGithub");
+  const loginWithGoogleBtn = document.getElementById("loginGoogle");
 
-  if (loginWithGitHubBtn)
-    loginWithGitHubBtn.addEventListener("click", () => signIn("github"));
-  if (loginWithGoogleBtn)
-    loginWithGoogleBtn.addEventListener("click", () => signIn("google"));
+  if (loginWithGitHubBtn) loginWithGitHubBtn.onclick = () => signIn("github");
+  if (loginWithGoogleBtn) loginWithGoogleBtn.onclick = () => signIn("google");
 </script>
