@@ -1,105 +1,69 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const AccordionContext = createContext();
+export default function Dropdown() {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("Select an item");
+  const toggler3 = useRef(null);
+  const menu3 = useRef(null);
 
-export default function App() {
-  return (
-    <Accordion className="max-w-lg">
-      <AccordionItem value="1" trigger="Accordion Item 1">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
-        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
-        culpa nihil.
-      </AccordionItem>
-      <AccordionItem value="2" trigger="Accordion Item 2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
-        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
-        culpa nihil.
-      </AccordionItem>
-      <AccordionItem value="3" trigger="Accordion Item 3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-        accusantium deleniti tempore libero sed nobis sit eos ratione maxime
-        minima earum, adipisci at incidunt eligendi, unde neque! Obcaecati,
-        culpa nihil.
-      </AccordionItem>
-    </Accordion>
-  );
-}
-
-function Accordion({ children, value, onChange, ...props }) {
-  const [selected, setSelected] = useState(value);
+  const items = [
+    {
+      label: "HTML",
+    },
+    {
+      label: "CSS",
+    },
+    {
+      label: "JavaScript",
+    },
+  ];
 
   useEffect(() => {
-    onChange?.(selected);
-  }, [selected]);
+    const handler = (e) => {
+      if (!menu3.current.contains(e.target) && e.target !== toggler3.current) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, []);
 
   return (
-    <ul {...props}>
-      <AccordionContext.Provider value={{ selected, setSelected }}>
-        {children}
-      </AccordionContext.Provider>
-    </ul>
-  );
-}
-
-function AccordionItem({ children, value, trigger, ...props }) {
-  const { selected, setSelected } = useContext(AccordionContext);
-  const ref = useRef(null);
-  const open = selected === value;
-
-  return (
-    <li
-      className="bg-neutral-800 text-white transition-[border-radius,margin] first:rounded-t-xl last:rounded-b-xl has-[+[data-open]]:mb-4 has-[+[data-open]]:rounded-b-xl data-[open]:rounded-xl [&[data-open]+&]:mt-4 [&[data-open]+&]:rounded-t-xl"
-      data-open={open ? "" : null}
-      {...props}
-    >
+    <section className="relative m-8 min-w-60">
       <header
+        ref={toggler3}
         role="button"
-        onClick={() => setSelected(open ? null : value)}
-        className="flex items-center justify-between p-4 font-medium"
+        className={`flex items-center justify-between rounded-xl bg-neutral-900 p-4 text-white transition-shadow hover:bg-neutral-800 ${open ? "ring ring-white" : ""}`}
+        onClick={() => setOpen((prev) => !prev)}
       >
-        {trigger}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`size-6 ${open ? "hidden" : ""}`}
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M12 5l0 14"></path>
-          <path d="M5 12l14 0"></path>
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`size-6 ${open ? "" : "hidden"}`}
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M5 12l14 0"></path>
-        </svg>
+        <span>{selected}</span>
+        <div
+          className={`size-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white ${open ? "rotate-180" : ""}`}
+        />
       </header>
-      <div
-        className="overflow-y-hidden transition-all"
-        style={{ height: open ? ref.current?.offsetHeight || 0 : 0 }}
+
+      <ul
+        ref={menu3}
+        className={`absolute left-1/2 top-16 z-10 w-full -translate-x-1/2 list-none rounded-xl bg-neutral-900 px-2 py-1 text-neutral-300 shadow-xl ${open ? "" : "hidden"}`}
       >
-        <div className="p-4 pt-2" ref={ref}>
-          {children}
-        </div>
-      </div>
-    </li>
+        {items.map(({ label }) => (
+          <li
+            key={label}
+            role="button"
+            className={`my-1 rounded-md px-2 py-3 hover:bg-neutral-800/50 ${selected === label ? "bg-neutral-800" : ""}`}
+            onClick={() => {
+              setSelected(label);
+              setOpen(false);
+            }}
+          >
+            {label}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

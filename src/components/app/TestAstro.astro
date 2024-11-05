@@ -1,330 +1,125 @@
-<section id="slider2">
-  <div class="slider-wrapper">
-    <ul class="list">
-      <li
-        class="item"
-        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-        <div class="content">
-          <h3>01</h3>
-          <p>Lorem ipsum dolor.</p>
-        </div>
-      </li>
-      <li
-        class="item"
-        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-        <div class="content">
-          <h3>02</h3>
-          <p>Lorem ipsum dolor.</p>
-        </div>
-      </li>
-      <li
-        class="item"
-        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-        <div class="content">
-          <h3>03</h3>
-          <p>Lorem ipsum dolor.</p>
-        </div>
-      </li>
-      <li
-        class="item"
-        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
-      >
-        <div class="content">
-          <h3>04</h3>
-          <p>Lorem ipsum dolor.</p>
-        </div>
-      </li>
-      <li
-        class="item"
-        style="background-image: linear-gradient(to bottom, transparent 60%, rgb(0 0 0 / 0.8)), url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-        <div class="content">
-          <h3>05</h3>
-          <p>Lorem ipsum dolor.</p>
-        </div>
-      </li>
-    </ul>
-    <ul class="thumbnail">
-      <li
-        class="item"
-        style="background-image: url('https://images.pexels.com/photos/640781/pexels-photo-640781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-      </li>
-      <li
-        class="item"
-        style="background-image: url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-      </li>
-      <li
-        class="item"
-        style="background-image: url('https://images.pexels.com/photos/673803/pexels-photo-673803.jpeg');"
-      >
-      </li>
-      <li
-        class="item"
-        style="background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-      </li>
-      <li
-        class="item"
-        style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"
-      >
-      </li>
-    </ul>
-    <div class="slide-buttons">
-      <button type="button" class="slide-button">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M15 6l-6 6l6 6"></path>
-        </svg>
-      </button>
-      <button type="button" class="slide-button">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M9 6l6 6l-6 6"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
+<section id="dropdown3">
+  <header role="button">
+    <span>Select an item</span>
+    <div></div>
+  </header>
+
+  <ul>
+    <li role="button">HTML</li>
+    <li role="button">CSS</li>
+    <li role="button">JavaScript</li>
+  </ul>
 </section>
 
 <style>
-  #slider2 {
-    width: 100%;
-  }
-
-  #slider2 .slider-wrapper {
+  #dropdown3 {
     position: relative;
+    margin: 2rem;
+    min-width: 15rem;
+  }
+
+  #dropdown3 header {
     display: flex;
-    height: 60dvh;
-    align-items: end;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  #slider2 .list .item {
-    position: absolute;
-    bottom: 4rem;
-    left: 50%;
-    display: flex;
-    height: 9rem;
-    width: 6rem;
-    align-items: end;
-    overflow: hidden;
-    border-radius: 1rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition-property: bottom, left, width, height, border-radius,
-      background-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
-  }
-
-  #slider2 .list .item:first-child,
-  #slider2 .list .item:last-child {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-
-  #slider2 .list .item:first-child {
-    z-index: 1;
-  }
-
-  #slider2 .slider-wrapper.prev .list .item:nth-child(2) {
-    z-index: 2;
-  }
-
-  #slider2 .list .item .content {
-    margin-bottom: 3rem;
-    width: 50%;
-    transform: translateY(20px);
-    padding: 1rem 2rem;
-    color: #fff;
-    opacity: 0;
-    transition-property: transform, opacity;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 200ms;
-  }
-
-  #slider2 .list .item:first-child .content,
-  #slider2 .list .item:last-child .content {
-    transform: translateY(0);
-    opacity: 1;
-    transition-delay: 500ms;
-  }
-
-  #slider2 .list .item .content h3 {
-    font-size: 4.5rem;
-    line-height: 1;
-    font-weight: 700;
-  }
-
-  #slider2 .list .item .content p {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  #slider2 .thumbnail {
-    position: absolute;
-    bottom: 4rem;
-    left: 50%;
-    z-index: 3;
-    display: flex;
-    gap: 1rem;
-  }
-
-  #slider2 .thumbnail .item {
-    height: 9rem;
-    width: 6rem;
-    border-radius: 1rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  #slider2 .slider-wrapper.prev .thumbnail .item:last-child {
-    animation: showThumbnail 500ms cubic-bezier(0.4, 0, 0.2, 1) reverse;
-  }
-
-  #slider2 .slider-wrapper.next .thumbnail .item:last-child {
-    opacity: 0;
-    animation: showThumbnail 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-
-  @keyframes showThumbnail {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  #slider2 .slider-wrapper.prev .thumbnail {
-    transform: translateX(0);
-    animation: transformThumbnail 500ms cubic-bezier(0.4, 0, 0.2, 1) reverse;
-  }
-
-  #slider2 .slider-wrapper.next .thumbnail {
-    transform: translateX(166px);
-    animation: transformThumbnail 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-
-  @keyframes transformThumbnail {
-    from {
-      transform: translateX(166px);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  #slider2 .slide-buttons {
-    z-index: 3;
-    margin-bottom: 1rem;
-    display: flex;
-    gap: 12px;
-  }
-
-  #slider2 .slide-button {
-    display: flex;
-    width: 32px;
-    height: 32px;
     align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background-color: #000;
+    justify-content: space-between;
+    border-radius: 0.75rem;
+    background: rgb(23 23 23);
+    padding: 1rem;
     color: #fff;
   }
 
-  #slider2 .slide-button:hover {
-    background-color: #404040;
+  #dropdown3 header:hover {
+    background: rgb(38 38 38);
   }
 
-  @media (min-width: 1024px) {
-    #slider2 .list .item,
-    #slider2 .thumbnail .item {
-      height: 14rem;
-      width: 10rem;
-    }
+  #dropdown3 header.active {
+    box-shadow: 0 0 0 3px #fff;
+  }
+
+  #dropdown3 header div {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+  }
+
+  #dropdown3 header div.active {
+    transform: rotate(180deg);
+  }
+
+  #dropdown3 ul {
+    position: absolute;
+    left: 50%;
+    top: 4rem;
+    z-index: 1;
+    display: none;
+    width: 100%;
+    transform: translateX(-50%);
+    list-style: none;
+    border-radius: 0.75rem;
+    background: rgb(23 23 23);
+    padding: 0.25rem 0.5rem;
+    color: #d4d4d4;
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  #dropdown3 ul.active {
+    display: block;
+  }
+
+  #dropdown3 ul li {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.375rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  #dropdown3 ul li.active {
+    background: rgb(38 38 38);
+  }
+
+  #dropdown3 ul li:hover {
+    background: rgb(38 38 38 / 0.5);
   }
 </style>
 
 <script is:inline>
-  const slider2 = document.querySelector("#slider2 .slider-wrapper");
-  const slideButtons2 = slider2.querySelectorAll(".slide-button");
-  const list = slider2.querySelector(".list");
-  const thumbnail = slider2.querySelector(".thumbnail");
-  let runTimeout;
+  const dropdown3 = document.querySelector("#dropdown3");
+  const select3 = dropdown3.querySelector("header");
+  const selected3 = dropdown3.querySelector("header span");
+  const caret3 = dropdown3.querySelector("header div");
+  const menu3 = dropdown3.querySelector("ul");
+  const options3 = dropdown3.querySelectorAll("ul li");
 
-  const showSlider = (type) => {
-    const listItems = slider2.querySelectorAll(".list .item");
-    const thumbnailItems = slider2.querySelectorAll(".thumbnail .item");
+  select3.addEventListener("click", () => {
+    select3.classList.toggle("active");
+    caret3.classList.toggle("active");
+    menu3.classList.toggle("active");
+  });
 
-    slideButtons2.forEach((button) =>
-      button.classList.add("pointer-events-none")
-    );
+  options3.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      selected3.innerHTML = opt.innerHTML;
+      select3.classList.remove("active");
+      caret3.classList.remove("active");
+      menu3.classList.remove("active");
 
-    if (type === "next") {
-      slider2?.classList.add("next");
-      list?.appendChild(listItems[0]);
-      thumbnail?.appendChild(thumbnailItems[0]);
+      options3.forEach((opt) => {
+        opt.classList.remove("active");
+      });
 
-      clearTimeout(runTimeout);
-      runTimeout = setTimeout(() => {
-        slider2?.classList.remove("prev");
-        slider2?.classList.remove("next");
-        slideButtons2.forEach((button) =>
-          button.classList.remove("pointer-events-none")
-        );
-      }, 500);
-    } else {
-      slider2?.classList.add("prev");
-      list?.prepend(listItems[listItems.length - 1]);
-
-      clearTimeout(runTimeout);
-      runTimeout = setTimeout(() => {
-        thumbnail?.prepend(thumbnailItems[thumbnailItems.length - 1]);
-        slider2?.classList.remove("prev");
-        slider2?.classList.remove("next");
-        slideButtons2.forEach((button) =>
-          button.classList.remove("pointer-events-none")
-        );
-      }, 500);
-    }
-  };
-
-  slideButtons2.forEach((button) => {
-    button.addEventListener("click", () => {
-      button.classList.add("pointer-events-none");
-      showSlider(slideButtons2[0] === button ? "prev" : "next");
+      opt.classList.add("active");
     });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown3.contains(e.target) && e.target !== select3) {
+      select3.classList.remove("active");
+      caret3.classList.remove("active");
+      menu3.classList.remove("active");
+    }
   });
 </script>
