@@ -1,0 +1,53 @@
+---
+import Card from "@/components/app/Card.astro";
+import Footer from "@/components/app/Footer.astro";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+import { capitalize } from "@/utils/capitalize";
+import { db } from "astro:db";
+import { Schemas } from "db/schemas";
+
+const { slug } = Astro.params;
+
+const componentsDB = await db
+  .select()
+  .from(Schemas[slug as keyof typeof Schemas]?.schema ?? "")
+  .catch((error) => null);
+
+if (!componentsDB) return new Response("No existe esta categoría");
+---
+
+<DocsLayout title={capitalize(slug || "Components")}>
+  <div
+    class:list={[
+      "grid gap-6",
+      slug === "buttons" || slug === "dropdowns"
+        ? "grid-cols-[repeat(auto-fill,minmax(min(100%,14rem),1fr))]"
+        : "grid-cols-1",
+    ]}
+  >
+    {
+      componentsDB.map((component) => (
+        <Card id={component.id} transition:name={`card-${component.id}`}>
+          <Fragment set:html={component.tailwindCode ?? component.cssCode} />
+        </Card>
+      ))
+    }
+  </div>
+
+  {
+    slug === "buttons" && (
+      <Footer class="-mx-4">
+        Buttons by
+        <a
+          href="https://buttons.ibelick.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:underline"
+          slot="link"
+        >
+          ibelick
+        </a>
+      </Footer>
+    )
+  }
+</DocsLayout>

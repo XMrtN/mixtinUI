@@ -9,17 +9,18 @@ export const POST: APIRoute = async ({ params, request }) => {
     return new Response("Unauthorized", { status: 401 });
   }
 
-  const { id } = params;
+  const { slug, id } = params;
+  if (!slug) new Response("Slug is required", { status: 400 });
   if (!id) new Response("Id is required", { status: 400 });
 
   const body = await request.json();
 
   try {
     await db
-      .insert(Schemas[params.tag as keyof typeof Schemas].schema)
+      .insert(Schemas[slug as keyof typeof Schemas].schema)
       .values({ id, ...body })
       .onConflictDoUpdate({
-        target: Schemas[params.tag as keyof typeof Schemas].schema.id,
+        target: Schemas[slug as keyof typeof Schemas].schema.id,
         set: body,
       });
   } catch (error) {

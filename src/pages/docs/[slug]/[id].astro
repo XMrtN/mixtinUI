@@ -9,26 +9,32 @@ import { Code } from "astro:components";
 import { eq, db } from "astro:db";
 import { Schemas } from "db/schemas";
 
-const { tag, id } = Astro.params;
+const { slug, id } = Astro.params;
 
 if (!id) return;
 
 const componentDB = await db
   .select()
-  .from(Schemas[tag as keyof typeof Schemas].schema)
-  .where(eq(Schemas[tag as keyof typeof Schemas].schema.id, parseInt(id)));
+  .from(Schemas[slug as keyof typeof Schemas].schema)
+  .where(eq(Schemas[slug as keyof typeof Schemas].schema.id, parseInt(id)))
+  .catch((error) => null);
+
+if (!componentDB || !componentDB[0])
+  return new Response("No existe este componente");
 ---
 
 <DocsLayout>
   <Card transition:name={`card-${id}`}>
-    <Fragment set:html={componentDB[0].tailwindCode} />
+    <Fragment
+      set:html={componentDB[0].tailwindCode ?? componentDB[0].cssCode}
+    />
   </Card>
 
   {
     Object.entries(componentDB[0]).map(([title, code]) => {
       if (title === "id" || code == null) return;
       return (
-        <CodeBlock client:only="react" code={code} title={title}>
+        <CodeBlock client:only="react" code={code.toString()} title={title}>
           <Code
             slot="codeComponent"
             class="rounded-md p-6"
@@ -43,7 +49,7 @@ const componentDB = await db
   }
 
   {
-    tag === "buttons" && (
+    slug === "buttons" && (
       <Footer class="-mx-4">
         Button by
         <a
