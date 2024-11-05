@@ -47,10 +47,12 @@
           />
         </a>
         CSS
-        <!-- <label class="ml-auto mr-2">
-          <input id="tailwindToggler" type="checkbox" />
+        <button
+          class="ml-auto mr-2 hover:text-neutral-300"
+          onclick="toggleTailwind(event)"
+        >
           Enable TailwindCSS
-        </label> -->
+        </button>
       </label>
       <textarea
         id="css-code"
@@ -93,17 +95,49 @@
 
 <script is:inline>
   const run = () => {
-    const htmlCode = document.querySelector("#html-code")?.value;
-    const cssCode = document.querySelector("#css-code")?.value;
-    const jsCode = document.querySelector("#js-code")?.value;
-    const output = document.querySelector("#output");
+    const htmlCode = document.getElementById("html-code")?.value;
+    const cssCode = document.getElementById("css-code")?.value;
+    const jsCode = document.getElementById("js-code")?.value;
+    const output = document.getElementById("output");
 
-    output.contentDocument.body.innerHTML = `${htmlCode}
+    var outputDoc = output.contentDocument || output.contentWindow.document;
+
+    outputDoc.body.innerHTML = `${htmlCode}
 
 <style>
   ${cssCode}
 </style>`;
 
     output.contentWindow.eval(jsCode);
+  };
+</script>
+
+<script is:inline>
+  const toggleTailwind = (e) => {
+    e.target.remove();
+    const cssLabel = document.querySelector("label[for='css-code']");
+    cssLabel.innerHTML = `<a
+  class="mx-2 inline-block"
+  title="Tailwind CSS, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons"
+  href="https://commons.wikimedia.org/wiki/File:Tailwind_CSS_Logo.svg"
+>
+  <img
+    width="16"
+    alt="Tailwind"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/32px-Tailwind_CSS_Logo.svg.png?20230715030042"
+  />
+</a>
+TailwindCSS
+`;
+
+    const output = document.getElementById("output");
+    let outputDoc = output.contentDocument || output.contentWindow.document;
+
+    let twJs = outputDoc.createElement("script");
+    twJs.setAttribute("src", "https://cdn.tailwindcss.com");
+    twJs.onload = () => {
+      outputDoc.body.innerHTML = outputDoc.body.innerHTML; // re render
+    };
+    outputDoc.head.appendChild(twJs);
   };
 </script>
