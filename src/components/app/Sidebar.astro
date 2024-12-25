@@ -2,13 +2,13 @@
 import { capitalize } from "@/utils/capitalize";
 import Book from "../icons/book.astro";
 import Box from "../icons/box.astro";
+import { Schemas } from "db/schemas";
 
-const paths: any = await Astro.glob("@/data/*.ts");
 const { variant, class: className } = Astro.props;
-const { pathname } = Astro.url;
+const { slug } = Astro.params;
 
 const asideVariants = {
-  nav: "-left-full top-0 pb-12 pt-4 shadow-lg transition-[left] bg-white dark:bg-neutral-900 duration-300 max-sm:group-data-[open]:left-0",
+  nav: "-left-full top-0 pb-12 pt-4 shadow-lg transition-[left] bg-white dark:bg-neutral-900 duration-300 max-sm:group-data-[open]/navbar:left-0",
   aside: "pb-16 max-sm:hidden",
 };
 const ulVariants = {
@@ -33,7 +33,7 @@ const ulVariants = {
           href="/docs/"
           class:list={[
             "flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-900/5 dark:hover:bg-neutral-200/5",
-            pathname === "/docs/" && "text-sky-500 dark:text-sky-400",
+            slug === "/docs/" && "text-sky-500 dark:text-sky-400",
           ]}
         >
           <Book class="size-5 shrink-0" />
@@ -47,21 +47,20 @@ const ulVariants = {
         </h5>
         <ul>
           {
-            paths.map((path: typeof paths) => {
-              const Icon = path[Object.keys(path)[0]].Icon;
+            Object.entries(Schemas).map(([key, component]) => {
+              const Icon = component.Icon;
 
               return (
                 <li>
                   <a
-                    href={`/docs/${Object.keys(path)[0]}/`}
+                    href={`/docs/${key}/`}
                     class:list={[
                       "ml-3 flex items-center gap-3.5 whitespace-nowrap rounded-md p-3 hover:bg-neutral-900/5 dark:hover:bg-neutral-200/5",
-                      pathname.includes(Object.keys(path)[0]) &&
-                        "text-sky-500 dark:text-sky-400",
+                      slug === key && "text-sky-500 dark:text-sky-400",
                     ]}
                   >
                     <Icon class="size-5 shrink-0" />
-                    <span>{capitalize(Object.keys(path)[0])}</span>
+                    <span>{capitalize(key)}</span>
                   </a>
                 </li>
               );

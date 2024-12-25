@@ -8,10 +8,14 @@ import Layout from "../layouts/Layout.astro";
 const { title } = Astro.props;
 ---
 
-<Layout title={(title ? title : "Get Started") + " - MixinUI"}>
+<Layout title={(title || "Get Started") + " - MixinUI"}>
   <Navbar />
-  <Section>
+  <Section class="relative overflow-hidden">
     <Sidebar variant="aside" />
+    <img
+      src="/logo-dark.webp"
+      class="pointer-events-none fixed left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 opacity-10"
+    />
 
     <div class="py-8 sm:ml-64 sm:pl-4">
       <slot />

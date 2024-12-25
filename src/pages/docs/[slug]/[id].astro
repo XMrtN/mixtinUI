@@ -1,0 +1,67 @@
+---
+import Card from "@/components/app/Card.astro";
+import CodeBlock from "@/components/app/CodeBlock";
+import Footer from "@/components/app/Footer.astro";
+import Check from "@/components/icons/check.astro";
+import Copy from "@/components/icons/copy.astro";
+import DocsLayout from "@/layouts/DocsLayout.astro";
+import { Code } from "astro:components";
+import { eq, db } from "astro:db";
+import { Schemas } from "db/schemas";
+
+const { slug, id } = Astro.params;
+
+if (!id) return;
+
+const componentDB = await db
+  .select()
+  .from(Schemas[slug as keyof typeof Schemas].schema)
+  .where(eq(Schemas[slug as keyof typeof Schemas].schema.id, parseInt(id)))
+  .catch((error) => null);
+
+if (!componentDB || !componentDB[0])
+  return new Response("No existe este componente");
+---
+
+<DocsLayout>
+  <Card transition:name={`card-${id}`}>
+    <Fragment
+      set:html={componentDB[0].tailwindCode ?? componentDB[0].cssCode}
+    />
+  </Card>
+
+  {
+    Object.entries(componentDB[0]).map(([title, code]) => {
+      if (title === "id" || code == null) return;
+      return (
+        <CodeBlock client:only="react" code={code.toString()} title={title}>
+          <Code
+            slot="codeComponent"
+            class="rounded-md p-6"
+            code={code.toString()}
+            lang={title === "reactCode" ? "jsx" : "astro"}
+          />
+          <Copy slot="copyIcon" class="size-5" />
+          <Check slot="checkIcon" class="size-5" />
+        </CodeBlock>
+      );
+    })
+  }
+
+  {
+    slug === "buttons" && (
+      <Footer class="-mx-4">
+        Button by
+        <a
+          href="https://buttons.ibelick.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:underline"
+          slot="link"
+        >
+          ibelick
+        </a>
+      </Footer>
+    )
+  }
+</DocsLayout>

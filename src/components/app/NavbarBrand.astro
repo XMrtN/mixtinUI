@@ -1,11 +1,8 @@
 ---
-import Menu from "../icons/menu.astro";
-
 const { class: className } = Astro.props;
 ---
 
 <div class:list={["flex flex-wrap items-center gap-3.5", className]}>
-  <Menu class="sm:hidden" />
   <a
     href="/"
     class="flex items-center gap-2 text-2xl font-semibold tracking-wide"
@@ -13,7 +10,7 @@ const { class: className } = Astro.props;
     <img
       src="/logo.webp"
       alt="Logo de MixtinUI"
-      class="-my-4 block aspect-square max-w-10 object-contain"
+      class="-my-4 block aspect-square w-10 object-contain"
     />
     MixtinUI
   </a>

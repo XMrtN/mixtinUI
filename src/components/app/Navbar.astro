@@ -1,24 +1,30 @@
 ---
+import Menu from "../icons/menu.astro";
+import Button from "./Button.astro";
 import NavbarBrand from "./NavbarBrand.astro";
 import Section from "./Section.astro";
 import Sidebar from "./Sidebar.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import { getSession } from "auth-astro/server";
 
+const session = await getSession(Astro.request);
 const { class: className, ...rest } = Astro.props;
 const { pathname } = Astro.url;
 ---
 
-<nav class="group sticky left-0 top-0 z-[9999] py-4" {...rest}>
+<nav
+  class="group/navbar sticky left-0 top-0 z-[9999] flex min-h-16 items-center py-4"
+  {...rest}
+>
   <div
     class="absolute inset-0 -z-10 size-full bg-white/70 shadow backdrop-blur-xl dark:bg-neutral-900/70"
   >
   </div>
-  <Section
-    class="flex w-full flex-wrap items-center justify-between gap-4 px-6"
-  >
-    <NavbarBrand />
+  <Section class="flex w-full items-center gap-4 px-6">
+    <Menu class="sm:hidden" />
+    <NavbarBrand class:list={[pathname === "/" && "max-sm:hidden"]} />
 
-    <div class="flex items-center justify-center gap-x-6">
+    <div class="ml-auto flex items-center justify-center gap-x-4">
       {
         !pathname.includes("/docs/") && (
           <a
@@ -31,30 +37,60 @@ const { pathname } = Astro.url;
       }
       <ThemeToggle />
     </div>
+    {
+      session && (
+        <div class="group/profile relative">
+          <a href="/account">
+            <img
+              src={session.user?.image ?? "/profile.webp"}
+              alt={`Perfil de ${session.user?.name}`}
+              class="size-8 rounded-full"
+            />
+          </a>
+
+          <section class="pointer-events-none absolute right-0 top-3/4 z-10 origin-top-right scale-50 select-none opacity-0 transition-[transform,opacity] duration-300 group-hover/profile:pointer-events-auto group-hover/profile:scale-100 group-hover/profile:select-auto group-hover/profile:opacity-100">
+            <div class="mt-4 size-full rounded-md bg-neutral-100 p-4 shadow-xl dark:bg-neutral-900">
+              <h3 class="mb-2 font-medium">{session.user?.name}</h3>
+              <h4 class="mb-4">{session.user?.email}</h4>
+              <footer class="flex justify-center">
+                <Button id="logout">Logout</Button>
+              </footer>
+            </div>
+          </section>
+        </div>
+      )
+    }
   </Section>
 
   <Sidebar variant="nav">
-    <NavbarBrand class="mb-4 px-6" />
+    <div class="flex items-center gap-3.5 px-6">
+      <Menu class="sm:hidden" />
+      <NavbarBrand />
+    </div>
   </Sidebar>
-
-  <section
-    class="pointer-events-none fixed -left-full top-0 h-[1000vh] w-[200%] bg-black/10 opacity-0 transition-[opacity,left] duration-300 max-sm:group-data-[open]:pointer-events-auto max-sm:group-data-[open]:left-64 max-sm:group-data-[open]:opacity-100"
-  >
-  </section>
 </nav>
 
 <script is:inline>
-  const navbar = document.querySelector("nav"),
-    menuBtns = document.querySelectorAll("nav svg"),
-    overlay = navbar.querySelector("section");
+  const navbar = document.querySelector("nav");
+  const menuBtns = document.querySelectorAll("nav svg");
 
   menuBtns.forEach((item) => {
     item.addEventListener("click", () => {
       navbar.toggleAttribute("data-open");
     });
-  });
 
-  overlay.addEventListener("click", () => {
-    navbar.removeAttribute("data-open");
+    document.addEventListener("click", (e) => {
+      if (!navbar.contains(e.target) && e.target !== item) {
+        navbar.removeAttribute("data-open");
+      }
+    });
   });
+</script>
+
+<script>
+  const { signOut } = await import("auth-astro/client");
+
+  const logoutBtn = document.getElementById("logout");
+
+  if (logoutBtn) logoutBtn.onclick = () => signOut();
 </script>

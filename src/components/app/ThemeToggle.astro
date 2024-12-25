@@ -22,7 +22,7 @@ const { class: className } = Astro.props;
 </button>
 
 <script is:inline>
-  const themeToggle = document.querySelector("#theme-toggle");
+  const themeToggle = document.getElementById("theme-toggle");
 
   if (
     localStorage.theme === "dark" ||

@@ -1,0 +1,130 @@
+---
+import Button from "@/components/app/Button.astro";
+import Footer from "@/components/app/Footer.astro";
+import Navbar from "@/components/app/Navbar.astro";
+import Section from "@/components/app/Section.astro";
+import Github from "@/components/icons/github.astro";
+import Google from "@/components/icons/google.astro";
+import Layout from "@/layouts/Layout.astro";
+import { capitalize } from "@/utils/capitalize";
+import { getSession } from "auth-astro/server";
+import { Schemas } from "db/schemas";
+import Playground from "@/components/app/Playground.astro";
+
+const session = await getSession(Astro.request);
+---
+
+<Layout
+  title={session ? "Build components yourself! - MixtinUI" : "Login - MixtinUI"}
+>
+  <Navbar class="pt-6" />
+
+  <Section class="relative overflow-hidden pt-24 lg:pt-32">
+    <img
+      src="/logo-dark.webp"
+      class="pointer-events-none fixed left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 opacity-10"
+    />
+
+    <div class="flex flex-col items-center justify-center gap-4">
+      {
+        session ? (
+          <>
+            <Playground />
+
+            <div class="mt-8 flex w-full flex-col items-center gap-4">
+              <select id="selectSlug">
+                <option value="">Select a database table</option>
+                {Object.keys(Schemas).map((option) => (
+                  <option value={option}>{capitalize(option)}</option>
+                ))}
+              </select>
+
+              <Button as="button" id="submit">
+                Upload to database
+              </Button>
+            </div>
+          </>
+        ) : (
+          <div class="flex gap-4">
+            <Button
+              id="loginGithub"
+              customStyles
+              class="bg-[#24292d] text-neutral-200 hover:brightness-110"
+            >
+              <span class="flex items-center gap-2">
+                <Github class="size-6" /> Login with GitHub
+              </span>
+            </Button>
+            <Button
+              id="loginGoogle"
+              customStyles
+              class="bg-white text-neutral-900 hover:brightness-90"
+            >
+              <span class="flex items-center gap-2">
+                <Google class="size-6" /> Login with Google
+              </span>
+            </Button>
+          </div>
+        )
+      }
+    </div>
+  </Section>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  const submitBtn = document.getElementById("submit");
+
+  submitBtn.addEventListener("click", async () => {
+    const htmlCode = document.getElementById("html-code")?.value;
+    const cssCode = document.getElementById("css-code")?.value;
+    const jsCode = document.getElementById("js-code")?.value;
+    const slug = document.getElementById("selectSlug")?.value;
+    const cssMode = document.querySelector(
+      "label[for='css-code'] button[onclick='toggleTailwind(event)']"
+    ); // if tailwindToggler button exists, then is in css mode
+
+    const code = `${htmlCode}
+
+<style>
+  ${cssCode}
+</style>
+
+<script>
+  ${jsCode}
+<\/script>
+`;
+
+    const response = await fetch(`/api/${slug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        tailwindCode: cssMode ? null : code,
+        cssCode: cssMode ? code : null,
+      }),
+    });
+
+    if (response.status === 404) {
+      alert("Categoría no seleccionada o no existente");
+      return;
+    }
+
+    if (response.status === 200) {
+      alert("Componente subido correctamente");
+      return;
+    }
+  });
+</script>
+
+<script>
+  const { signIn } = await import("auth-astro/client");
+
+  const loginWithGitHubBtn = document.getElementById("loginGithub");
+  const loginWithGoogleBtn = document.getElementById("loginGoogle");
+
+  if (loginWithGitHubBtn) loginWithGitHubBtn.onclick = () => signIn("github");
+  if (loginWithGoogleBtn) loginWithGoogleBtn.onclick = () => signIn("google");
+</script>

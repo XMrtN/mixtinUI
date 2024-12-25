@@ -1,6 +1,14 @@
-import { useState } from "react";
+import { useState, type PropsWithChildren, type ReactNode } from "react";
 
-export default function CodeBlock(props) {
+export default function CodeBlock(
+  props: PropsWithChildren & {
+    code: string;
+    title: string;
+    checkIcon?: ReactNode;
+    copyIcon?: ReactNode;
+    codeComponent?: ReactNode;
+  },
+) {
   const [copied, setCopied] = useState(false);
 
   const onCopy = () => {
