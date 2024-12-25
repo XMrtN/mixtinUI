@@ -26,7 +26,7 @@ if (!componentDB || !componentDB[0])
 <DocsLayout>
   <Card transition:name={`card-${id}`}>
     <Fragment
-      set:html={componentDB[0].tailwindCode ?? componentDB[0].cssCode}
+      set:html={componentDB[0].cssCode ?? componentDB[0].tailwindCode}
     />
   </Card>
 

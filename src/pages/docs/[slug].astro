@@ -28,7 +28,7 @@ if (!componentsDB) return new Response("No existe esta categoría");
     {
       componentsDB.map((component) => (
         <Card id={component.id} transition:name={`card-${component.id}`}>
-          <Fragment set:html={component.tailwindCode ?? component.cssCode} />
+          <Fragment set:html={component.cssCode ?? component.tailwindCode} />
         </Card>
       ))
     }
