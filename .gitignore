@@ -3,7 +3,7 @@ dist/
 
 # generated types
 .astro/
-db/
+db/seed.ts
 
 # dependencies
 node_modules/
